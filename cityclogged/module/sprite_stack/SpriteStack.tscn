@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyjmtdsnfigro"]
+
+[ext_resource type="Script" path="res://module/sprite_stack/sprite_stack.gd" id="1_elyia"]
+[ext_resource type="Texture2D" uid="uid://scv4qifecylp" path="res://module/sprite_stack/resources/car-Sheet.png" id="1_epo8l"]
+
+[node name="SpriteStack" type="Sprite2D"]
+self_modulate = Color(1, 1, 1, 0)
+texture = ExtResource("1_epo8l")
+hframes = 8
+frame = 5
+script = ExtResource("1_elyia")
+show_sprites = true
