@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://wef27nhhj8r0"]
 
 [ext_resource type="PackedScene" uid="uid://dyjmtdsnfigro" path="res://module/sprite_stack/SpriteStack.tscn" id="1_eydl5"]
-[ext_resource type="Script" path="res://module/car_sprite_stack/car_sprite_stack.gd" id="1_rgrgg"]
+[ext_resource type="Script" path="res://module/car_sprite_stack/script/car_sprite_stack.gd" id="1_rgrgg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0rgsg"]
 size = Vector2(20, 15)

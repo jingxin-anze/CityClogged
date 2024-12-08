@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dyjmtdsnfigro"]
 
-[ext_resource type="Script" path="res://module/sprite_stack/sprite_stack.gd" id="1_elyia"]
+[ext_resource type="Script" path="res://module/sprite_stack/script/sprite_stack.gd" id="1_elyia"]
 [ext_resource type="Texture2D" uid="uid://scv4qifecylp" path="res://module/sprite_stack/resources/car-Sheet.png" id="1_epo8l"]
 
 [node name="SpriteStack" type="Sprite2D"]
