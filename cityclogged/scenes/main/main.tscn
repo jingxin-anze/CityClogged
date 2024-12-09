@@ -37,6 +37,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 5.95642)
 
 [node name="Pitch" type="Node3D" parent="Player"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 0.990268, 0.139173, 0, -0.139173, 0.990268, 0, 1.215, 3.465)
+transform = Transform3D(1, 0, 0, 0, 0.961262, 0.275637, 0, -0.275637, 0.961262, 0, 1.66, 3.465)
 
 [node name="Camera3D" type="Camera3D" parent="Player/Pitch"]
