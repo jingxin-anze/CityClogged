@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://dlbpuf67ft571"]
+
+[ext_resource type="MeshLibrary" uid="uid://dlrmosro7o06y" path="res://scenes/space_library/space_library.tres" id="1_ur3lk"]
+[ext_resource type="PackedScene" uid="uid://bmio6xvvn4bdf" path="res://scenes/player/player.tscn" id="2_y577h"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tfoen"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_neocj"]
+sky_material = SubResource("ProceduralSkyMaterial_tfoen")
+
+[sub_resource type="Environment" id="Environment_7ku5w"]
+background_mode = 2
+sky = SubResource("Sky_neocj")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Main" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7ku5w")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("1_ur3lk")
+cell_size = Vector3(4, 1, 4)
+data = {
+"cells": PackedInt32Array(65535, 65535, 2, 65535, 0, 2, 0, 0, 2, 0, 65535, 2, 0, 65534, 2, 65535, 65534, 1, 65534, 0, 1, 65534, 65535, 1, 65534, 65534, 1, 65533, 1, 1, 65534, 1, 1, 65535, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 0, 1, 65535, 0, 1, 65534, 0, 1, 65533, 1, 0, 65533, 1, 65535, 65533, 1, 65534, 65533, 1, 65533, 65533, 1, 65533, 0, 0, 65533, 65535, 0, 65533, 65534, 0, 65532, 1, 0, 65532, 0, 0, 65532, 65535, 0, 65532, 65534, 0, 65532, 65533, 0, 2, 65533, 0, 2, 65534, 0, 1, 2, 0, 2, 2, 0, 2, 1, 0, 2, 0, 0, 2, 65535, 0)
+}
+
+[node name="Player" parent="." instance=ExtResource("2_y577h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 5.95642)
+
+[node name="Pitch" type="Node3D" parent="Player"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.990268, 0.139173, 0, -0.139173, 0.990268, 0, 1.215, 3.465)
+
+[node name="Camera3D" type="Camera3D" parent="Player/Pitch"]
