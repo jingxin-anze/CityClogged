@@ -5,6 +5,7 @@
 
 [node name="SpriteStack" type="Sprite2D"]
 self_modulate = Color(1, 1, 1, 0)
+position = Vector2(1, 0)
 texture = ExtResource("1_epo8l")
 hframes = 8
 frame = 5

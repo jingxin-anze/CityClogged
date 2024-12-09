@@ -1,12 +1,12 @@
 @tool
-class_name car extends Sprite2D
+class_name Car extends Sprite2D
 
 
 @export var show_sprites:bool:
 	set = set_show_sprites
 
-#@export var rotate_sprites:bool:
-	#set = set_rotate_sprites_now
+@export var rotate_sprites:float = 0
+
 
 
 func set_rotation_sprites(_rotation):
@@ -14,15 +14,13 @@ func set_rotation_sprites(_rotation):
 		sprite.rotation = _rotation
 	
 
-#func set_rotate_sprites_now(_rotate_sprites):
-	#rotate_sprites = _rotate_sprites
+func set_rotate_sprites_now(_rotate_sprites):
+	for sprite in get_children():
+		sprite.rotation = _rotate_sprites
 
 
 func _process(delta: float) -> void:
-	#if rotate_sprites:
-		#for sprite in get_children():
-			#sprite.rotation += delta
-			pass
+	set_rotate_sprites_now(rotate_sprites)
 
 func set_show_sprites(_show_sprites):
 	show_sprites = _show_sprites
