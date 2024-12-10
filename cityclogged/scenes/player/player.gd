@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 @onready var pitch: Node3D = %Pitch
 
+var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 var movement_speed:float=20
 var mouse_sensitivity:int=400
 
@@ -9,7 +10,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	var movement_direction:Vector2 = Input.get_vector("move_backward", "move_forward", "move_left", "move_right")
 	var movement_direction_3d:Vector3 = basis.x * movement_direction.y  - basis.z * movement_direction.x
 	velocity = movement_direction_3d *movement_speed

@@ -4,9 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://q3wn8eyxtqgg" path="res://icon.svg" id="1_pc4kn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_khmha"]
-size = Vector3(1.2, 1, 0.1)
+size = Vector3(1.71, 1.46, 1.645)
 
 [node name="Player" type="CharacterBody3D"]
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_1ts8h")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]

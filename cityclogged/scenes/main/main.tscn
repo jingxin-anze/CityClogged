@@ -33,7 +33,7 @@ data = {
 }
 
 [node name="Player" parent="." instance=ExtResource("2_y577h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 5.95642)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 3, 6.95642)
 
 [node name="Pitch" type="Node3D" parent="Player"]
 unique_name_in_owner = true
