@@ -33,4 +33,3 @@ texture = ExtResource("5_i6y04")
 
 [node name="Player" parent="." instance=ExtResource("2_new4n")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 19.0297, -1.1928, -100.168)
-floor_max_angle = 0.837758
