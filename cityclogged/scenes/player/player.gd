@@ -7,6 +7,7 @@ var movement_speed:float=5
 var mouse_sensitivity:int=250
 var movement_direction:Vector2
 var movement_direction_3d:Vector3
+
 func _ready() -> void:
 	pass # Replace with function body.
 
