@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dn354xhy5700u"]
+[gd_scene load_steps=7 format=3 uid="uid://dn354xhy5700u"]
 
 [ext_resource type="MeshLibrary" uid="uid://bvo2kmgy0nss" path="res://city_mesh_library.tres" id="1_bxxa2"]
 [ext_resource type="PackedScene" uid="uid://bmio6xvvn4bdf" path="res://scenes/player/player.tscn" id="2_new4n"]
 [ext_resource type="Shader" path="res://map/test.gdshader" id="4_mtvkm"]
+[ext_resource type="PackedScene" uid="uid://dpifi22hb3ccs" path="res://module/3d_car/resource/car.blend" id="5_40gt7"]
 [ext_resource type="Texture2D" uid="uid://q3wn8eyxtqgg" path="res://icon.svg" id="5_i6y04"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kbu72"]
@@ -16,14 +17,14 @@ transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 mesh_library = ExtResource("1_bxxa2")
 cell_size = Vector3(2, 0.1, 2)
 data = {
-"cells": PackedInt32Array(12, 65528, 655360, 10, 65528, 655360, 8, 65528, 655360, 6, 65528, 655360, 4, 65528, 655360, 1, 65528, 655361, 1, 65531, 1048576, 1, 65533, 1048576, 1, 65535, 1048576, 1, 65525, 1048576, 1, 65523, 1048576, 1, 65521, 1048576, 1, 65519, 1048576, 65534, 65528, 0, 65532, 65528, 0, 65530, 65528, 0, 65528, 65528, 0, 65526, 65528, 0, 14, 65528, 0, 65524, 65528, 0, 65522, 65528, 0, 65520, 65528, 0, 65525, 65524, 0, 65525, 65525, 0, 65525, 65526, 0, 65526, 65526, 0)
+"cells": PackedInt32Array(12, 65528, 655360, 10, 65528, 655360, 8, 65528, 655360, 6, 65528, 1048576, 65532, 65528, 0, 65530, 65528, 0, 65528, 65528, 0, 65526, 65528, 0, 14, 65528, 0, 65524, 65528, 0, 65522, 65528, 0, 65520, 65528, 0, 65525, 65524, 0, 65525, 65525, 0, 65525, 65526, 0, 65526, 65526, 0, 1, 65523, 1048577, 6, 65524, 1048576, 6, 65529, 1048576, 6, 65526, 1048576, 1, 65534, 1, 65533, 65534, 1, 1, 2, 1, 1, 65530, 1, 65533, 2, 1)
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 41.2354, -15.5767)
 omni_range = 332.923
-omni_attenuation = -0.34
+omni_attenuation = 0.231
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_kbu72")
@@ -32,4 +33,7 @@ scale = Vector2(15.5, 8.92969)
 texture = ExtResource("5_i6y04")
 
 [node name="Player" parent="." instance=ExtResource("2_new4n")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 19.0297, -1.1928, -100.168)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 10.6774, 0)
+
+[node name="car" parent="." instance=ExtResource("5_40gt7")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 21.5996, 0.516562, -10.8733)

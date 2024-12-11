@@ -1,6 +1,5 @@
-[gd_scene load_steps=6 format=3 uid="uid://dlbpuf67ft571"]
+[gd_scene load_steps=5 format=3 uid="uid://dlbpuf67ft571"]
 
-[ext_resource type="MeshLibrary" uid="uid://dlk2x3iu0msx4" path="res://scenes/space_library/space_library.tres" id="1_48245"]
 [ext_resource type="PackedScene" uid="uid://bmio6xvvn4bdf" path="res://scenes/player/player.tscn" id="2_y577h"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tfoen"]
@@ -26,11 +25,11 @@ transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75
 shadow_enabled = true
 
 [node name="GridMap" type="GridMap" parent="."]
-mesh_library = ExtResource("1_48245")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
 cell_size = Vector3(4, 1, 4)
 data = {
 "cells": PackedInt32Array(65535, 65535, 1, 65535, 0, 1, 0, 0, 1, 0, 65535, 2, 0, 65534, 2, 65535, 65534, 2, 65534, 0, 1, 65534, 65535, 1, 65534, 65534, 1, 65533, 1, 1, 65534, 1, 1, 65535, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 65535, 1, 1, 65534, 2, 1, 65533, 1, 0, 65533, 2, 65535, 65533, 2, 65534, 65533, 1, 65533, 65533, 1, 65533, 0, 0, 65533, 65535, 1, 65533, 65534, 0, 65532, 1, 0, 65532, 0, 0, 65532, 65535, 0, 65532, 65534, 0, 65532, 65533, 0, 2, 65533, 0, 2, 65534, 0, 1, 2, 0, 2, 2, 0, 2, 1, 0, 2, 0, 0, 2, 65535, 0, 131073, 0, 1, 327680, 0, 1, 524287, 0, 1)
 }
 
 [node name="Player" parent="." instance=ExtResource("2_y577h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 3, 6.95642)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 4, 5.95642)
