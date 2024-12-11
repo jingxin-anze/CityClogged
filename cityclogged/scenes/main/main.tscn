@@ -34,9 +34,3 @@ data = {
 
 [node name="Player" parent="." instance=ExtResource("2_y577h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 3, 6.95642)
-
-[node name="Pitch" type="Node3D" parent="Player"]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 0.961262, 0.275637, 0, -0.275637, 0.961262, 0, 1.66, 3.465)
-
-[node name="Camera3D" type="Camera3D" parent="Player/Pitch"]

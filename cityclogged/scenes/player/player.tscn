@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bmio6xvvn4bdf"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_1ts8h"]
-[ext_resource type="Texture2D" uid="uid://q3wn8eyxtqgg" path="res://icon.svg" id="1_pc4kn"]
+[ext_resource type="Texture2D" uid="uid://bkvja6bnplkh8" path="res://assets/spirits/player/back-Sheet.png" id="2_ylyxs"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_khmha"]
 size = Vector3(1.71, 1.46, 1.645)
@@ -13,8 +13,16 @@ script = ExtResource("1_1ts8h")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-texture = ExtResource("1_pc4kn")
+texture_filter = 0
+texture = ExtResource("2_ylyxs")
+hframes = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_khmha")
+
+[node name="Pitch" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.961262, 0.275637, 0, -0.275637, 0.961262, 0, 1.66, 3.465)
+
+[node name="Camera3D" type="Camera3D" parent="Pitch"]
