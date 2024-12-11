@@ -1,7 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bmio6xvvn4bdf"]
+[gd_scene load_steps=8 format=3 uid="uid://bmio6xvvn4bdf"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_1ts8h"]
 [ext_resource type="Texture2D" uid="uid://bkvja6bnplkh8" path="res://assets/spirits/player/back-Sheet.png" id="2_ylyxs"]
+[ext_resource type="Script" path="res://scenes/player/state_machine/state_machine.gd" id="3_k6116"]
+[ext_resource type="Script" path="res://scenes/player/state_machine/move.gd" id="4_c4g23"]
+[ext_resource type="Script" path="res://scenes/player/state_machine/jump.gd" id="5_wxm4g"]
+[ext_resource type="Script" path="res://scenes/player/state_machine/idle.gd" id="6_6y7xq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fo1up"]
 radius = 0.1
@@ -28,3 +32,16 @@ transform = Transform3D(1, 0, 0, 0, 0.961262, 0.275637, 0, -0.275637, 0.961262, 
 
 [node name="Camera3D" type="Camera3D" parent="Pitch"]
 fov = 50.9
+
+[node name="StateMachine" type="Node3D" parent="." node_paths=PackedStringArray("current_state")]
+script = ExtResource("3_k6116")
+current_state = NodePath("Idle")
+
+[node name="Move" type="Node3D" parent="StateMachine" groups=["state_base"]]
+script = ExtResource("4_c4g23")
+
+[node name="Jump" type="Node3D" parent="StateMachine" groups=["state_base"]]
+script = ExtResource("5_wxm4g")
+
+[node name="Idle" type="Node3D" parent="StateMachine" groups=["state_base"]]
+script = ExtResource("6_6y7xq")
