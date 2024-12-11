@@ -3,8 +3,7 @@
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_1ts8h"]
 [ext_resource type="Texture2D" uid="uid://bkvja6bnplkh8" path="res://assets/spirits/player/back-Sheet.png" id="2_ylyxs"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_khmha"]
-size = Vector3(1.71, 1.46, 1.645)
+[sub_resource type="SphereShape3D" id="SphereShape3D_onh7x"]
 
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 4
@@ -18,11 +17,12 @@ texture = ExtResource("2_ylyxs")
 hframes = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-shape = SubResource("BoxShape3D_khmha")
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.5, 0)
+shape = SubResource("SphereShape3D_onh7x")
 
 [node name="Pitch" type="Node3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 0.961262, 0.275637, 0, -0.275637, 0.961262, 0, 1.66, 3.465)
+transform = Transform3D(1, 0, 0, 0, 0.87462, 0.48481, 0, -0.48481, 0.87462, 0, 1.66, 3.24)
 
 [node name="Camera3D" type="Camera3D" parent="Pitch"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.551274, -1.92252)

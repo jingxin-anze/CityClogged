@@ -3,7 +3,7 @@ extends CharacterBody3D
 @onready var pitch: Node3D = %Pitch
 
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
-var movement_speed:float=15
+var movement_speed:float=5
 var mouse_sensitivity:int=150
 
 func _ready() -> void:

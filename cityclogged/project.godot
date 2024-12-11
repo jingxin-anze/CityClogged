@@ -53,6 +53,10 @@ quit={
 3d_physics/layer_2="envir"
 3d_physics/layer_3="player"
 
+[physics]
+
+3d/physics_engine="JoltPhysics3D"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
