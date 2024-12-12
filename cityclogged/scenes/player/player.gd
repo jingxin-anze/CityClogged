@@ -4,13 +4,13 @@ class_name Player extends CharacterBody3D
 
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 var movement_speed:float=5
+var jump_speed:float=5
 var mouse_sensitivity:int=250
 var movement_direction:Vector2
 var movement_direction_3d:Vector3
 
 func _ready() -> void:
 	pass # Replace with function body.
-
 
 func _physics_process(delta: float) -> void:
 	movement_direction= Input.get_vector("move_backward", "move_forward", "move_left", "move_right")
