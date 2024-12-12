@@ -3,8 +3,8 @@ class_name Player extends CharacterBody3D
 @onready var pitch: Node3D = %Pitch
 
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
-var movement_speed:float=5
-var jump_speed:float=5
+@export var movement_speed:float=300
+@export var jump_speed:float=500
 var mouse_sensitivity:int=250
 var movement_direction:Vector2
 var movement_direction_3d:Vector3

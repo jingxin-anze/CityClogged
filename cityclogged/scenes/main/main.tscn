@@ -42,7 +42,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.16779, 3.46555, 0.837829)
 
 [node name="ChangePlayerCamera" parent="." instance=ExtResource("3_5j5vi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-carmera_state = "z-"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChangePlayerCamera"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.50131, 0.57118, -5.22734)
