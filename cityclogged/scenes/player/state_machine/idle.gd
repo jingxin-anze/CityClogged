@@ -9,7 +9,6 @@ func _enter():
 	pass
 
 func _exit():
-	
 	pass
 
 func _tick(delta:float):

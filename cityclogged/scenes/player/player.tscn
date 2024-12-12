@@ -591,10 +591,9 @@ shape = SubResource("CapsuleShape3D_fo1up")
 
 [node name="Pitch" type="Node3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 0.961262, 0.275637, 0, -0.275637, 0.961262, 0, 1.66, 3.465)
+transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 1.2, 1.475)
 
 [node name="Camera3D" type="Camera3D" parent="Pitch"]
-fov = 50.9
 
 [node name="StateMachine" type="Node3D" parent="." node_paths=PackedStringArray("current_state")]
 script = ExtResource("3_k6116")

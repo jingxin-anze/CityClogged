@@ -24,7 +24,7 @@ func _physics_process(delta: float) -> void:
 
 func change_state(state_name:String):
 	var next_state:Node3D=get_node(state_name)
-	print(state_name)
+	#print(state_name)
 	if is_instance_valid(next_state):
 		current_state._exit()
 		current_state=next_state
