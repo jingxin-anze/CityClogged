@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bx1w6osymq5w0"]
+
+[ext_resource type="Script" path="res://scenes/change_player_view/change_player_view.gd" id="1_nmrxn"]
+
+[node name="ChangePlayerView" type="Area3D"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_nmrxn")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

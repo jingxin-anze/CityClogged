@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dlbpuf67ft571"]
+[gd_scene load_steps=8 format=3 uid="uid://dlbpuf67ft571"]
 
+[ext_resource type="MeshLibrary" uid="uid://c4s4w4fsdul85" path="res://scenes/space_library/space_library.tres" id="1_llmn4"]
 [ext_resource type="PackedScene" uid="uid://bmio6xvvn4bdf" path="res://scenes/player/player.tscn" id="2_y577h"]
+[ext_resource type="PackedScene" uid="uid://bx1w6osymq5w0" path="res://scenes/change_player_view/change_player_view.tscn" id="3_5j5vi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tfoen"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -15,6 +17,8 @@ sky = SubResource("Sky_neocj")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_5utgo"]
+
 [node name="Main" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -26,10 +30,19 @@ shadow_enabled = true
 
 [node name="GridMap" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
-cell_size = Vector3(4, 1, 4)
+mesh_library = ExtResource("1_llmn4")
+cell_size = Vector3(1, 4, 1)
 data = {
-"cells": PackedInt32Array(65535, 65535, 1, 65535, 0, 1, 0, 0, 1, 0, 65535, 2, 0, 65534, 2, 65535, 65534, 2, 65534, 0, 1, 65534, 65535, 1, 65534, 65534, 1, 65533, 1, 1, 65534, 1, 1, 65535, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 65535, 1, 1, 65534, 2, 1, 65533, 1, 0, 65533, 2, 65535, 65533, 2, 65534, 65533, 1, 65533, 65533, 1, 65533, 0, 0, 65533, 65535, 1, 65533, 65534, 0, 65532, 1, 0, 65532, 0, 0, 65532, 65535, 0, 65532, 65534, 0, 65532, 65533, 0, 2, 65533, 0, 2, 65534, 0, 1, 2, 0, 2, 2, 0, 2, 1, 0, 2, 0, 0, 2, 65535, 0, 131073, 0, 1, 327680, 0, 1, 524287, 0, 1)
+"cells": PackedInt32Array(65529, 0, 5, 65535, 0, 4, 65529, 8, 5, 65529, 65528, 5, 65520, 0, 2, 131068, 0, 1, 65527, 3, 3, 65527, 65533, 0, 65534, 6, 2)
 }
+metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_y577h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 4, 5.95642)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.16779, 3.46555, 0.837829)
+
+[node name="ChangePlayerCamera" parent="." instance=ExtResource("3_5j5vi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ChangePlayerCamera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.50131, 0.57118, -5.22734)
+shape = SubResource("BoxShape3D_5utgo")
