@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c4n8p6w75ibd7"
-path="res://.godot/imported/wall.glb-43ff2e06282c89cd2a6b7f0dfd97bb86.scn"
+uid="uid://t3yvo686yh7i"
+path="res://.godot/imported/highroad.glb-45bcc07147fa78b63f35dfa45e587a64.scn"
 
 [deps]
 
-source_file="res://module/wall/wall.glb"
-dest_files=["res://.godot/imported/wall.glb-43ff2e06282c89cd2a6b7f0dfd97bb86.scn"]
+source_file="res://module/road/highroad.glb"
+dest_files=["res://.godot/imported/highroad.glb-45bcc07147fa78b63f35dfa45e587a64.scn"]
 
 [params]
 

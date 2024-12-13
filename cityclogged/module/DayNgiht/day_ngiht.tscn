@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8xldt35jqm1p"]
+
+[sub_resource type="Environment" id="Environment_h5rv7"]
+
+[node name="DayNgiht" type="Node3D"]
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+light_color = Color(0.392157, 0.686275, 1, 1)
+light_energy = 0.5
+light_bake_mode = 0
+shadow_enabled = true
+directional_shadow_mode = 0
+directional_shadow_fade_start = 0.5
+sky_mode = 2
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_h5rv7")
