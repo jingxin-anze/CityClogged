@@ -1,17 +1,45 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8xldt35jqm1p"]
+[gd_scene load_steps=5 format=3 uid="uid://c8xldt35jqm1p"]
+
+[ext_resource type="Texture2D" uid="uid://i5rr5rfs1gmn" path="res://module/DayNgiht/resources/skybox_small.png" id="1_nrky6"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3j82j"]
+panorama = ExtResource("1_nrky6")
+
+[sub_resource type="Sky" id="Sky_n0txr"]
+sky_material = SubResource("PanoramaSkyMaterial_3j82j")
+radiance_size = 0
 
 [sub_resource type="Environment" id="Environment_h5rv7"]
+background_mode = 2
+sky = SubResource("Sky_n0txr")
+sky_custom_fov = 1.7
+ambient_light_color = Color(0.34902, 0.32549, 0.419608, 1)
+ambient_light_sky_contribution = 0.1
+ambient_light_energy = 0.5
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 1.0
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.501961, 0.6, 0.701961, 1)
+fog_light_energy = 0.75
+fog_sun_scatter = 0.51
+fog_density = 1.0
+fog_depth_begin = 50.0
+adjustment_enabled = true
+adjustment_contrast = 1.16
+adjustment_saturation = 1.16
 
 [node name="DayNgiht" type="Node3D"]
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 light_color = Color(0.392157, 0.686275, 1, 1)
 light_energy = 0.5
+light_negative = true
 light_bake_mode = 0
 shadow_enabled = true
 directional_shadow_mode = 0
 directional_shadow_fade_start = 0.5
-sky_mode = 2
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_h5rv7")
