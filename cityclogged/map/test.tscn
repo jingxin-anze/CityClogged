@@ -1,12 +1,12 @@
 [gd_scene load_steps=13 format=3 uid="uid://dn354xhy5700u"]
 
 [ext_resource type="MeshLibrary" uid="uid://cu04r0iwb6tnd" path="res://module/road/road_mesh_library.tres" id="1_cwqap"]
-[ext_resource type="MeshLibrary" uid="uid://bv10qxamsj26d" path="res://module/wall/wall_mesh_library.tres" id="2_2hry6"]
 [ext_resource type="PackedScene" uid="uid://bmio6xvvn4bdf" path="res://scenes/player/player.tscn" id="2_new4n"]
 [ext_resource type="Shader" path="res://map/test.gdshader" id="4_mtvkm"]
 [ext_resource type="PackedScene" uid="uid://4xh60suu8gxd" path="res://module/3d_car/resource/car.blend" id="5_40gt7"]
 [ext_resource type="Texture2D" uid="uid://q3wn8eyxtqgg" path="res://icon.svg" id="5_i6y04"]
-[ext_resource type="PackedScene" uid="uid://b3oupmutlwcac" path="res://module/wall/global_wall_library.tscn" id="6_5ekq1"]
+[ext_resource type="PackedScene" uid="uid://ywgrdrwt1wle" path="res://module/house/house_1.tscn" id="7_gtw77"]
+[ext_resource type="PackedScene" uid="uid://ck6xo5fwq4133" path="res://module/water/water.tscn" id="8_38pxu"]
 [ext_resource type="Texture2D" uid="uid://i5rr5rfs1gmn" path="res://module/DayNgiht/resources/skybox_small.png" id="8_kfyjg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kbu72"]
@@ -51,14 +51,6 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
-[node name="WallGridMap" type="GridMap" parent="."]
-mesh_library = ExtResource("2_2hry6")
-cell_size = Vector3(1, 1, 1)
-data = {
-"cells": PackedInt32Array(131071, 41, 786432, 131071, 40, 786432, 131071, 39, 786432, 131071, 38, 786432, 131071, 37, 786432, 131071, 36, 786432, 131071, 35, 786432, 131071, 34, 786432, 131071, 33, 786432, 131071, 32, 786432, 131071, 31, 786432, 131071, 30, 786432, 131071, 29, 786432, 131071, 28, 786432, 131071, 27, 786432, 196607, 41, 786432, 196607, 40, 786432, 196607, 39, 786432, 196607, 38, 786432, 196607, 37, 786432, 196607, 36, 786432, 196607, 35, 786432, 196607, 34, 786432, 196607, 33, 786432, 196607, 32, 786432, 196607, 31, 786432, 196607, 30, 786432, 196607, 29, 786432, 196607, 28, 786432, 196607, 27, 786432, 262143, 40, 786432, 262143, 39, 786432, 262143, 38, 786432, 262143, 30, 786432, 262143, 31, 786432, 262143, 32, 786432, 262143, 33, 786432, 262143, 34, 786432, 262143, 35, 786432, 262143, 36, 786432, 262143, 37, 786432, 262143, 29, 786432, 262143, 28, 786432, 262143, 27, 786432, 65535, 41, 786432, 65535, 40, 786432, 65535, 39, 786432, 65535, 38, 786432, 65535, 37, 786432, 65535, 35, 786432, 65535, 36, 786432, 65535, 34, 786432, 65535, 33, 786432, 65535, 32, 786432, 65535, 30, 786432, 65535, 31, 786432, 65535, 29, 786432, 65535, 27, 786432, 65535, 28, 786432, 1, 22, 1376256, 2, 22, 1376256, 3, 22, 1376256, 4, 22, 1376256, 5, 22, 1376256, 5, 21, 1376256, 6, 21, 1376256, 6, 22, 1376256, 7, 22, 1376256, 65537, 22, 1376256, 65538, 22, 1376256, 65538, 23, 1376256, 65539, 23, 1376256, 65540, 23, 1376256, 65540, 22, 1376256, 65541, 22, 1376256, 65542, 22, 1376256, 65543, 22, 1376256, 131073, 22, 1376256, 131074, 22, 1376256, 131074, 23, 1376256, 131075, 23, 1376256, 131076, 23, 1376256, 131077, 23, 1376256, 131077, 22, 1376256, 131078, 22, 1376256, 131078, 23, 1376256, 131079, 23, 1376256)
-}
-metadata/_editor_floor_ = Vector3(0, 2, 0)
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
 material = SubResource("ShaderMaterial_kbu72")
@@ -67,16 +59,13 @@ scale = Vector2(15.5, 8.92969)
 texture = ExtResource("5_i6y04")
 
 [node name="Player" parent="." instance=ExtResource("2_new4n")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 2.11014, -3.17428, 28.3227)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 2.11014, -0.17428, 28.3227)
 
 [node name="car" parent="." instance=ExtResource("5_40gt7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.86351, 1.2515, 13.5985)
 
-[node name="wall" parent="." instance=ExtResource("6_5ekq1")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.749874, 1.59179, 22.9576)
-
 [node name="Sun" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.151261, 0.78212, 0.604491, 0, -0.611527, 0.791224, 0.988494, -0.119681, -0.0925001, 0, 21.302, 27.2367)
+transform = Transform3D(-0.611527, -0.515956, -0.599854, -6.62782e-08, -0.758134, 0.652099, -0.791224, 0.398776, 0.46362, 0, 21.302, 27.2367)
 light_energy = 0.5
 light_bake_mode = 0
 shadow_enabled = true
@@ -85,3 +74,11 @@ directional_shadow_fade_start = 0.5
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_i8ac2")
+
+[node name="House1" parent="." instance=ExtResource("7_gtw77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 36.361)
+
+[node name="Water" parent="." instance=ExtResource("8_38pxu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.12326, 19.5269)
+size = Vector2(100, 100)
+show_waterfall = true
