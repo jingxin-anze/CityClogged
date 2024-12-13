@@ -1,6 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://d2033ke1tukq7"]
+[gd_scene load_steps=6 format=3 uid="uid://d2033ke1tukq7"]
 
 [ext_resource type="Script" path="res://test_car_huayu/test_car.gd" id="1_xihrw"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_os21d"]
+friction = 0.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_ltffq"]
 
@@ -12,7 +15,8 @@ size = Vector3(2, 1, 1)
 
 [node name="TestCar" type="RigidBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.51, 0)
-custom_integrator = true
+physics_material_override = SubResource("PhysicsMaterial_os21d")
+linear_velocity = Vector3(-1, 0, 0)
 script = ExtResource("1_xihrw")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -22,3 +26,14 @@ surface_material_override/0 = SubResource("StandardMaterial3D_iem20")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_auprp")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+avoidance_enabled = true
+height = 1.15
+debug_enabled = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
