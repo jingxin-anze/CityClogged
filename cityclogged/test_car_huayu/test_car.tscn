@@ -16,7 +16,7 @@ albedo_color = Color(0, 0.537255, 0.886275, 1)
 [node name="TestCar" type="RigidBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.51, 0)
 physics_material_override = SubResource("PhysicsMaterial_os21d")
-linear_velocity = Vector3(-1, 0, 0)
+can_sleep = false
 script = ExtResource("1_xihrw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -24,6 +24,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 
 shape = SubResource("BoxShape3D_auprp")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_desired_distance = 0.1
 avoidance_enabled = true
 height = 1.15
 debug_enabled = true
