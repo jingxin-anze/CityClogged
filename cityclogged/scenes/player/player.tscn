@@ -574,28 +574,27 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody3D"]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 0, 0, 0)
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_1ts8h")
 self_attri = ExtResource("2_2wrdh")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 texture_filter = 0
 texture = ExtResource("2_au7ec")
 hframes = 6
 vframes = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.498, 0)
 shape = SubResource("CapsuleShape3D_fo1up")
 
 [node name="Pitch" type="Node3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 1.2, 1.475)
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0.675, 1.5)
 
 [node name="Camera3D" type="Camera3D" parent="Pitch"]
-transform = Transform3D(1, 0, 0, 0, 0.975473, 0.220119, 0, -0.220119, 0.975473, 0, 0.250568, 0.0911992)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="StateMachine" type="Node3D" parent="." node_paths=PackedStringArray("current_state")]
 script = ExtResource("3_k6116")
