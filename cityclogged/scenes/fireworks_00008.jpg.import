@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddusgnl6ruhxv"
-path.s3tc="res://.godot/imported/highroad_road2.png-6c3c29fe05c9d53567f3bc63fe655a5a.s3tc.ctex"
+uid="uid://cjqf3ketgcj4r"
+path.s3tc="res://.godot/imported/fireworks_00008.jpg-79151e43ff01417c2f23d6c87fe6b248.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "4a45fe031776ef7f90386487eefd8914"
-}
 
 [deps]
 
-source_file="res://module/road/highroad_road2.png"
-dest_files=["res://.godot/imported/highroad_road2.png-6c3c29fe05c9d53567f3bc63fe655a5a.s3tc.ctex"]
+source_file="res://scenes/fireworks_00008.jpg"
+dest_files=["res://.godot/imported/fireworks_00008.jpg-79151e43ff01417c2f23d6c87fe6b248.s3tc.ctex"]
 
 [params]
 

@@ -2,15 +2,18 @@ class_name Player extends CharacterBody3D
 
 @onready var pitch: Node3D = %Pitch
 
+@export var self_attri:EntityAttributes
+var movement_speed:float=30
+var jump_speed:float=50
+
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
-@export var movement_speed:float=300
-@export var jump_speed:float=500
 var mouse_sensitivity:int=250
 var movement_direction:Vector2
 var movement_direction_3d:Vector3
 
 func _ready() -> void:
-	pass # Replace with function body.
+	movement_speed=self_attri.attri["movement_speed"]
+	jump_speed=self_attri.attri["jump_speed"]
 
 func _physics_process(delta: float) -> void:
 	movement_direction= Input.get_vector("move_backward", "move_forward", "move_left", "move_right")

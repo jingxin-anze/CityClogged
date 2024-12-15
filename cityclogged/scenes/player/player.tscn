@@ -1,10 +1,10 @@
 [gd_scene load_steps=34 format=3 uid="uid://bmio6xvvn4bdf"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_1ts8h"]
+[ext_resource type="Resource" uid="uid://c8nprk81gh2sc" path="res://scenes/player/player_attri.tres" id="2_2wrdh"]
 [ext_resource type="Texture2D" uid="uid://dp4fybqbkrbly" path="res://assets/spirits/player/player.png" id="2_au7ec"]
 [ext_resource type="Script" path="res://scenes/player/state_machine/state_machine.gd" id="3_k6116"]
 [ext_resource type="Script" path="res://scenes/player/state_machine/move.gd" id="4_c4g23"]
-[ext_resource type="Script" path="res://scenes/player/state_machine/jump.gd" id="5_wxm4g"]
 [ext_resource type="Script" path="res://scenes/player/state_machine/idle.gd" id="6_6y7xq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fo1up"]
@@ -165,7 +165,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [3]
+"values": [4]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -217,7 +217,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [3]
+"values": [4]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -269,7 +269,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [3]
+"values": [4]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -321,7 +321,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [3]
+"values": [4]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -374,7 +374,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [3]
+"values": [4]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -451,7 +451,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [3]
+"values": [4]
 }
 
 [sub_resource type="Animation" id="Animation_qkpc3"]
@@ -492,7 +492,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [3]
+"values": [4]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -530,7 +530,7 @@ tracks/1/path = NodePath("../Sprite3D:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.233333),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [6]
@@ -542,10 +542,10 @@ tracks/2/path = NodePath("../Sprite3D:vframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.233333),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [3]
+"values": [4]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -574,26 +574,27 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody3D"]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 0, 0, 0)
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_1ts8h")
+self_attri = ExtResource("2_2wrdh")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 texture_filter = 0
 texture = ExtResource("2_au7ec")
 hframes = 6
 vframes = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.498, 0)
 shape = SubResource("CapsuleShape3D_fo1up")
 
 [node name="Pitch" type="Node3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 1.2, 1.475)
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0.675, 1.5)
 
 [node name="Camera3D" type="Camera3D" parent="Pitch"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="StateMachine" type="Node3D" parent="." node_paths=PackedStringArray("current_state")]
 script = ExtResource("3_k6116")
@@ -601,9 +602,6 @@ current_state = NodePath("Idle")
 
 [node name="Move" type="Node3D" parent="StateMachine" groups=["state_base"]]
 script = ExtResource("4_c4g23")
-
-[node name="Jump" type="Node3D" parent="StateMachine" groups=["state_base"]]
-script = ExtResource("5_wxm4g")
 
 [node name="Idle" type="Node3D" parent="StateMachine" groups=["state_base"]]
 script = ExtResource("6_6y7xq")

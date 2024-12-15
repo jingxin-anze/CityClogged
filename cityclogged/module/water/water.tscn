@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=3 uid="uid://ck6xo5fwq4133"]
+
+[ext_resource type="Shader" path="res://liquid.gdshader" id="1_8d6hp"]
+[ext_resource type="Script" path="res://module/water/water.gd" id="1_hp1ot"]
+[ext_resource type="Texture2D" uid="uid://25oxgpfhroc3" path="res://module/water/noise1.png" id="2_wgdr4"]
+
+[sub_resource type="Texture2DArray" id="Texture2DArray_7g5yo"]
+
+[sub_resource type="Gradient" id="Gradient_8e8fj"]
+offsets = PackedFloat32Array(0, 0.483607, 1)
+colors = PackedColorArray(0.99, 0.00989999, 0.0915752, 1, 0.15246, 0.99, 0.0594, 1, 1, 0.755, 0.02, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_2utx4"]
+resource_local_to_scene = true
+seed = 3
+frequency = 0.1715
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4vuqy"]
+color_ramp = SubResource("Gradient_8e8fj")
+noise = SubResource("FastNoiseLite_2utx4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m6ath"]
+render_priority = 0
+shader = ExtResource("1_8d6hp")
+shader_parameter/pixel_size = 0.125
+shader_parameter/color_really_deep = Color(0.196078, 0.317647, 0.490196, 1)
+shader_parameter/color_deep = Color(0.384314, 0.603922, 0.835294, 1)
+shader_parameter/color_mid = Color(0.333333, 0.537255, 0.827451, 1)
+shader_parameter/color_foam = Color(0.3024, 0.49728, 0.72, 1)
+shader_parameter/beers_law = 1.3
+shader_parameter/depth_offset = 0.0
+shader_parameter/refraction = 0.075
+shader_parameter/vertex_movement = 1.0
+shader_parameter/wave_speed = 0.5
+shader_parameter/wave_a = Vector4(1, 0.4, 0.2, 10)
+shader_parameter/wave_b = Vector4(-0.4, 0.4, -0.3, 10)
+shader_parameter/wave_c = Vector4(0.4, -1, 0.3, 15)
+shader_parameter/sampler_scale = Vector2(0.25, 0.25)
+shader_parameter/sampler_direction = Vector2(0.05, -0.04)
+shader_parameter/uv_sampler_scale = Vector2(0.25, 0.25)
+shader_parameter/uv_sampler_strength = 0.04
+shader_parameter/uv_noise = 0.05
+shader_parameter/foam_amount = 0.01
+shader_parameter/deep_amount = 0.25
+shader_parameter/specular_amount = 0.48
+shader_parameter/specular_brightness = 2.0
+shader_parameter/light_vec = Vector3(0, 1, -1)
+shader_parameter/surface_size = Vector2(64, 24)
+shader_parameter/surface_speed = 10.0
+shader_parameter/surface_direction = Vector2(1, 2)
+shader_parameter/surface_direction2 = Vector2(-1, 2)
+shader_parameter/surface_exp = 9.0
+shader_parameter/surface_multiplier = 9.0
+shader_parameter/show_waterfall = false
+shader_parameter/waterfall_size = Vector2(4, 40)
+shader_parameter/waterfall_framerate = 10.0
+shader_parameter/waterfall_speed = 64.0
+shader_parameter/waterfall_start_depth = 0.9
+shader_parameter/waterfall_exp = 9.0
+shader_parameter/waterfall_multiplier = 5.0
+shader_parameter/uv_sampler = SubResource("NoiseTexture2D_4vuqy")
+shader_parameter/normalmap_a_sampler = SubResource("NoiseTexture2D_4vuqy")
+shader_parameter/normalmap_b_sampler = SubResource("NoiseTexture2D_4vuqy")
+shader_parameter/caustic_sampler = SubResource("Texture2DArray_7g5yo")
+shader_parameter/noise_sampler = ExtResource("2_wgdr4")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qh3oj"]
+size = Vector2(10, 10)
+
+[node name="Water" type="Node3D"]
+script = ExtResource("1_hp1ot")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("ShaderMaterial_m6ath")
+mesh = SubResource("PlaneMesh_qh3oj")

@@ -1,0 +1,31 @@
+[gd_resource type="Environment" load_steps=4 format=3 uid="uid://bhj0n7730mo2l"]
+
+[ext_resource type="Texture2D" uid="uid://i5rr5rfs1gmn" path="res://module/DayNgiht/resources/skybox_small.png" id="1_mph0p"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_xqeri"]
+panorama = ExtResource("1_mph0p")
+
+[sub_resource type="Sky" id="Sky_cj10h"]
+sky_material = SubResource("PanoramaSkyMaterial_xqeri")
+radiance_size = 0
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_cj10h")
+sky_custom_fov = 1.7
+ambient_light_color = Color(0.34902, 0.32549, 0.419608, 1)
+ambient_light_sky_contribution = 0.1
+ambient_light_energy = 0.5
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 1.0
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.501961, 0.6, 0.701961, 1)
+fog_light_energy = 0.75
+fog_sun_scatter = 0.51
+fog_density = 1.0
+fog_depth_begin = 50.0
+adjustment_enabled = true
+adjustment_contrast = 1.16
+adjustment_saturation = 1.16

@@ -28,10 +28,10 @@ func _physics_tick(delta:float):
 	an_t.set("parameters/Move/blend_position",player.movement_direction)
 	
 	if not player.is_on_floor():
-		player.velocity.x = player.movement_direction_3d.x *player.movement_speed*delta
 		player.velocity.z = player.movement_direction_3d.z *player.movement_speed*delta
-	else:
-		player.velocity= player.movement_direction_3d*player.movement_speed*delta
+
+	player.velocity.x= player.movement_direction_3d.x*player.movement_speed*delta
+	player.velocity.z= player.movement_direction_3d.z*player.movement_speed*delta
 	pass
 
 func _unhandled_input(event: InputEvent) -> void:

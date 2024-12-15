@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://t3yvo686yh7i"
+uid="uid://dhanjwn4i8xui"
 path="res://.godot/imported/highroad.glb-45bcc07147fa78b63f35dfa45e587a64.scn"
 
 [deps]
@@ -33,4 +33,4 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={}
 gltf/naming_version=1
-gltf/embedded_image_handling=2
+gltf/embedded_image_handling=1
