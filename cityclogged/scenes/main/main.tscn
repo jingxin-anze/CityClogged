@@ -1,24 +1,14 @@
-[gd_scene load_steps=23 format=3 uid="uid://dlbpuf67ft571"]
+[gd_scene load_steps=18 format=3 uid="uid://dlbpuf67ft571"]
 
 [ext_resource type="MeshLibrary" uid="uid://c4s4w4fsdul85" path="res://scenes/space_library/space_library.tres" id="1_llmn4"]
 [ext_resource type="PackedScene" uid="uid://bmio6xvvn4bdf" path="res://scenes/player/player.tscn" id="2_y577h"]
-[ext_resource type="PackedScene" uid="uid://bx1w6osymq5w0" path="res://scenes/change_player_view/change_player_view.tscn" id="3_5j5vi"]
 [ext_resource type="Environment" uid="uid://bhj0n7730mo2l" path="res://scenes/main/world_envir.tres" id="4_7rx4y"]
 [ext_resource type="Script" path="res://scenes/main/water.gd" id="5_b44ar"]
 [ext_resource type="PackedScene" uid="uid://ck6xo5fwq4133" path="res://module/water/water.tscn" id="5_u4fmj"]
 [ext_resource type="Shader" uid="uid://bso3c0fxi44oh" path="res://scenes/main/explosion.tres" id="7_pjdo5"]
 [ext_resource type="Texture2D" uid="uid://cjqf3ketgcj4r" path="res://scenes/fireworks_00008.jpg" id="8_fqt87"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_5utgo"]
-size = Vector3(7.91547, 1, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_7tuu7"]
-size = Vector3(4.22697, 1, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_5bujc"]
-size = Vector3(4.22697, 1, 1)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_5gdh6"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_5c1fe"]
 custom_aabb = AABB(-51, -1, -51, 102, 2, 102)
 size = Vector2(100, 100)
 subdivide_width = 24
@@ -62,9 +52,6 @@ alpha_curve = SubResource("CurveTexture_s3ol7")
 
 [sub_resource type="QuadMesh" id="QuadMesh_3kojy"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_bnrjr"]
-size = Vector3(4.29175, 1, 1)
-
 [node name="Main" type="Node3D"]
 
 [node name="GridMap" type="GridMap" parent="."]
@@ -77,31 +64,7 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_y577h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.60552, 0.632052, 8.69418)
-
-[node name="ChangePlayerView" parent="." instance=ExtResource("3_5j5vi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.33284, 0)
-carmera_relative_pos = "z-"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ChangePlayerView"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.543745, -2.3129, 12.0149)
-shape = SubResource("BoxShape3D_5utgo")
-
-[node name="ChangePlayerView2" parent="." instance=ExtResource("3_5j5vi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.19514, 0)
-carmera_relative_pos = "x+"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ChangePlayerView2"]
-transform = Transform3D(-0.0134561, 0, -0.99991, 0, 1, 0, 0.99991, 0, -0.0134561, -3.68089, -1.3643, 8.99773)
-shape = SubResource("BoxShape3D_7tuu7")
-
-[node name="ChangePlayerView4" parent="." instance=ExtResource("3_5j5vi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.19514, 0)
-carmera_relative_pos = "x-"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ChangePlayerView4"]
-transform = Transform3D(-0.0134561, 0, -0.99991, 0, 1, 0, 0.99991, 0, -0.0134561, 2.73269, -1.3643, 8.99773)
-shape = SubResource("BoxShape3D_5bujc")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.96743, 0.692725, 3.39168)
 
 [node name="WorldEnvironment2" type="WorldEnvironment" parent="."]
 environment = ExtResource("4_7rx4y")
@@ -117,7 +80,7 @@ directional_shadow_fade_start = 0.5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.102155, 19.5269)
 script = ExtResource("5_b44ar")
 size = Vector2(100, 100)
-mesh = SubResource("PlaneMesh_5gdh6")
+mesh = SubResource("PlaneMesh_5c1fe")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.98525, 0.171121, 0, -0.171121, 0.98525, -1.45989, 1.48997, 1.38194)
@@ -129,11 +92,3 @@ one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_x7be0")
 draw_pass_1 = SubResource("QuadMesh_3kojy")
-
-[node name="ChangePlayerView3" parent="." instance=ExtResource("3_5j5vi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37557, 0)
-carmera_relative_pos = "z+"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ChangePlayerView3"]
-transform = Transform3D(1.17679, 0, 0, 0, 1.17679, 0, 0, 0, 1.17679, -0.210815, 0.754989, 6.41819)
-shape = SubResource("BoxShape3D_bnrjr")

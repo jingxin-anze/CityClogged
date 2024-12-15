@@ -27,6 +27,12 @@ func _input(event:InputEvent) -> void:
 	if event.is_action_pressed("quit"):
 		get_tree().quit()
 		
+	if event.is_action_pressed("turn_left"):
+		var t:Tween=create_tween()
+		t.tween_property(self,"rotation_degrees:y",self.rotation_degrees.y-90,1)
+	if event.is_action_pressed("turn_right"):
+		var t:Tween=create_tween()
+		t.tween_property(self,"rotation_degrees:y",self.rotation_degrees.y+90,1)
 	#if not event is InputEventMouseMotion:
 		#return
 	#
