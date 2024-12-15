@@ -14,24 +14,14 @@ size = Vector3(2, 1, 1)
 albedo_color = Color(0, 0.537255, 0.886275, 1)
 
 [node name="TestCar" type="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.51, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 physics_material_override = SubResource("PhysicsMaterial_os21d")
-can_sleep = false
 script = ExtResource("1_xihrw")
+speed = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 shape = SubResource("BoxShape3D_auprp")
-
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
-path_desired_distance = 0.1
-avoidance_enabled = true
-height = 1.15
-debug_enabled = true
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.1
-autostart = true
 
 [node name="Node3D" type="Node3D" parent="."]
 
@@ -41,4 +31,12 @@ mesh = SubResource("BoxMesh_ltffq")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_iem20")
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_desired_distance = 0.1
+target_desired_distance = 0.1
+path_max_distance = 0.11
+avoidance_enabled = true
+debug_enabled = true
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, 5)
