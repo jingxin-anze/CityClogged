@@ -1,6 +1,5 @@
-
-extends RigidBody3D
-
+class_name CommonCar
+extends CharacterBody3D
 #车辆一般的运动速度
 @export var speed: float = 5
 #与目的地的最小距离
@@ -18,15 +17,11 @@ func _ready() -> void:
 	navigation_agent_3d.target_position = target_one
 
 func _physics_process(delta: float) -> void:
-	pass
-
-func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	if navigation_agent_3d.get_current_navigation_path().size() == 0:
 		current_path_3d = navigation_agent_3d.get_current_navigation_path()
-	#print(navigation_agent_3d.get_current_navigation_path())
 	if navigation_agent_3d.distance_to_target() < stop_min:
-		linear_velocity = Vector3(0,0,0)
-		angular_velocity = Vector3(0,0,0)
+		self.velocity = Vector3.ZERO
+		#angular_velocity = Vector3(0,0,0)
 		queue_free()
 		return
 		
@@ -36,9 +31,10 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	#print(navigation_agent_3d.get_next_path_position())
 	
 	var target_quaternion: Quaternion = Quaternion.from_euler(Vector3(0,direction_2d.angle(),0))
-	self.quaternion = self.quaternion.slerp(target_quaternion,0.02*10)
+	self.quaternion = self.quaternion.slerp(target_quaternion,delta*10)
 	if ray_cast_3d.is_colliding():
-		linear_velocity = self.linear_velocity.slerp(Vector3.ZERO,0.02*10)
+		self.velocity = self.velocity.slerp(Vector3.ZERO,delta*10)
 		return
 	if direction_3d != Vector3.ZERO:
-		linear_velocity = direction_3d * speed
+		self.velocity = direction_3d * speed
+	move_and_slide()

@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6nte5u1rmsw3"]
+
+[ext_resource type="Script" path="res://test_car_huayu/test_car_2.gd" id="1_rhd13"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6np57"]
+size = Vector3(2, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3d12y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v4v4u"]
+albedo_color = Color(0, 0.537255, 0.886275, 1)
+
+[node name="TestCar2" type="CharacterBody3D"]
+script = ExtResource("1_rhd13")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+shape = SubResource("BoxShape3D_6np57")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(-8.74228e-08, 0, 1, 0, 1, 0, -2, 0, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_3d12y")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_v4v4u")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_desired_distance = 0.1
+target_desired_distance = 0.1
+path_max_distance = 0.11
+avoidance_enabled = true
+debug_enabled = true
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, 5)
