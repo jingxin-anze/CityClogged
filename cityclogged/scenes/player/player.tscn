@@ -1,12 +1,20 @@
-[gd_scene load_steps=35 format=3 uid="uid://bmio6xvvn4bdf"]
+[gd_scene load_steps=38 format=3 uid="uid://bmio6xvvn4bdf"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_1ts8h"]
 [ext_resource type="Resource" path="res://scenes/player/player_attri.tres" id="2_2wrdh"]
 [ext_resource type="Texture2D" uid="uid://dp4fybqbkrbly" path="res://assets/spirits/player/player.png" id="2_au7ec"]
 [ext_resource type="Script" path="res://scenes/player/state_machine/state_machine.gd" id="3_k6116"]
+[ext_resource type="Texture2D" uid="uid://iku18ki51o73" path="res://module/house/resource/精灵-0002-Sheet.png" id="3_vk1jp"]
 [ext_resource type="Script" path="res://scenes/player/state_machine/move.gd" id="4_c4g23"]
 [ext_resource type="Script" path="res://scenes/player/ray_cast_3d.gd" id="4_mcxnv"]
+[ext_resource type="Script" path="res://scenes/player/node_3d.gd" id="5_3rp31"]
 [ext_resource type="Script" path="res://scenes/player/state_machine/idle.gd" id="6_6y7xq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s8c78"]
+render_priority = 1
+albedo_texture = ExtResource("3_vk1jp")
+albedo_texture_force_srgb = true
+billboard_mode = 1
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fo1up"]
 radius = 0.1
@@ -581,6 +589,7 @@ script = ExtResource("1_1ts8h")
 self_attri = ExtResource("2_2wrdh")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
+material_override = SubResource("StandardMaterial3D_s8c78")
 texture_filter = 0
 texture = ExtResource("2_au7ec")
 hframes = 6
@@ -599,6 +608,9 @@ transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 
 transform = Transform3D(1, 0, 0, 0, 0.312869, -0.987688, 0, 1.97538, 0.156434, 0, 0, 0)
 collision_mask = 5
 script = ExtResource("4_mcxnv")
+
+[node name="Node3D" type="Node3D" parent="Pitch/Camera3D/RayCast3D"]
+script = ExtResource("5_3rp31")
 
 [node name="StateMachine" type="Node3D" parent="." node_paths=PackedStringArray("current_state")]
 script = ExtResource("3_k6116")
