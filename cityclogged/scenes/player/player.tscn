@@ -1,7 +1,7 @@
 [gd_scene load_steps=38 format=3 uid="uid://bmio6xvvn4bdf"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_1ts8h"]
-[ext_resource type="Resource" path="res://scenes/player/player_attri.tres" id="2_2wrdh"]
+[ext_resource type="Resource" uid="uid://c8nprk81gh2sc" path="res://scenes/player/player_attri.tres" id="2_2wrdh"]
 [ext_resource type="Texture2D" uid="uid://dp4fybqbkrbly" path="res://assets/spirits/player/player.png" id="2_au7ec"]
 [ext_resource type="Script" path="res://scenes/player/state_machine/state_machine.gd" id="3_k6116"]
 [ext_resource type="Texture2D" uid="uid://iku18ki51o73" path="res://module/house/resource/精灵-0002-Sheet.png" id="3_vk1jp"]
@@ -186,7 +186,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [2]
+"values": [18]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -595,6 +595,12 @@ texture = ExtResource("2_au7ec")
 hframes = 6
 vframes = 3
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Sprite3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0281727, 0)
+cast_shadow = 3
+mesh = SubResource("CylinderMesh_qlfgv")
+skeleton = NodePath("../..")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_fo1up")
 
@@ -639,5 +645,12 @@ unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_oq1ji")
 }
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_right = 293.0
+offset_bottom = 172.0
+theme_override_font_sizes/font_size = 64
 
 [connection signal="to_idle" from="StateMachine/Move" to="StateMachine/Idle" method="_on_move_to_idle"]
