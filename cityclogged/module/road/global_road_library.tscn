@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://q5um0bdfe6tp"]
+
+[ext_resource type="PackedScene" uid="uid://dhanjwn4i8xui" path="res://module/road/highroad.glb" id="1_63ikf"]
+
+[node name="Road" type="Node3D"]
+
+[node name="highroad" parent="." instance=ExtResource("1_63ikf")]

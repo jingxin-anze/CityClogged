@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://b3oupmutlwcac"]
 
-[ext_resource type="PackedScene" uid="uid://dejm0ly4k6dk8" path="res://module/wall/wall.tscn" id="1_0ywqg"]
+[ext_resource type="PackedScene" uid="uid://dejm0ly4k6dk8" path="res://module/wall/wall.tscn" id="1_3cv08"]
 
 [node name="GlobalWallLibrary" type="Node3D"]
 
-[node name="wall" parent="." instance=ExtResource("1_0ywqg")]
+[node name="wall" parent="." instance=ExtResource("1_3cv08")]
