@@ -8,7 +8,7 @@
 [ext_resource type="Shader" uid="uid://bso3c0fxi44oh" path="res://scenes/main/explosion.tres" id="7_pjdo5"]
 [ext_resource type="Texture2D" uid="uid://cjqf3ketgcj4r" path="res://scenes/fireworks_00008.jpg" id="8_fqt87"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_5c1fe"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_yhc5b"]
 custom_aabb = AABB(-51, -1, -51, 102, 2, 102)
 size = Vector2(100, 100)
 subdivide_width = 24
@@ -70,17 +70,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.96743, 0.692725, 3.39168)
 environment = ExtResource("4_7rx4y")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.611527, -0.515956, -0.599854, -6.62782e-08, -0.758134, 0.652099, -0.791224, 0.398776, 0.46362, 0, 21.302, 27.2367)
+transform = Transform3D(-0.611527, -0.515956, -0.599854, 0.268862, -0.848528, 0.455756, -0.744143, 0.117429, 0.657618, -182.521, -189.687, 27.2367)
+light_energy = 1.7
 light_bake_mode = 0
 shadow_enabled = true
-directional_shadow_mode = 0
-directional_shadow_fade_start = 0.5
+directional_shadow_mode = 1
 
 [node name="Water" parent="." instance=ExtResource("5_u4fmj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.102155, 19.5269)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.102155, 7.68772)
 script = ExtResource("5_b44ar")
 size = Vector2(100, 100)
-mesh = SubResource("PlaneMesh_5c1fe")
+mesh = SubResource("PlaneMesh_yhc5b")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.98525, 0.171121, 0, -0.171121, 0.98525, -1.45989, 1.48997, 1.38194)
