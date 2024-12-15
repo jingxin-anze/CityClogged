@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dn354xhy5700u"]
+[gd_scene load_steps=14 format=3 uid="uid://dn354xhy5700u"]
 
 [ext_resource type="MeshLibrary" uid="uid://cu04r0iwb6tnd" path="res://module/road/road_mesh_library.tres" id="1_cwqap"]
 [ext_resource type="PackedScene" uid="uid://bmio6xvvn4bdf" path="res://scenes/player/player.tscn" id="2_new4n"]
@@ -41,6 +41,12 @@ adjustment_enabled = true
 adjustment_contrast = 1.16
 adjustment_saturation = 1.16
 
+[sub_resource type="BoxMesh" id="BoxMesh_4gaa7"]
+custom_aabb = AABB(-51, -1, -51, 102, 2, 102)
+size = Vector3(100, 0, 100)
+subdivide_width = 24
+subdivide_depth = 24
+
 [node name="Test" type="Node3D"]
 
 [node name="RoadGridMap" type="GridMap" parent="."]
@@ -59,10 +65,10 @@ scale = Vector2(15.5, 8.92969)
 texture = ExtResource("5_i6y04")
 
 [node name="Player" parent="." instance=ExtResource("2_new4n")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 2.11014, -0.17428, 28.3227)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 4.4638, 1.36442, 28.3152)
 
 [node name="car" parent="." instance=ExtResource("5_40gt7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.86351, 1.2515, 13.5985)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.86351, 0.203076, 18.4098)
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.611527, -0.515956, -0.599854, -6.62782e-08, -0.758134, 0.652099, -0.791224, 0.398776, 0.46362, 0, 21.302, 27.2367)
@@ -81,4 +87,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 36.361)
 [node name="Water" parent="." instance=ExtResource("8_38pxu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.12326, 19.5269)
 size = Vector2(100, 100)
+mesh = SubResource("BoxMesh_4gaa7")
 show_waterfall = true

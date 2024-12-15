@@ -20,10 +20,10 @@ const SUBDIVISION_RATIO = 0.25
 @export var track_camera:int = 0
 @export var show_waterfall:bool: set = set_show_waterfall
 
-@onready var mesh_instance = $MeshInstance
-@onready var upper_area = $UpperArea
-@onready var lower_area = $LowerArea
-@onready var static_body = $StaticBody
+
+#@onready var upper_area = $UpperArea
+#@onready var lower_area = $LowerArea
+#@onready var static_body = $StaticBody
 #@onready var upper_shape = upper_area.shape_owner_get_shape(upper_area.get_shape_owners()[0], 0) if not has_node(NodePath("UpperArea/CollisionShape")) else $UpperArea / CollisionShape.shape
 #@onready var lower_shape = lower_area.shape_owner_get_shape(lower_area.get_shape_owners()[0], 0) if not has_node(NodePath("LowerArea/CollisionShape")) else $LowerArea / CollisionShape.shape
 #@onready var splash_audio_player = $SplashAudioPlayer
@@ -50,7 +50,7 @@ func set_mesh(value:Mesh):
 	value.custom_aabb = AABB(value.get_aabb().position - Vector3.ONE, value.get_aabb().size + Vector3.ONE * 2.0)
 	if mesh_instance_3d:
 		mesh_instance_3d.mesh = value
-		mesh_instance_3d.translation.y = - depth / 2.0 if value is BoxMesh else 0.0
+		mesh_instance_3d.position.y = - depth / 2.0 if value is BoxMesh else 0.0
 	#if lower_shape:
 		#lower_shape.extents = Vector3(size.x / 2.0, depth / 2.0 - 0.5, size.y / 2.0)
 		#lower_area.translation.y = - depth / 2.0 - 0.5
@@ -62,7 +62,7 @@ func set_mesh(value:Mesh):
 		#static_shape.extents.z = size.y / 2.0
 
 func set_material(mat:Material):
-	mesh_instance.material_override = mat
+	mesh_instance_3d.material_override = mat
 
 func regenerate_mesh():
 	var mesh:Mesh
