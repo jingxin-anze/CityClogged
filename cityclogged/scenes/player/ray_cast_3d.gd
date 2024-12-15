@@ -14,7 +14,6 @@ func _process(delta: float) -> void:
 		var colled_entity:=self.get_collider()
 		if (colled_entity  is not Player) :
 			player.rotation_degrees.y=90.0
-
 			return
 		#elif (colled_entity is Player):
 			#player.rotation_degrees.y=0.0

@@ -1,4 +1,4 @@
-extends Resource
+class_name SLSystem extends Resource
 
 @export var archives_file:Dictionary={
 }
@@ -26,10 +26,10 @@ func load_data(key:String):
 ##打印出所有数据
 func show_all_content():
 	_init_file()
-	if archives_file:
+	if data.archives_file:
 		print(data.archives_file)
 	else:
-		print("存档未写入任何内容")
+		printerr("存档未写入任何内容")
 
 ##打印出特定的键值对
 func show_certain_content(key:String):
@@ -37,7 +37,7 @@ func show_certain_content(key:String):
 	if key in data.archives_file:
 		print(key+" : "+"%d"%data.archives_file[key])
 	else:
-		printerr("键 "+key+" 不存在")
+		printerr("键<"+key+">不存在")
 
 ##清空字典里的所有内容
 func clear_content():
@@ -52,7 +52,7 @@ func clear_certain_content(key:String):
 		data.archives_file.erase(key)
 		ResourceSaver.save(data, game_data_path)
 	else:
-		printerr("键 "+key+" 不存在")
+		printerr("键<"+key+">不存在")
 
 ##初始化文件，一般来说外界无需刻意调用
 func _init_file():

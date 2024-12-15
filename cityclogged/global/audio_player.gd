@@ -1,7 +1,7 @@
 extends Node
 
 ##播放音频
-func play(stream:AudioStream, single:bool=false,is_release:bool=true,volume:float=0,about_position:bool=false) -> Node:
+func play(stream:AudioStream, single:bool=false,is_release:bool=true,volume:float=0,) -> Node:
 	if single:
 		# 获取所有的audio节点
 		var audio_list = get_children()
@@ -12,22 +12,15 @@ func play(stream:AudioStream, single:bool=false,is_release:bool=true,volume:floa
 				
 	#创建播放器
 	var audio=AudioStreamPlayer.new()
-	var audio1=AudioStreamPlayer2D.new()
 	#传入音频文件
-	if not about_position:
-		audio.volume_db=volume
-		audio.stream=stream
-		audio.finished.connect(_finished.bind(audio,is_release))
-		add_child(audio)
-		audio.playing=true
-		return audio
-	else:
-		audio1.volume_db=volume
-		audio1.stream=stream
-		audio1.finished.connect(_finished.bind(audio1,is_release))
-		add_child(audio1)
-		audio1.playing=true
-		return audio1
+
+	audio.volume_db=volume
+	audio.stream=stream
+	audio.finished.connect(_finished.bind(audio,is_release))
+	add_child(audio)
+	audio.playing=true
+	return audio
+
 
 ##暂停此播放器
 func pause(audio):
