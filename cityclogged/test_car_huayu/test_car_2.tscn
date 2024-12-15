@@ -11,6 +11,7 @@ size = Vector3(2, 1, 1)
 albedo_color = Color(0, 0.537255, 0.886275, 1)
 
 [node name="TestCar2" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 script = ExtResource("1_rhd13")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

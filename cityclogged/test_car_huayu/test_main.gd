@@ -8,4 +8,5 @@ var s: Array = []
 
 
 func _ready() -> void:
+	test_car_2.is_target = true
 	test_car_2.target_one = target.position

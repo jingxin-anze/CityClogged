@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkseksg62jggv"]
+
+[ext_resource type="PackedScene" uid="uid://duhfpckx28crx" path="res://module/door/door.glb" id="1_kv4nr"]
+
+[node name="Door" type="Node3D"]
+
+[node name="door" parent="." instance=ExtResource("1_kv4nr")]

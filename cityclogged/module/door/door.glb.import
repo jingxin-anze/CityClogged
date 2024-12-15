@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dhanjwn4i8xui"
-path="res://.godot/imported/highroad.glb-45bcc07147fa78b63f35dfa45e587a64.scn"
+uid="uid://duhfpckx28crx"
+path="res://.godot/imported/door.glb-dab1970e2b592b2b62bb3de45833ead2.scn"
 
 [deps]
 
-source_file="res://module/road/highroad.glb"
-dest_files=["res://.godot/imported/highroad.glb-45bcc07147fa78b63f35dfa45e587a64.scn"]
+source_file="res://module/door/door.glb"
+dest_files=["res://.godot/imported/door.glb-dab1970e2b592b2b62bb3de45833ead2.scn"]
 
 [params]
 
