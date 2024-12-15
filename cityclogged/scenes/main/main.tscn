@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dlbpuf67ft571"]
+[gd_scene load_steps=22 format=3 uid="uid://dlbpuf67ft571"]
 
 [ext_resource type="MeshLibrary" uid="uid://c4s4w4fsdul85" path="res://scenes/space_library/space_library.tres" id="1_llmn4"]
 [ext_resource type="PackedScene" uid="uid://bmio6xvvn4bdf" path="res://scenes/player/player.tscn" id="2_y577h"]
@@ -15,7 +15,7 @@ size = Vector3(7.91547, 1, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_7tuu7"]
 size = Vector3(4.04672, 1, 1)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_j2qeh"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_rx37d"]
 custom_aabb = AABB(-51, -1, -51, 102, 2, 102)
 size = Vector2(100, 100)
 subdivide_width = 24
@@ -58,6 +58,9 @@ color_ramp = SubResource("GradientTexture1D_ofscj")
 alpha_curve = SubResource("CurveTexture_s3ol7")
 
 [sub_resource type="QuadMesh" id="QuadMesh_3kojy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bnrjr"]
+size = Vector3(4.29175, 1, 1)
 
 [node name="Main" type="Node3D"]
 
@@ -103,7 +106,7 @@ directional_shadow_fade_start = 0.5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.102155, 19.5269)
 script = ExtResource("5_b44ar")
 size = Vector2(100, 100)
-mesh = SubResource("PlaneMesh_j2qeh")
+mesh = SubResource("PlaneMesh_rx37d")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.98525, 0.171121, 0, -0.171121, 0.98525, -1.45989, 1.48997, 1.38194)
@@ -115,3 +118,10 @@ one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_x7be0")
 draw_pass_1 = SubResource("QuadMesh_3kojy")
+
+[node name="ChangePlayerView3" parent="." instance=ExtResource("3_5j5vi")]
+carmera_relative_pos = "x-"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ChangePlayerView3"]
+transform = Transform3D(1.17679, 0, 0, 0, 1.17679, 0, 0, 0, 1.17679, -0.210815, 0.979194, 3.08885)
+shape = SubResource("BoxShape3D_bnrjr")

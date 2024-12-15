@@ -1,10 +1,11 @@
-[gd_scene load_steps=34 format=3 uid="uid://bmio6xvvn4bdf"]
+[gd_scene load_steps=35 format=3 uid="uid://bmio6xvvn4bdf"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_1ts8h"]
 [ext_resource type="Resource" uid="uid://c8nprk81gh2sc" path="res://scenes/player/player_attri.tres" id="2_2wrdh"]
 [ext_resource type="Texture2D" uid="uid://dp4fybqbkrbly" path="res://assets/spirits/player/player.png" id="2_au7ec"]
 [ext_resource type="Script" path="res://scenes/player/state_machine/state_machine.gd" id="3_k6116"]
 [ext_resource type="Script" path="res://scenes/player/state_machine/move.gd" id="4_c4g23"]
+[ext_resource type="Script" path="res://scenes/player/ray_cast_3d.gd" id="4_mcxnv"]
 [ext_resource type="Script" path="res://scenes/player/state_machine/idle.gd" id="6_6y7xq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fo1up"]
@@ -574,7 +575,6 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody3D"]
-transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 0, 0, 0)
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_1ts8h")
@@ -594,7 +594,11 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0.675, 1.5)
 
 [node name="Camera3D" type="Camera3D" parent="Pitch"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="RayCast3D" type="RayCast3D" parent="Pitch/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0.312869, -0.987688, 0, 1.97538, 0.156434, 0, 0, 0)
+collision_mask = 5
+script = ExtResource("4_mcxnv")
 
 [node name="StateMachine" type="Node3D" parent="." node_paths=PackedStringArray("current_state")]
 script = ExtResource("3_k6116")

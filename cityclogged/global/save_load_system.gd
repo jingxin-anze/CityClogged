@@ -24,7 +24,7 @@ func load_data(key:String):
 	return data.archives_file[key]
 
 ##打印出所有数据
-func show_all_infro():
+func show_all_content():
 	_init_file()
 	if archives_file:
 		print(data.archives_file)
@@ -32,7 +32,7 @@ func show_all_infro():
 		print("存档未写入任何内容")
 
 ##打印出特定的键值对
-func show_certain_infro(key:String):
+func show_certain_content(key:String):
 	_init_file()
 	if key in data.archives_file:
 		print(key+" : "+"%d"%data.archives_file[key])

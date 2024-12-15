@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dp4fybqbkrbly"
-path.s3tc="res://.godot/imported/player.png-79edeaa81e8ca2667fd2d9c2b5dc032e.s3tc.ctex"
+path="res://.godot/imported/player.png-79edeaa81e8ca2667fd2d9c2b5dc032e.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/spirits/player/player.png"
-dest_files=["res://.godot/imported/player.png-79edeaa81e8ca2667fd2d9c2b5dc032e.s3tc.ctex"]
+dest_files=["res://.godot/imported/player.png-79edeaa81e8ca2667fd2d9c2b5dc032e.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
