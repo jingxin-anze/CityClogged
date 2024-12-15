@@ -16,6 +16,7 @@ func _ready() -> void:
 	jump_speed=self_attri.attri["jump_speed"]
 
 func _physics_process(delta: float) -> void:
+	$CanvasLayer/Label.text=str(self.rotation_degrees.y)
 	movement_direction= Input.get_vector("move_backward", "move_forward", "move_left", "move_right")
 	movement_direction_3d= basis.x * movement_direction.y  - basis.z * movement_direction.x
 	if not is_on_floor():

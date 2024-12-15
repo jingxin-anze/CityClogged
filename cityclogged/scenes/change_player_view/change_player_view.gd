@@ -6,10 +6,8 @@ var rotate_time:int=1
 #var time:float
 #var player:Player
 func _ready() -> void:
-	var a=SLSystem.new()
-	a.clear_certain_content("a")
-	a.show_all_content()
 	pass
+	
 func _on_body_entered(body: Node3D) -> void:
 	if body is Player:
 		#player=body
