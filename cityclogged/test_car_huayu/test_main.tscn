@@ -9,14 +9,14 @@ ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 0.8
 
-[sub_resource type="NavigationMesh" id="NavigationMesh_0g5r7"]
-vertices = PackedVector3Array(14, 0.5, -9.25, 14, 0.5, -9, 14.25, 0.5, -9, 14.75, 0.5, -9.75, 14.25, 0.5, 1, 14, 0.5, 1, 14, 0.5, 1.25, 14.75, 0.5, 1.75, -15.75, 0.5, -9.75, -15.75, 0.5, -9.25, -15.75, 0.5, 1.75, -15.75, 0.5, 1.25)
-polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(9, 8, 0), PackedInt32Array(0, 8, 3), PackedInt32Array(11, 6, 10), PackedInt32Array(10, 6, 7), PackedInt32Array(4, 2, 7), PackedInt32Array(7, 2, 3)]
-agent_radius = 0.1
-edge_max_length = 0.1
-edge_max_error = 0.1
-
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dhig3"]
+
+[sub_resource type="Curve3D" id="Curve3D_ckb4r"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 6.36907, 0, -4.37685, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
 
 [node name="TestMain" type="Node3D"]
 script = ExtResource("1_sbbm0")
@@ -41,10 +41,12 @@ environment = SubResource("Environment_e6twf")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.52267, 6.42898, -11.5074)
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
-navigation_mesh = SubResource("NavigationMesh_0g5r7")
+[node name="test_car_3" parent="." instance=ExtResource("3_neero")]
+unique_name_in_owner = true
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.948, 0.07, 1.51864)
+speed = 3.0
 
-[node name="RoadMain" type="GridMap" parent="NavigationRegion3D"]
+[node name="RoadMain" type="GridMap" parent="."]
 mesh_library = ExtResource("1_t6132")
 physics_material = SubResource("PhysicsMaterial_dhig3")
 cell_size = Vector3(1, 1, 1)
@@ -53,7 +55,5 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, -1, 0)
 
-[node name="test_car_3" parent="." instance=ExtResource("3_neero")]
-unique_name_in_owner = true
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.948, 0.07, 1.51864)
-speed = 3.0
+[node name="Path3D" type="Path3D" parent="."]
+curve = SubResource("Curve3D_ckb4r")

@@ -17,7 +17,11 @@ var direction_2d_long: Vector2
 @onready var ray_cast_3d: RayCast3D = $RayCast3D
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
 
+var astar3d: AStar3D
+var map_points: Array = []
+
 func _ready() -> void:
+	astar3d = AStar3D.new()
 	direction_2d_long = Vector2(cos(rotation.y),sin(rotation.y))
 
 func _physics_process(delta: float) -> void:
@@ -42,3 +46,11 @@ func _physics_process(delta: float) -> void:
 			engine_force = _add_engine
 		else:
 			engine_force = 0
+
+func _reset() -> void:
+	for i in map_points.size():
+		astar3d.add_point(i,map_points[i],1)
+		print(map_points[i])
+	astar3d.connect_points(0, 1, false)
+
+	print(astar3d.get_point_path(0,1,true))

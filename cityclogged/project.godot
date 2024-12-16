@@ -27,8 +27,6 @@ gdscript/warnings/unused_parameter=0
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/always_on_top=true
-window/size/window_width_override=1152
-window/size/window_height_override=648
 
 [input]
 
@@ -78,6 +76,7 @@ turn_right={
 3d_physics/layer_1="ground"
 3d_physics/layer_2="envir"
 3d_physics/layer_3="player"
+3d_physics/layer_4="car"
 
 [physics]
 
