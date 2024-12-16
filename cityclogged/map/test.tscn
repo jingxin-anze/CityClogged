@@ -3,7 +3,7 @@
 [ext_resource type="MeshLibrary" uid="uid://bmsgpshcj2gbr" path="res://module/road/road_mesh_library.tres" id="1_cwqap"]
 [ext_resource type="PackedScene" uid="uid://bmio6xvvn4bdf" path="res://scenes/player/player.tscn" id="2_new4n"]
 [ext_resource type="Shader" path="res://map/test.gdshader" id="4_mtvkm"]
-[ext_resource type="PackedScene" uid="uid://4xh60suu8gxd" path="res://module/3d_car/resource/car.blend" id="5_40gt7"]
+[ext_resource type="PackedScene" uid="uid://4xh60suu8gxd" path="res://module/3d_car/resource/car_wheel.blend" id="5_40gt7"]
 [ext_resource type="PackedScene" uid="uid://bx1w6osymq5w0" path="res://scenes/change_player_view/change_player_view.tscn" id="5_fokxc"]
 [ext_resource type="Texture2D" uid="uid://q3wn8eyxtqgg" path="res://icon.svg" id="5_i6y04"]
 [ext_resource type="PackedScene" uid="uid://ywgrdrwt1wle" path="res://module/house/house_1.tscn" id="7_gtw77"]
@@ -46,7 +46,7 @@ adjustment_enabled = true
 adjustment_contrast = 1.16
 adjustment_saturation = 1.16
 
-[sub_resource type="BoxMesh" id="BoxMesh_xf3l6"]
+[sub_resource type="BoxMesh" id="BoxMesh_bua7d"]
 custom_aabb = AABB(-51, -1, -51, 102, 2, 102)
 size = Vector3(100, 0, 100)
 subdivide_width = 24
@@ -96,7 +96,7 @@ environment = SubResource("Environment_i8ac2")
 [node name="Water" parent="." instance=ExtResource("8_38pxu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.12326, 19.5269)
 size = Vector2(100, 100)
-mesh = SubResource("BoxMesh_xf3l6")
+mesh = SubResource("BoxMesh_bua7d")
 show_waterfall = true
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
