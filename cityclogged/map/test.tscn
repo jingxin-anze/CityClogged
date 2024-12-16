@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dn354xhy5700u"]
+[gd_scene load_steps=17 format=3 uid="uid://dn354xhy5700u"]
 
 [ext_resource type="MeshLibrary" uid="uid://bmsgpshcj2gbr" path="res://module/road/road_mesh_library.tres" id="1_cwqap"]
 [ext_resource type="PackedScene" uid="uid://bmio6xvvn4bdf" path="res://scenes/player/player.tscn" id="2_new4n"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ywgrdrwt1wle" path="res://module/house/house_1.tscn" id="7_gtw77"]
 [ext_resource type="PackedScene" uid="uid://ck6xo5fwq4133" path="res://module/water/water.tscn" id="8_38pxu"]
 [ext_resource type="Texture2D" uid="uid://i5rr5rfs1gmn" path="res://module/DayNgiht/resources/skybox_small.png" id="8_kfyjg"]
+[ext_resource type="Texture2D" uid="uid://cnhqbnf0q6302" path="res://module/robot/alarm_robot_idle-Sheet.png" id="10_0wqv6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kbu72"]
 shader = ExtResource("4_mtvkm")
@@ -45,7 +46,7 @@ adjustment_enabled = true
 adjustment_contrast = 1.16
 adjustment_saturation = 1.16
 
-[sub_resource type="BoxMesh" id="BoxMesh_23hx1"]
+[sub_resource type="BoxMesh" id="BoxMesh_2bl7o"]
 custom_aabb = AABB(-51, -1, -51, 102, 2, 102)
 size = Vector3(100, 0, 100)
 subdivide_width = 24
@@ -98,5 +99,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.18004, 0, 31.1554)
 [node name="Water" parent="." instance=ExtResource("8_38pxu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.12326, 19.5269)
 size = Vector2(100, 100)
-mesh = SubResource("BoxMesh_23hx1")
+mesh = SubResource("BoxMesh_2bl7o")
 show_waterfall = true
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0.00681138, 1.25614, 30.4973)
+texture_filter = 0
+texture = ExtResource("10_0wqv6")
+hframes = 2
