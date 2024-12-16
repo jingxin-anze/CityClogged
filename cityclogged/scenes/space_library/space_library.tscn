@@ -383,7 +383,7 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Road/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_axfjg")
 
-[node name="CrossRoads" type="MeshInstance3D" parent="."]
+[node name="CrossRoads" type="MeshInstance3D" parent="." groups=["road"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.95572, 0.0365754, -0.751428)
 mesh = SubResource("ArrayMesh_uouv6")
 skeleton = NodePath("")
