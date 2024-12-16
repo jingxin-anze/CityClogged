@@ -33,6 +33,7 @@ func _physics_process(delta: float) -> void:
 				#angular_velocity = Vector3(0,0,0)
 			queue_free()
 			return
+		
 		direction_3d = (navigation_agent_3d.get_next_path_position() - global_position).normalized()
 		#print(direction_3d)
 		var direction_2d: = Vector2(direction_3d.z,direction_3d.x)
