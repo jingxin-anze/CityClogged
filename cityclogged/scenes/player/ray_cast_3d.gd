@@ -8,7 +8,7 @@ func _ready() -> void:
 	await owner.ready
 	player=owner
 	sprite=player.get_node("Sprite3D")
-	
+
 func _process(delta: float) -> void:
 	self.force_raycast_update()
 

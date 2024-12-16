@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://dlbpuf67ft571"]
+[gd_scene load_steps=20 format=3 uid="uid://dlbpuf67ft571"]
 
 [ext_resource type="Script" path="res://scenes/main/logical_vehicle.gd" id="1_its2q"]
 [ext_resource type="MeshLibrary" uid="uid://4spla5mfom7j" path="res://scenes/space_library/space_library.tres" id="1_llmn4"]
+[ext_resource type="PackedScene" uid="uid://bmio6xvvn4bdf" path="res://scenes/player/player.tscn" id="2_y577h"]
 [ext_resource type="Environment" uid="uid://bhj0n7730mo2l" path="res://scenes/main/world_envir.tres" id="4_7rx4y"]
 [ext_resource type="Script" path="res://scenes/main/water.gd" id="5_b44ar"]
 [ext_resource type="PackedScene" uid="uid://ck6xo5fwq4133" path="res://module/water/water.tscn" id="5_u4fmj"]
@@ -98,3 +99,7 @@ draw_pass_1 = SubResource("QuadMesh_3kojy")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.700909, 0.71325, 0, -0.71325, 0.700909, 17.0601, 10.3095, 21.5741)
+visible = false
+
+[node name="Player" parent="." instance=ExtResource("2_y577h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1702, 2.47084, 11.0488)
