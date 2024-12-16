@@ -1,9 +1,7 @@
 extends RayCast3D
 
 var player:Player
-var sprite:Sprite3D
-var is_first:bool=true
-
+var is_change: bool = true
 func _ready() -> void:
 	await owner.ready
 	player=owner
@@ -14,14 +12,18 @@ func _process(delta: float) -> void:
 
 	if self.is_colliding():
 		var colled_entity:=self.get_collider()
-		if (colled_entity  is not Player) and is_first:
-			sprite.no_depth_test=true
-			sprite.modulate=Color.BLACK
-			is_first=false
+		if (colled_entity  is not Player) && is_change:
+			player.rotation_degrees.y=90.0
+			is_change = false
 			return
-		elif (colled_entity is Player):
-			is_first=true
-			sprite.no_depth_test=false
-			sprite.modulate=Color(1,1,1)
-			
-		pass
+		#elif (colled_entity is Player):
+			#player.rotation_degrees.y=0.0
+	
+	if 	!is_change:
+		camera_raycast_player()
+
+
+func  camera_raycast_player():
+	var colled_entity:=self.get_collider()
+	if colled_entity  is Player:
+		is_change = true

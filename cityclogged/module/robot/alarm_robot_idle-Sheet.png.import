@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1t2jrsofjmd4"
-path.s3tc="res://.godot/imported/side-Sheet.png-3cc288a18db692fdb1757e822672389c.s3tc.ctex"
+uid="uid://cnhqbnf0q6302"
+path.s3tc="res://.godot/imported/alarm_robot_idle-Sheet.png-37bdfee7d8aec4dbf3bb606ba4c2b3b8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/spirits/player/side-Sheet.png"
-dest_files=["res://.godot/imported/side-Sheet.png-3cc288a18db692fdb1757e822672389c.s3tc.ctex"]
+source_file="res://module/robot/alarm_robot_idle-Sheet.png"
+dest_files=["res://.godot/imported/alarm_robot_idle-Sheet.png-37bdfee7d8aec4dbf3bb606ba4c2b3b8.s3tc.ctex"]
 
 [params]
 
