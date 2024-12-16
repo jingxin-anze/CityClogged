@@ -3,7 +3,7 @@
 [ext_resource type="MeshLibrary" uid="uid://bmsgpshcj2gbr" path="res://module/road/road_mesh_library.tres" id="1_cwqap"]
 [ext_resource type="PackedScene" uid="uid://bmio6xvvn4bdf" path="res://scenes/player/player.tscn" id="2_new4n"]
 [ext_resource type="Shader" path="res://map/test.gdshader" id="4_mtvkm"]
-[ext_resource type="PackedScene" uid="uid://4xh60suu8gxd" path="res://module/3d_car/resource/car.blend" id="5_40gt7"]
+[ext_resource type="PackedScene" uid="uid://4xh60suu8gxd" path="res://module/3d_car/resource/car_wheel.blend" id="5_40gt7"]
 [ext_resource type="Texture2D" uid="uid://q3wn8eyxtqgg" path="res://icon.svg" id="5_i6y04"]
 [ext_resource type="PackedScene" uid="uid://ywgrdrwt1wle" path="res://module/house/house_1.tscn" id="7_gtw77"]
 [ext_resource type="PackedScene" uid="uid://ck6xo5fwq4133" path="res://module/water/water.tscn" id="8_38pxu"]

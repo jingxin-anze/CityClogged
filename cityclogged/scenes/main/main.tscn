@@ -1,14 +1,16 @@
-[gd_scene load_steps=18 format=3 uid="uid://dlbpuf67ft571"]
+[gd_scene load_steps=19 format=3 uid="uid://dlbpuf67ft571"]
 
-[ext_resource type="MeshLibrary" uid="uid://c4s4w4fsdul85" path="res://scenes/space_library/space_library.tres" id="1_llmn4"]
-[ext_resource type="PackedScene" uid="uid://bmio6xvvn4bdf" path="res://scenes/player/player.tscn" id="2_y577h"]
+[ext_resource type="Script" path="res://scenes/main/logical_vehicle.gd" id="1_its2q"]
+[ext_resource type="MeshLibrary" uid="uid://4spla5mfom7j" path="res://scenes/space_library/space_library.tres" id="1_llmn4"]
 [ext_resource type="Environment" uid="uid://bhj0n7730mo2l" path="res://scenes/main/world_envir.tres" id="4_7rx4y"]
 [ext_resource type="Script" path="res://scenes/main/water.gd" id="5_b44ar"]
 [ext_resource type="PackedScene" uid="uid://ck6xo5fwq4133" path="res://module/water/water.tscn" id="5_u4fmj"]
 [ext_resource type="Shader" uid="uid://bso3c0fxi44oh" path="res://scenes/main/explosion.tres" id="7_pjdo5"]
 [ext_resource type="Texture2D" uid="uid://cjqf3ketgcj4r" path="res://scenes/fireworks_00008.jpg" id="8_fqt87"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_yhc5b"]
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_tpieb"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vdkwm"]
 custom_aabb = AABB(-51, -1, -51, 102, 2, 102)
 size = Vector2(100, 100)
 subdivide_width = 24
@@ -54,17 +56,18 @@ alpha_curve = SubResource("CurveTexture_s3ol7")
 
 [node name="Main" type="Node3D"]
 
+[node name="LogicalVehicle" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.511144, 5.31281)
+mesh = SubResource("CapsuleMesh_tpieb")
+script = ExtResource("1_its2q")
+
 [node name="GridMap" type="GridMap" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
 mesh_library = ExtResource("1_llmn4")
-cell_size = Vector3(1, 1, 1)
+cell_size = Vector3(4, 1, 4)
 data = {
-"cells": PackedInt32Array(65529, 0, 5, 65535, 0, 4, 65529, 8, 5, 65529, 65528, 5, 65520, 0, 2, 131068, 0, 1, 65527, 3, 3, 65527, 65533, 0, 65534, 6, 2, 131063, 65533, 0, 196599, 65533, 0, 3, 0, 4, 7, 0, 4)
+"cells": PackedInt32Array(0, 1, 1, 1, 1, 1, 2, 1, 1, 3, 1, 1, 0, 2, 1, 0, 3, 1, 2, 2, 1, 2, 3, 1, 4, 2, 1, 4, 3, 1, 6, 1, 1, 6, 2, 1, 7, 2, 1, 7, 1, 1, 5, 3, 1, 4, 1, 1, 6, 3, 1, 8, 1, 1, 9, 65535, 1)
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
-
-[node name="Player" parent="." instance=ExtResource("2_y577h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.96743, 0.692725, 3.39168)
 
 [node name="WorldEnvironment2" type="WorldEnvironment" parent="."]
 environment = ExtResource("4_7rx4y")
@@ -77,10 +80,10 @@ shadow_enabled = true
 directional_shadow_mode = 1
 
 [node name="Water" parent="." instance=ExtResource("5_u4fmj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.102155, 7.68772)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.83452, 7.68772)
 script = ExtResource("5_b44ar")
 size = Vector2(100, 100)
-mesh = SubResource("PlaneMesh_yhc5b")
+mesh = SubResource("PlaneMesh_vdkwm")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.98525, 0.171121, 0, -0.171121, 0.98525, -1.45989, 1.48997, 1.38194)
@@ -92,3 +95,6 @@ one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_x7be0")
 draw_pass_1 = SubResource("QuadMesh_3kojy")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.700909, 0.71325, 0, -0.71325, 0.700909, 17.0601, 10.3095, 21.5741)

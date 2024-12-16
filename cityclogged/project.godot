@@ -28,6 +28,10 @@ window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/always_on_top=true
 
+[global_group]
+
+road=""
+
 [input]
 
 move_backward={
@@ -76,6 +80,7 @@ turn_right={
 3d_physics/layer_1="ground"
 3d_physics/layer_2="envir"
 3d_physics/layer_3="player"
+3d_physics/layer_4="car"
 
 [physics]
 
