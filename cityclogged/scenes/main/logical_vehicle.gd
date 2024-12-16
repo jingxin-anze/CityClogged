@@ -22,7 +22,7 @@ func _ready() -> void:
 	for i in astar.get_point_path(1,am):
 		self.position=i
 		await get_tree().create_timer(0.5).timeout
-	print( astar.get_id_path(1,am))
+
 	
 func _process(delta: float) -> void:
 	pass

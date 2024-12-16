@@ -11,8 +11,9 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	self.force_raycast_update()
-
+	
 	if self.is_colliding():
+		
 		var colled_entity:=self.get_collider()
 		if (colled_entity  is not Player) and is_first:
 			sprite.no_depth_test=true
@@ -23,5 +24,4 @@ func _process(delta: float) -> void:
 			is_first=true
 			sprite.no_depth_test=false
 			sprite.modulate=Color(1,1,1)
-			
 		pass
