@@ -13,4 +13,6 @@ func _ready() -> void:
 		#print(road_main.map_to_local(i))
 	test_car_3.is_target = true
 	test_car_3.target_one = target.position
+	test_car_3.start_point = test_car_3.position
+	test_car_3.end_point = target.position
 	test_car_3._reset()
