@@ -11,7 +11,7 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_tpieb"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_an28i"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_fp0jp"]
 custom_aabb = AABB(-51, -1, -51, 102, 2, 102)
 size = Vector2(100, 100)
 subdivide_width = 24
@@ -89,7 +89,7 @@ directional_shadow_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.63452, 7.68772)
 script = ExtResource("5_b44ar")
 size = Vector2(100, 100)
-mesh = SubResource("PlaneMesh_an28i")
+mesh = SubResource("PlaneMesh_fp0jp")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.98525, 0.171121, 0, -0.171121, 0.98525, -1.45989, 1.48997, 1.38194)
