@@ -35,7 +35,6 @@ ambient_light_energy = 0.5
 glow_enabled = true
 glow_normalized = true
 glow_intensity = 1.0
-fog_enabled = true
 fog_mode = 1
 fog_light_color = Color(0.501961, 0.6, 0.701961, 1)
 fog_light_energy = 0.75
@@ -46,7 +45,7 @@ adjustment_enabled = true
 adjustment_contrast = 1.16
 adjustment_saturation = 1.16
 
-[sub_resource type="BoxMesh" id="BoxMesh_bua7d"]
+[sub_resource type="BoxMesh" id="BoxMesh_g3uwp"]
 custom_aabb = AABB(-51, -1, -51, 102, 2, 102)
 size = Vector3(100, 0, 100)
 subdivide_width = 24
@@ -94,9 +93,9 @@ directional_shadow_fade_start = 0.5
 environment = SubResource("Environment_i8ac2")
 
 [node name="Water" parent="." instance=ExtResource("8_38pxu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.12326, 19.5269)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.280696, -1.36623, 19.382)
 size = Vector2(100, 100)
-mesh = SubResource("BoxMesh_bua7d")
+mesh = SubResource("BoxMesh_g3uwp")
 show_waterfall = true
 
 [node name="Sprite3D" type="Sprite3D" parent="."]

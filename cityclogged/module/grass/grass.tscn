@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://drkbpqqvmnhgj"]
+
+[ext_resource type="Texture2D" uid="uid://blkdo6tq0apon" path="res://module/grass/grasslands_grass_1.png" id="1_6mh3a"]
+[ext_resource type="Shader" path="res://module/grass/grass.gdshader" id="1_pg53o"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lsxrp"]
+render_priority = 0
+shader = ExtResource("1_pg53o")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/flags_albedo_tex_force_srgb = false
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.0
+shader_parameter/alpha_scissor_threshold = 0.1
+shader_parameter/roughness = 0.0
+shader_parameter/point_size = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = null
+shader_parameter/uv2_scale = Vector3(1.145, 1.165, 0.915)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/wind_strength = Vector3(0.25, 0, 0.125)
+shader_parameter/wind_phase = 1.39
+shader_parameter/avoid_pos1 = Vector3(0, -993.635, 0)
+shader_parameter/avoid_pos2 = Vector3(0, -1000, 0)
+shader_parameter/avoid_distance = 1.5
+shader_parameter/avoid_amount = 0.667
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+material_override = SubResource("ShaderMaterial_lsxrp")
+lod_bias = 0.001
+pixel_size = 0.125
+texture_filter = 0
+texture = ExtResource("1_6mh3a")
+region_enabled = true
+region_rect = Rect2(0, 0, 8, 8)
