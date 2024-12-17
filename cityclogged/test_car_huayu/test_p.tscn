@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmcq7wsjbeo2i"]
+
+[ext_resource type="Script" path="res://test_car_huayu/test_p.gd" id="1_ilyow"]
+
+[node name="test_p" type="Node3D"]
+script = ExtResource("1_ilyow")

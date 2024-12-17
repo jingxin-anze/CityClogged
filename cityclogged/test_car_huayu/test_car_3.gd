@@ -62,26 +62,31 @@ func _reset() -> void:
 			for j in temp_array[i].size() - 1:
 				if temp_array[i][j+1].z - temp_array[i][j].z <= 1.5:
 					astar3d.connect_points(temp_array2[i][j+1], temp_array2[i][j], true)
-				if temp_array[i+1][j].x - temp_array[i][j].x <= 1.5:
-					astar3d.connect_points(_now_id, _now_id + 1, true)
+				for k in temp_array[i+1].size() - 1:
+					if temp_array[i+1][k].x - temp_array[i][j].x <= 1.5:
+						astar3d.connect_points(temp_array2[i+1][k], temp_array2[i][j], true)
 				#astar3d.connect_points(i,i+1,true)
 	#map_points.sort()
 	#astar3d.connect_points(0, 1, false)
-	#print(astar3d.get_point_path(0,1,true))
+	print(astar3d.get_point_path(0,4,true))
 #数组排序
 func _sort_array() -> void:
 	map_points.sort_custom(_custom_sort)
 	var _x: int = 0
 	var _y: int = 0
-	temp_array[_x][_y] = map_points[0]
-	temp_array2[_x][_y] = 0
+	temp_array.append([])
+	temp_array[_x].append(map_points[0])
+	temp_array2.append([])
+	temp_array2[_x].append(0)
 	for i in map_points.size() - 1:
 		if is_zero_approx(map_points[i].x - map_points[i+1].x):
-			temp_array[_x][++_y] = map_points[i+1]
-			temp_array2[_x][++_y] = i+1
+			temp_array[_x].append(map_points[i+1])
+			temp_array2[_x].append(i+1)
 		else :
-			temp_array[++_x][0] = map_points[i+1]
-			temp_array2[++_x][0] = i+1
+			temp_array.append([])
+			temp_array[++_x].append(map_points[i+1])
+			temp_array2.append([])
+			temp_array2[++_x].append(i+1)
 #自定义排序，从左上到右下
 func _custom_sort(a: Vector3,b: Vector3) -> bool:
 	if a.x < b.x:
