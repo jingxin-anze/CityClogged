@@ -1,7 +1,7 @@
 [gd_scene load_steps=36 format=3 uid="uid://bmio6xvvn4bdf"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_1ts8h"]
-[ext_resource type="Resource" path="res://scenes/player/player_attri.tres" id="2_2wrdh"]
+[ext_resource type="Resource" uid="uid://c8nprk81gh2sc" path="res://scenes/player/player_attri.tres" id="2_2wrdh"]
 [ext_resource type="Texture2D" uid="uid://dp4fybqbkrbly" path="res://assets/spirits/player/player.png" id="2_au7ec"]
 [ext_resource type="Script" path="res://scenes/player/state_machine/state_machine.gd" id="3_k6116"]
 [ext_resource type="Script" path="res://scenes/player/state_machine/move.gd" id="4_c4g23"]
@@ -15,7 +15,7 @@ height = 0.15
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fo1up"]
 radius = 0.1
-height = 0.3
+height = 0.22
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2bdky"]
 animation = &"idle_down"
@@ -598,6 +598,7 @@ mesh = SubResource("CylinderMesh_n63s8")
 skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0012631, 0)
 shape = SubResource("CapsuleShape3D_fo1up")
 
 [node name="Pitch" type="Node3D" parent="."]
