@@ -2,7 +2,9 @@ class_name CommonCar
 extends VehicleBody3D
 
 ##急刹车
-@export var brake_factor: float = 10
+@export var urgent_brake_factor: float = 15
+##正常刹车
+@export var common_brake_factor: float = 10
 ##转弯减速刹车
 @export var turn_brake_factor: float = 2
 ##直线加速
@@ -17,16 +19,26 @@ extends VehicleBody3D
 @export var turn_steering: float = PI/8
 ##距离多少米时开始减速
 @export var turn_reduce_lenth: float = 1.1
+##距离信号灯多少米开始刹车
+@export var light_lenth: float = 2
+##距离前车多少米开始刹车
+@export var car_lengh: float = 1
 
 ##转弯时的目标y 旋转角度
 var target_rotation: float = 0
+##当前左转还是右转
+var left_right_turn: int = -1
 
+@onready var front_light_ray: RayCast3D = $FrontLightRay
+@onready var front_car_ray: RayCast3D = $FrontCarRay
 @onready var front_road_ray: RayCast3D = $FrontRoadRay
 @onready var left_road_ray: RayCast3D = $LeftRoadRay
 @onready var right_road_ray: RayCast3D = $RightRoadRay
 @onready var car_state_machine: CarStateMachine = $CarStateMachine
 
 func _ready() -> void:
+	front_light_ray.target_position.z = light_lenth
+	front_car_ray.target_position.z = car_lengh
 	left_road_ray.position.z = turn_reduce_lenth
 	right_road_ray.position.z = turn_reduce_lenth
 	target_rotation = _fixes_degree(self.rotation.y)
@@ -34,6 +46,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	self.rotation.y = _positive_degree(self.rotation.y)
+	#print(target_rotation)
 	#print(linear_velocity.length())
 	#if self.rotation.y == 2*PI:
 		#self.rotation.y = 0

@@ -5,8 +5,10 @@ func enter() -> void:
 	#common_car.engine_force = 0
 	#common_car.brake_factor = 5
 func physics_process(delta: float) -> void:
-	
-	common_car.steering = common_car.turn_steering
+	if common_car.left_right_turn == 0:
+		common_car.steering = common_car.turn_steering
+	elif  common_car.left_right_turn == 1:
+		common_car.steering = -1 * common_car.turn_steering
 	#print(common_car.target_rotation,common_car.rotation)
 	if common_car.linear_velocity.length() < common_car.turn_speed:
 		common_car.engine_force = common_car.turn_engine_factor
@@ -22,6 +24,6 @@ func physics_process(delta: float) -> void:
 		if (common_car.rotation.y - 2*PI) <= PI/90:
 			common_car.steering = 0
 			state_machine.state_changed("Straight")
-	elif abs(common_car.rotation.y - common_car.target_rotation) <= PI/90:
+	elif abs(common_car.rotation.y - common_car.target_rotation) <= PI/45:
 		common_car.steering = 0
 		state_machine.state_changed("Straight")
