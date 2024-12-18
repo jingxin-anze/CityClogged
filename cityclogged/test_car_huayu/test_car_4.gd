@@ -1,3 +1,4 @@
+class_name CommonCar
 extends VehicleBody3D
 
 #enum CarStates{
@@ -26,7 +27,7 @@ var current_rotation: float = 0
 @onready var front_road_ray: RayCast3D = $FrontRoadRay
 @onready var left_road_ray: RayCast3D = $LeftRoadRay
 @onready var right_road_ray: RayCast3D = $RightRoadRay
-
+@onready var car_state_machine: CarStateMachine = $CarStateMachine
 
 func _ready() -> void:
 	current_rotation = self.rotation.y
@@ -34,7 +35,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if left_road_ray.is_colliding():
 		pass
-		
+
 ##直走
 func _straight_line() -> void:
 	if self.linear_velocity.length() <= straight_speed:
@@ -44,7 +45,6 @@ func _straight_line() -> void:
 func _left_turn() -> void:
 	if self.linear_velocity.length() <= turn_speed:
 		self.engine_force = turn_engine_factor
-
 
 ##右转90度
 func _right_turn() -> void:

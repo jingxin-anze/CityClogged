@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://c1e3iyda3msmo"]
+[gd_scene load_steps=20 format=3 uid="uid://c1e3iyda3msmo"]
 
 [ext_resource type="Texture2D" uid="uid://ocw67pun1ju4" path="res://scenes/alert_robot/alert_robot.png" id="1_g2imu"]
 [ext_resource type="Script" path="res://scenes/alert_robot/alert_robot.gd" id="1_o4b7h"]
+[ext_resource type="Script" path="res://scenes/alert_robot/alert_robot_area.gd" id="3_qtt3l"]
 
 [sub_resource type="Animation" id="Animation_af066"]
 length = 0.001
@@ -711,8 +712,12 @@ _data = {
 radius = 0.13
 height = 0.3
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_x7y5e"]
+height = 0.4
+radius = 0.8
+
 [node name="AlertRobot" type="RigidBody3D"]
-collision_layer = 8
+collision_layer = 16
 collision_mask = 5
 script = ExtResource("1_o4b7h")
 
@@ -729,3 +734,15 @@ libraries = {
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_ny47l")
+
+[node name="AlertRobotArea" type="Area3D" parent="."]
+collision_layer = 16
+collision_mask = 4
+script = ExtResource("3_qtt3l")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AlertRobotArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.96046e-08, 1.49012e-08, -2.23517e-08)
+shape = SubResource("CylinderShape3D_x7y5e")
+
+[connection signal="body_entered" from="AlertRobotArea" to="AlertRobotArea" method="_on_body_entered"]
+[connection signal="body_exited" from="AlertRobotArea" to="AlertRobotArea" method="_on_body_exited"]
