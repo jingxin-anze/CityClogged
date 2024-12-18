@@ -90,6 +90,7 @@ turn_right={
 3d_physics/layer_4="car"
 3d_physics/layer_5="robot"
 3d_physics/layer_6="null"
+3d_physics/layer_7="ground_road"
 
 [physics]
 
