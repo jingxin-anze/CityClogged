@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b5gepi5nynnov"]
+[gd_scene load_steps=12 format=3 uid="uid://b5gepi5nynnov"]
 
 [ext_resource type="PackedScene" uid="uid://dhanjwn4i8xui" path="res://module/road/highroad.glb" id="1_uga52"]
 
@@ -16,6 +16,21 @@ data = PackedVector3Array(0.5, 0, -0.5, -0.5, 0.1, -0.5, -0.5, 0, -0.5, 0.5, 0, 
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_wwgkc"]
 data = PackedVector3Array(0.5, 0, -0.5, -0.5, 0.1, -0.5, -0.5, 0, -0.5, 0.5, 0, -0.5, 0.5, 0.1, -0.5, -0.5, 0.1, -0.5, -0.5, 0, 0.5, 0.5, 0, -0.2372, 0.5, 0, 0.5, -0.5, 0, 0.5, -0.5, 0, -0.2372, 0.5, 0, -0.2372, -0.5, 0.1, -0.2372, 0.5, 0.1, -0.5, 0.5, 0.1, -0.2372, -0.5, 0.1, -0.2372, -0.5, 0.1, -0.5, 0.5, 0.1, -0.5, 0.5, 0, -0.5, 0.4995, 0.1, -0.5, 0.5, 0.1, -0.5, 0.4995, 0.1, -0.5, 0.4995, 0.1, 0.5, 0.4995, 0.1, -0.2373, 0.4995, 0.1, 0.5, 0.5, 0, -0.5, 0.5, 0, 0.5, 0.4995, 0.1, -0.5, 0.5, 0, -0.5, 0.4995, 0.1, 0.5, -0.5, 0, -0.5, -0.5, 0.1, -0.2372, -0.5, 0, -0.2372, -0.5, 0, -0.5, -0.5, 0.1, -0.5, -0.5, 0.1, -0.2372, 0.4995, 0.1, -0.2373, 0.2367, 0.1, -0.5, 0.4995, 0.1, -0.5, 0.4995, 0.1, -0.2373, 0.2367, 0.1, -0.2373, 0.2367, 0.1, -0.5, 0.5, 0, -0.2372, -0.5, 0.1, -0.2372, 0.5, 0.1, -0.2372, 0.5, 0, -0.2372, -0.5, 0, -0.2372, -0.5, 0.1, -0.2372, 0.2367, 0.1, 0.5, 0.5, 0, 0.5, 0.2367, 0.0002, 0.5, 0.2367, 0.1, 0.5, 0.4995, 0.1, 0.5, 0.5, 0, 0.5, 0.2367, 0.0002, -0.2373, 0.2367, 0.1, -0.5, 0.2367, 0.1, -0.2373, 0.2367, 0.0002, -0.2373, 0.2367, 0.0002, -0.5, 0.2367, 0.1, -0.5, 0.5, 0, -0.2372, -0.5, 0, -0.5, -0.5, 0, -0.2372, 0.5, 0, -0.2372, 0.5, 0, -0.5, -0.5, 0, -0.5, 0.2367, 0.0002, 0.5, 0.2367, 0.1, -0.2373, 0.2367, 0.1, 0.5, 0.2367, 0.0002, 0.5, 0.2367, 0.0002, -0.2373, 0.2367, 0.1, -0.2373, 0.4995, 0.1, 0.5, 0.2367, 0.1, -0.2373, 0.4995, 0.1, -0.2373, 0.4995, 0.1, 0.5, 0.2367, 0.1, 0.5, 0.2367, 0.1, -0.2373)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_6miq3"]
+data = PackedVector3Array(-0.5, 0, 0.5, 0.5, 0, -0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, -0.5, 0, -0.5, 0.5, 0, -0.5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_hfq5b"]
+data = PackedVector3Array(-0.5, 0, 0.5, 0.5, 0, -0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, -0.5, 0, -0.5, 0.5, 0, -0.5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_c78w1"]
+data = PackedVector3Array(-0.5, 0, 0.5, 0.5, 0, -0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, -0.5, 0, -0.5, 0.5, 0, -0.5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_lwq4f"]
+data = PackedVector3Array(-0.5, 0, 0.5, 0.5, 0, -0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, -0.5, 0, -0.5, 0.5, 0, -0.5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_6fss8"]
+data = PackedVector3Array(-0.5, 0, 0.5, 0.5, 0, -0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, -0.5, 0, -0.5, 0.5, 0, -0.5)
 
 [node name="highroad" instance=ExtResource("1_uga52")]
 
@@ -43,3 +58,28 @@ shape = SubResource("ConcavePolygonShape3D_bjg85")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="平面_006/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_wwgkc")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="平面_004" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="平面_004/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_6miq3")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="平面_005" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="平面_005/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_hfq5b")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="平面_007" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="平面_007/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_c78w1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="平面_008" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="平面_008/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_lwq4f")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="平面_009" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="平面_009/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_6fss8")
