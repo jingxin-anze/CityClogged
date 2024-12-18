@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bajygilvfbv7s"]
+[gd_scene load_steps=11 format=3 uid="uid://bajygilvfbv7s"]
 
 [ext_resource type="Script" path="res://test_car_huayu/test_car_4.gd" id="1_65qs5"]
 [ext_resource type="Texture2D" uid="uid://q3wn8eyxtqgg" path="res://icon.svg" id="1_w3bxg"]
 [ext_resource type="Script" path="res://test_car_huayu/car_state_machine.gd" id="3_ux551"]
 [ext_resource type="Script" path="res://test_car_huayu/straight.gd" id="4_dpyya"]
+[ext_resource type="Script" path="res://test_car_huayu/turn.gd" id="5_7tvc4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_brxqq"]
 albedo_color = Color(1, 0.533333, 0.564706, 1)
@@ -94,10 +95,10 @@ target_position = Vector3(0, 0, 3)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07, 1)
 
 [node name="LeftRoadRay" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.07, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.07, 1.5)
 
 [node name="RightRoadRay" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.07, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.07, 1.5)
 
 [node name="CarStateMachine" type="Node" parent="." node_paths=PackedStringArray("current_state")]
 script = ExtResource("3_ux551")
@@ -105,4 +106,6 @@ current_state = NodePath("Straight")
 
 [node name="Straight" type="Node" parent="CarStateMachine"]
 script = ExtResource("4_dpyya")
-animation_name = "straight"
+
+[node name="Turn" type="Node" parent="CarStateMachine"]
+script = ExtResource("5_7tvc4")

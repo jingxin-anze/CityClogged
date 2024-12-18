@@ -8,7 +8,8 @@ var common_car:CommonCar
 # Called when the node enters the scene tree for the first time.
 
 func enter() -> void:
-	common_car.animation_player.play(animation_name)
+	#common_car.animation_player.play(animation_name)
+	pass
 
 func physics_process(delta: float) -> void:
 	pass
