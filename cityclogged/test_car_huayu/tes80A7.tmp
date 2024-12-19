@@ -46,4 +46,4 @@ data = {
 metadata/_editor_floor_ = Vector3(0, -1, 0)
 
 [node name="test_car_4" parent="." instance=ExtResource("3_qes53")]
-transform = Transform3D(0.295708, 0, -0.955279, 0, 1, 0, 0.955279, 0, 0.295708, 0, 0.079, 1.5)
+transform = Transform3D(-0.173648, 0, 0.984808, 0, 1, 0, -0.984808, 0, -0.173648, 0, 0.079, 1.5)

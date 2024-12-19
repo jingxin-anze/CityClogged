@@ -45,10 +45,12 @@ func _ready() -> void:
 	left_road_ray.position.z = turn_reduce_lenth
 	right_road_ray.position.z = turn_reduce_lenth
 	target_rotation = _fixes_degree(self.rotation.y)
-	#print(target_rotation)
+	target_point = _direction_vector(target_rotation) * 10000 + self.global_position
+	#print(target_point)
 
 func _physics_process(delta: float) -> void:
 	self.rotation.y = _positive_degree(self.rotation.y)
+	#print(position)
 	#print(target_rotation)
 	#print(linear_velocity.length())
 	#if self.rotation.y == 2*PI:
@@ -93,17 +95,40 @@ func _positive_degree(_t: float) -> float:
 		_t = _t - 2*PI
 	return _t
 
-func _fixes_point(_t: Vector3, _turn: float) -> Vector3:
-	var __t:Vector3i = _t
-	var _turn2: Vector3 = Vector3.ZERO
+func _fixes_point(_t: Vector3, _turn: float, _turn2: float) -> Vector3:
+	var _t2:Vector3i = _t
+	var _turnv: Vector3 = _direction_vector(_turn)
 	#_turn = _fixes_degree(_turn)
-	if is_zero_approx(_turn - 0):
-		_turn2 = Vector3(0,0,1)
-	elif is_zero_approx(_turn - PI/2):
-		_turn2 = Vector3(1,0,0) 
-	elif is_zero_approx(_turn - PI):
-		_turn2 = Vector3(0,0,-1)
-	else :
-		_turn2 = Vector3(-1,0,0)
-	_t = Vector3(__t) + _turn2 * road_width / 2
+	var _turnv2: Vector3 = _direction_vector(_turn2)
+	_t = Vector3(_t2) + _turnv * road_width / 2 + _turnv2 * 10000
 	return _t
+
+func _direction_vector(_t: float) -> Vector3:
+	_t = _fixes_degree(_t)
+	if is_zero_approx(_t - 0):
+		return Vector3(0,0,1)
+	elif is_zero_approx(_t - PI/2):
+		return Vector3(1,0,0) 
+	elif is_zero_approx(_t - PI):
+		return Vector3(0,0,-1)
+	else :
+		return Vector3(-1,0,0)
+
+##从标准方向到当前方向
+func _angle_degree(_t: Vector3, _t2: Vector3) -> float:
+	_t = _t.normalized()
+	_t2 = _t2.normalized()
+	var _tt: Vector2 = Vector2(_t.x, _t.z)
+	var _tt2: Vector2 = Vector2(_t2.x, _t2.z)
+	return _tt.angle_to(_tt2)
+
+##离目标点的垂直距离,前者是目标点
+func _interpolation(_t: Vector3, _t2: Vector3) -> float:
+	if _t.x >= 9000:
+		return _t2.z - _t.z
+	elif _t.x <= -9000:
+		return _t.z - _t2.z
+	elif _t.z >= 9000:
+		return _t.x - _t2.x
+	else:
+		return _t2.x - _t.x
