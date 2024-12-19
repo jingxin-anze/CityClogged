@@ -18,7 +18,7 @@ func _physics_process(delta: float) -> void:
 
 func state_changed(target_state_name: String) -> void:
 	_car.rotation.y = _car._positive_degree(_car.rotation.y)
-	#print(target_state_name)
+	print(target_state_name)
 	#if current_state.animation_name == "died":
 		#return
 	var target_state = get_node_or_null(target_state_name)

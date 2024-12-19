@@ -5,6 +5,8 @@ func enter() -> void:
 	#common_car.engine_force = 0
 	#common_car.brake_factor = 5
 func physics_process(delta: float) -> void:
+	print(common_car.linear_velocity)
+	print(common_car.linear_velocity.length())
 	if common_car.left_right_turn == 0:
 		common_car.steering = common_car.turn_steering
 	elif  common_car.left_right_turn == 1:

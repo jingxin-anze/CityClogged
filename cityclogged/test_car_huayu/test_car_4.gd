@@ -23,9 +23,11 @@ extends VehicleBody3D
 @export var light_lenth: float = 2
 ##距离前车多少米开始刹车
 @export var car_lengh: float = 1
-
+##一辆车道的宽度多少米（格子）
+@export var road_width: float = 1
 ##转弯时的目标y 旋转角度
 var target_rotation: float = 0
+var target_point: Vector3 = Vector3.ZERO
 ##当前左转还是右转
 var left_right_turn: int = -1
 
@@ -37,6 +39,7 @@ var left_right_turn: int = -1
 @onready var car_state_machine: CarStateMachine = $CarStateMachine
 
 func _ready() -> void:
+	#print(_fixes_point(Vector2(5.9,5),Vector2(1,0)))
 	front_light_ray.target_position.z = light_lenth
 	front_car_ray.target_position.z = car_lengh
 	left_road_ray.position.z = turn_reduce_lenth
@@ -88,4 +91,19 @@ func _positive_degree(_t: float) -> float:
 		_t = _t + 2*PI
 	while _t >= 2*PI:
 		_t = _t - 2*PI
+	return _t
+
+func _fixes_point(_t: Vector3, _turn: float) -> Vector3:
+	var __t:Vector3i = _t
+	var _turn2: Vector3 = Vector3.ZERO
+	#_turn = _fixes_degree(_turn)
+	if is_zero_approx(_turn - 0):
+		_turn2 = Vector3(0,0,1)
+	elif is_zero_approx(_turn - PI/2):
+		_turn2 = Vector3(1,0,0) 
+	elif is_zero_approx(_turn - PI):
+		_turn2 = Vector3(0,0,-1)
+	else :
+		_turn2 = Vector3(-1,0,0)
+	_t = Vector3(__t) + _turn2 * road_width / 2
 	return _t
