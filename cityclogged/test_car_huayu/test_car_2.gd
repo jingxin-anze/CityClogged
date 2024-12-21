@@ -1,4 +1,4 @@
-class_name CommonCar
+#class_name CommonCar
 extends CharacterBody3D
 ##车辆一般的运动速度
 @export var speed: float = 15#目前不能超过15

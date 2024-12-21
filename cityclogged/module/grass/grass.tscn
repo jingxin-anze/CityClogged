@@ -24,7 +24,7 @@ shader_parameter/avoid_pos2 = Vector3(0, -1000, 0)
 shader_parameter/avoid_distance = 1.5
 shader_parameter/avoid_amount = 0.667
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D" type="MeshInstance3D"]
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 material_override = SubResource("ShaderMaterial_lsxrp")
