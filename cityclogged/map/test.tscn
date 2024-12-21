@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://dn354xhy5700u"]
+[gd_scene load_steps=28 format=4 uid="uid://dn354xhy5700u"]
 
 [ext_resource type="Script" path="res://map/test.gd" id="1_c0kxi"]
 [ext_resource type="MeshLibrary" uid="uid://bmsgpshcj2gbr" path="res://module/road/road_mesh_library.tres" id="1_cwqap"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://addons/simplegrasstextured/grass.gd" id="12_gbf61"]
 [ext_resource type="PackedScene" uid="uid://5fxbe6pakq6a" path="res://module/lupai/lupai.glb" id="14_1ffp5"]
 [ext_resource type="PackedScene" uid="uid://n6fmy6mdqetq" path="res://module/ludeng/traffic_signal.tscn" id="15_m76hl"]
+[ext_resource type="PackedScene" uid="uid://3k8etm8c83ut" path="res://module/car/bus.glb" id="16_4t8mm"]
 [ext_resource type="PackedScene" uid="uid://bfcylx07u40ie" path="res://module/house/house_2.tscn" id="16_6gmfg"]
 [ext_resource type="PackedScene" uid="uid://dwbtteak6ph16" path="res://module/street_lamp/street_lamp.tscn" id="16_qjahx"]
 [ext_resource type="PackedScene" uid="uid://dsxjxhwkvckot" path="res://module/car/car_2.tscn" id="17_2i5mo"]
@@ -98,13 +99,13 @@ adjustment_enabled = true
 adjustment_contrast = 1.16
 adjustment_saturation = 1.16
 
-[sub_resource type="BoxMesh" id="BoxMesh_3jrtg"]
+[sub_resource type="BoxMesh" id="BoxMesh_nwxny"]
 custom_aabb = AABB(-6, -1, -6, 12, 2, 12)
 size = Vector3(10, 0, 10)
 subdivide_width = 1
 subdivide_depth = 1
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_eesr3"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_pnrk8"]
 custom_aabb = AABB(-6, -1, -6, 12, 2, 12)
 size = Vector2(10, 10)
 subdivide_width = 1
@@ -151,7 +152,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00816688, -0.0404303, -0.0
 shape = SubResource("SphereShape3D_5rkc8")
 
 [node name="Player" parent="." instance=ExtResource("2_new4n")]
-transform = Transform3D(5, 0, 0, 0, 4.99943, -0.0756571, 0, 0.0756571, 4.99943, 10.4657, 0.852852, 21.2088)
+transform = Transform3D(5, 0, 0, 0, 4.99943, -0.0756571, 0, 0.0756571, 4.99943, 4.64628, 0.624321, 17.4267)
 
 [node name="car" parent="." instance=ExtResource("5_40gt7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.59407, 0.203076, 23.2349)
@@ -171,7 +172,7 @@ environment = SubResource("Environment_i8ac2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.0577, -0.337613, 18.2375)
 visible = false
 size = Vector2(10, 10)
-mesh = SubResource("BoxMesh_3jrtg")
+mesh = SubResource("BoxMesh_nwxny")
 show_waterfall = true
 
 [node name="prop" type="Node3D" parent="."]
@@ -236,13 +237,16 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 41.132
 [node name="House10" parent="prop" instance=ExtResource("7_gtw77")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 41.1609, 0, -19.7825)
 
+[node name="bus" parent="prop" instance=ExtResource("16_4t8mm")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 6.65964, 0.821935, 13.0648)
+
 [node name="House2" parent="." instance=ExtResource("16_6gmfg")]
 transform = Transform3D(-0.0243275, 0, 0.999704, 0, 1, 0, -0.999704, 0, -0.0243275, 22.1038, 0, 57.5577)
 
 [node name="Water2" parent="." instance=ExtResource("8_38pxu")]
 transform = Transform3D(2.465, 0, 0, 0, 2.465, 0, 0, 0, 2.465, -21.6903, -0.797098, 2.58442)
 size = Vector2(10, 10)
-mesh = SubResource("PlaneMesh_eesr3")
+mesh = SubResource("PlaneMesh_pnrk8")
 
 [node name="car2" parent="." instance=ExtResource("17_2i5mo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.76524, 0.570656, 18.9543)
