@@ -1,0 +1,63 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3xgd1801jslt"]
+
+[ext_resource type="Script" path="res://addons/wu_ren_zhi_xiao/tracks.gd" id="1_2r57g"]
+
+[node name="Tracks" type="ConfirmationDialog"]
+position = Vector2i(0, 36)
+size = Vector2i(200, 88)
+visible = true
+script = ExtResource("1_2r57g")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Path" type="LineEdit" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "请输入路径"
+
+[node name="Label" type="TextEdit" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "未找到任何动画"
+editable = false
+
+[node name="Value" type="LineEdit" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "请输入值"
+
+[node name="MenuButton" type="MenuButton" parent="HBoxContainer/Value"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "点我选类型"
+item_count = 5
+popup/item_0/text = "int"
+popup/item_1/text = "float"
+popup/item_1/id = 1
+popup/item_2/text = "string"
+popup/item_2/id = 2
+popup/item_3/text = "bool"
+popup/item_3/id = 3
+popup/item_4/text = "v2"
+popup/item_4/id = 4
+
+[node name="CurrentLabel" type="Label" parent="HBoxContainer/Value"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "当前类型为int"

@@ -1,0 +1,82 @@
+[gd_scene load_steps=3 format=3 uid="uid://djm1ti2ismvj8"]
+
+[ext_resource type="Texture2D" uid="uid://q3wn8eyxtqgg" path="res://icon.svg" id="1_iviu0"]
+
+[sub_resource type="GDScript" id="GDScript_hfssy"]
+script/source = "extends Node2D
+
+@onready var popup_menu: PopupMenu = $PopupMenu
+var mouse_pos:Vector2
+
+enum items{
+	thunder=3,
+	
+}
+
+var a:int
+var undo_rd:=UndoRedo.new()
+
+func do_something():
+	a+=1
+	print(\"已执行操作，当前位置为： \",a)
+	pass # 在此处编写你的代码。
+
+func undo_something():
+	a-=1
+	print(\"已撤销操作，当前位置为： \",a)
+	pass # 在此处编写恢复“do_something()”里所做事情的代码。
+
+func _on_my_button_pressed():
+	undo_rd.create_action(\"移动节点\")
+	undo_rd.add_do_method(do_something)
+	undo_rd.add_undo_method(undo_something)
+	undo_rd.commit_action()
+	
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed(\"jump\"):
+		undo_rd.undo()
+		
+	if (event is InputEventMouseButton) and event.is_pressed() :
+		if event.button_index==MOUSE_BUTTON_LEFT:
+			mouse_pos=get_viewport().get_mouse_position()
+			popup_menu.popup(Rect2i(mouse_pos.x,mouse_pos.y,popup_menu.size.x,popup_menu.size.y))
+			
+		elif event.button_index==MOUSE_BUTTON_RIGHT:
+			_on_my_button_pressed()
+	
+		pass
+
+
+func _ready() -> void:
+	popup_menu.add_item(\"天下无敌霹雳大闪电\",items.thunder)
+	
+func _on_popup_menu_id_pressed(id: int) -> void:
+	if id==0:
+		print(\"idpp\")
+	if id==items.thunder:
+		print(popup_menu.get_item_text(2))
+	pass
+
+func _on_popup_menu_id_focused(id: int) -> void:
+	if id==0:
+		print(\"fpp\")
+	pass
+"
+
+[node name="Test" type="Node2D"]
+script = SubResource("GDScript_hfssy")
+
+[node name="PopupMenu" type="PopupMenu" parent="."]
+size = Vector2i(227, 272)
+item_count = 2
+item_0/text = "6666"
+item_0/icon = ExtResource("1_iviu0")
+item_0/checkable = 2
+item_1/text = "hahaha"
+item_1/icon = ExtResource("1_iviu0")
+item_1/checkable = 1
+item_1/id = 1
+
+[connection signal="id_focused" from="PopupMenu" to="." method="_on_popup_menu_id_focused"]
+[connection signal="id_pressed" from="PopupMenu" to="." method="_on_popup_menu_id_pressed"]
+[connection signal="index_pressed" from="PopupMenu" to="." method="_on_popup_menu_index_pressed"]
