@@ -46,7 +46,7 @@ adjustment_enabled = true
 adjustment_contrast = 1.16
 adjustment_saturation = 1.16
 
-[sub_resource type="BoxMesh" id="BoxMesh_bqn6h"]
+[sub_resource type="BoxMesh" id="BoxMesh_c8m0x"]
 custom_aabb = AABB(-51, -1, -51, 102, 2, 102)
 size = Vector3(100, 0, 100)
 subdivide_width = 24
@@ -97,7 +97,7 @@ environment = SubResource("Environment_i8ac2")
 [node name="Water" parent="." instance=ExtResource("8_38pxu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.280696, -1.36623, 19.382)
 size = Vector2(100, 100)
-mesh = SubResource("BoxMesh_bqn6h")
+mesh = SubResource("BoxMesh_c8m0x")
 show_waterfall = true
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
