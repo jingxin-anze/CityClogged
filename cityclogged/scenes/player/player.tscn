@@ -1,7 +1,7 @@
 [gd_scene load_steps=36 format=3 uid="uid://bmio6xvvn4bdf"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_1ts8h"]
-[ext_resource type="Resource" path="res://scenes/player/player_attri.tres" id="2_2wrdh"]
+[ext_resource type="Resource" uid="uid://c8nprk81gh2sc" path="res://scenes/player/player_attri.tres" id="2_2wrdh"]
 [ext_resource type="Texture2D" uid="uid://dp4fybqbkrbly" path="res://assets/spirits/player/player.png" id="2_au7ec"]
 [ext_resource type="Script" path="res://scenes/player/state_machine/state_machine.gd" id="3_k6116"]
 [ext_resource type="Script" path="res://scenes/player/state_machine/move.gd" id="4_c4g23"]
@@ -119,7 +119,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [3]
+"values": [4]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -589,7 +589,7 @@ self_attri = ExtResource("2_2wrdh")
 texture_filter = 0
 texture = ExtResource("2_au7ec")
 hframes = 6
-vframes = 3
+vframes = 4
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Sprite3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0073851, 0)

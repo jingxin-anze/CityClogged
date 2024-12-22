@@ -1,6 +1,7 @@
 @tool
 extends ConfirmationDialog
 
+#获取节点引用
 @onready var an: AnimationPlayer 
 @onready var path: LineEdit = $HBoxContainer/Path
 @onready var value: LineEdit = $HBoxContainer/Value
@@ -8,6 +9,7 @@ extends ConfirmationDialog
 @onready var menu_button: MenuButton = $HBoxContainer/Value/MenuButton
 @onready var current_label: Label = $HBoxContainer/Value/CurrentLabel
 
+#枚举值类型
 enum value_type{
 	i,
 	f,
@@ -15,22 +17,28 @@ enum value_type{
 	b,
 	v2,
 }
+#给current_v_t赋初值
 var current_v_t:=value_type.i
-var letter56:PackedStringArray
+#定义52大小写字母数组
+var letter52:PackedStringArray
 
 func _ready() -> void:
-	letter56=spawn_56_letters()
+	#给letter52赋值
+	letter52=spawn_52_letters()
+	#给ok_button连接pressed信号
 	get_ok_button().pressed.connect(_on_ok_pressed)
-	
+	#赋初值
 	label.editable=false
 	label.placeholder_text="未找到任何动画"
 	path.placeholder_text="请输入路径"
 	value.placeholder_text="请输入值"
-	
+	#获取menu_button的popup
 	var popup:PopupMenu=menu_button.get_popup()
+	#让popup连接id_pressed信号
 	popup.id_pressed.connect(_select_type)
 	pass
-	
+
+#匹配id。match相当于一些语言的switch
 func _select_type(id:int):
 	match id:
 		0:
@@ -49,21 +57,18 @@ func _select_type(id:int):
 			current_v_t=value_type.v2
 			current_label.text="当前类型为Vector2"
 		pass
-		
+
+#替换该路径的第一个关键帧的值
 func _on_ok_pressed():
-		#遍历动画列表的动画名
 	var tracks:PackedStringArray
+	#遍历动画名
 	for animation_name in an.get_animation_list():	
-
 		var animation :=an.get_animation(animation_name)
-
+		#遍历该动画的路径个数
 		for track in animation.get_track_count():
-
-			var track_path=animation.track_get_path(track)
-			tracks.append(track_path)
-			#获取指定路径
+			#获取该动画的指定路径
 			var certain_track:=animation.find_track(str(path.text),Animation.TYPE_VALUE)
-			#更改指定路径,第一个关键帧的值
+			#更改指定路径的第一个关键帧的值
 			match current_v_t:
 				value_type.i:
 					has_letter(value.text,"输入的类型不为int")
@@ -89,7 +94,8 @@ func _on_ok_pressed():
 					animation.track_set_key_value(certain_track,0,Vector2(x,y))
 					pass
 
-func spawn_56_letters()->PackedStringArray:
+#获取52大小写字母
+func spawn_52_letters()->PackedStringArray:
 	var shuzu:PackedStringArray
 	for i in range(65,90+1):
 		shuzu.append(String.chr(i))
@@ -97,9 +103,10 @@ func spawn_56_letters()->PackedStringArray:
 		shuzu.append(String.chr(i))
 	return shuzu
 
+#判定是否含有字母
 func has_letter(input:String,output:String)->bool:
 	for i in input:
-		if i in letter56:
+		if i in letter52:
 			printerr(output)
 			return true
 	return false

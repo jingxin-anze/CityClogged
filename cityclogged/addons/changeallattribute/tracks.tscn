@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b3xgd1801jslt"]
 
-[ext_resource type="Script" path="res://addons/wu_ren_zhi_xiao/tracks.gd" id="1_2r57g"]
+[ext_resource type="Script" path="res://addons/changeallattribute/tracks.gd" id="1_2r57g"]
 
 [node name="Tracks" type="ConfirmationDialog"]
 position = Vector2i(0, 36)
