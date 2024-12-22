@@ -15,9 +15,11 @@ func _enter_tree() -> void:
 		if node is AnimationPlayer:
 			an=node
 	#获得menubutton
-	var button=get_animation_button()
+	var button:MenuButton=get_animation_button()
+	#给menubutton连接信号
+	button.pressed.connect(_on_button_pressed)
 	#获得menubutton的popupmenu
-	var popup=button.get_popup()
+	var popup:PopupMenu=button.get_popup()
 	#给popupmenu链接is_pressed信号
 	popup.id_pressed.connect(_on_id_pressed)
 	#若该id的索引不为-1，即存在该item则return
@@ -30,8 +32,8 @@ func _enter_tree() -> void:
 #该函数在插件退出节点树时起效
 func _exit_tree() -> void:
 	#获取menubutton和popupmenu
-	var button=get_animation_button()
-	var popup=button.get_popup()
+	var button:MenuButton=get_animation_button()
+	var popup:PopupMenu=button.get_popup()
 	#若该id的inde不为-1，即item存在，则移除item
 	if popup.get_item_index(ITEM_ID) !=-1:
 		popup.remove_item(popup.get_item_index(ITEM_ID))
@@ -92,6 +94,16 @@ func _on_id_pressed(id:int)-> void:
 	edit_menu.label.text=animation_tracks_path()
 	edit_menu.visibility_changed.connect(edit_menu.queue_free)
 
+func _on_button_pressed():
+	var button:MenuButton=get_animation_button()
+	var popup:PopupMenu=button.get_popup()
+	if an:
+		popup.set_item_disabled(ITEM_ID,false)
+		popup.set_item_tooltip(ITEM_ID,"")
+	else:
+		popup.set_item_disabled(ITEM_ID,true)
+		popup.set_item_tooltip(ITEM_ID,"请确认选中了AnimationPlayer")
+	
 #获取所有动画的轨道路径
 func animation_tracks_path()->String:
 	var tracks:PackedStringArray

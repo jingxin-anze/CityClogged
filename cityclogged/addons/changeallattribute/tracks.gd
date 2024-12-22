@@ -64,35 +64,37 @@ func _on_ok_pressed():
 	#遍历动画名
 	for animation_name in an.get_animation_list():	
 		var animation :=an.get_animation(animation_name)
-		#遍历该动画的路径个数
-		for track in animation.get_track_count():
-			#获取该动画的指定路径
-			var certain_track:=animation.find_track(str(path.text),Animation.TYPE_VALUE)
-			#更改指定路径的第一个关键帧的值
-			match current_v_t:
-				value_type.i:
-					has_letter(value.text,"输入的类型不为int")
+		#获取该动画的指定路径
+		var certain_track:=animation.find_track(str(path.text),Animation.TYPE_VALUE)
+		#若此动画无该路径则返回
+		if certain_track==-1:
+			continue
+		#更改指定路径的第一个关键帧的值
+		match current_v_t:
+			value_type.i:
+				if not has_letter(value.text,"输入的类型不为int"):
 					animation.track_set_key_value(certain_track,0,int(value.text))
-				value_type.f:
-					has_letter(value.text,"输入的类型不为float")
+			value_type.f:
+				if not has_letter(value.text,"输入的类型不为float"):
 					animation.track_set_key_value(certain_track,0,float(value.text))
-				value_type.s:
-					animation.track_set_key_value(certain_track,0,str(value.text))
-				value_type.b:
-					if value.text=="true":
-						animation.track_set_key_value(certain_track,0,true)
-					elif value.text=="false":
-						animation.track_set_key_value(certain_track,0,false)
-					else:
-						return
-				value_type.v2:
-					if not "," in value.text:
-						return
+			value_type.s:
+				animation.track_set_key_value(certain_track,0,str(value.text))
+			value_type.b:
+				if value.text=="true":
+					animation.track_set_key_value(certain_track,0,true)
+				elif value.text=="false":
+					animation.track_set_key_value(certain_track,0,false)
+				else:
+					return
+			value_type.v2:
+				if not "," in value.text:
+					return
+				if not has_letter(value.text,"输入的类型不为Vector2"):
 					var splited:PackedStringArray=value.text.split(",")
 					var x:float=float(splited[0])
 					var y:float=float(splited[1])
 					animation.track_set_key_value(certain_track,0,Vector2(x,y))
-					pass
+				pass
 
 #获取52大小写字母
 func spawn_52_letters()->PackedStringArray:
