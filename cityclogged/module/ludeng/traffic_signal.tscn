@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://hh0khb8imgdt" path="res://module/ludeng/精灵-0003.png" id="4_5d3ad"]
 
 [node name="TrafficSignal" type="Node3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="honglvdeng" parent="." instance=ExtResource("1_4hspj")]
 transform = Transform3D(1.00471, 0, 0, 0, 0.703029, 0, 0, 0, 1.00471, 0, 0, 0)
