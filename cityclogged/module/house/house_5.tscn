@@ -3242,7 +3242,7 @@ mesh = SubResource("BoxMesh_56bof")
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 6.66819, 6.73465, -8.9602)
 sprite_frames = SubResource("SpriteFrames_qlykw")
 autoplay = "default"
-frame_progress = 0.435407
+frame_progress = 0.397434
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
 transform = Transform3D(-5.61455e-09, 0, 11.9868, 0, 0.304458, 0, -0.128446, 0, -5.23958e-07, 4.33967, 9.25003, -8.84632)
