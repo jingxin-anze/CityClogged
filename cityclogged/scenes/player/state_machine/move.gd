@@ -5,10 +5,12 @@ var an_t:AnimationTree
 var an:AnimationPlayer
 var player:Player
 
+var state
 var movement_dir:Vector2
 signal to_idle(dir:Vector2,id:int)
 
 func _enter():
+	state=an_t.get("parameters/playback")
 	pass
 
 func _exit():
@@ -17,8 +19,7 @@ func _exit():
 func _tick(delta:float):
 	if not player.movement_direction:
 		state_machine.change_state("Idle")
-		an_t["parameters/conditions/MTI"]=true
-		an_t["parameters/conditions/ITM"]=false
+		state.travel("Idle")
 		to_idle.emit(movement_dir,1)
 	else:
 		movement_dir=player.movement_direction
@@ -26,8 +27,8 @@ func _tick(delta:float):
 func _physics_tick(delta:float):
 	an_t.set("parameters/Move/blend_position",player.movement_direction)
 	
-	if not player.is_on_floor():
-		player.velocity.z = player.movement_direction_3d.z *player.movement_speed*delta
+	#if not player.is_on_floor():
+		#player.velocity.z = player.movement_direction_3d.z *player.movement_speed*delta
 
 	player.velocity.x= player.movement_direction_3d.x*player.movement_speed*delta
 	player.velocity.z= player.movement_direction_3d.z*player.movement_speed*delta

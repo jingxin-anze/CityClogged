@@ -16,8 +16,7 @@ func _exit():
 func _tick(delta:float):
 	if player.movement_direction:
 		state_machine.change_state("Move")
-		an_t["parameters/conditions/ITM"]=true
-		an_t["parameters/conditions/MTI"]=false
+		an_t.get("parameters/playback").travel("Move")
 	if Input.is_action_just_pressed("pick_drop"):
 		state_machine.change_state("Move1")
 	pass
