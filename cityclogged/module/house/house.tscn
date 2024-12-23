@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://blmr3t6fvyu1a"]
+
+[ext_resource type="PackedScene" uid="uid://cr0evvxqx5tl" path="res://module/house/house6.glb" id="1_ljaa3"]
+[ext_resource type="Texture2D" uid="uid://dsuwfk82cbl88" path="res://module/house/vfx/浮漂.png" id="2_0vwji"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wtequ"]
+albedo_color = Color(1, 0.968333, 0.05, 1)
+emission_enabled = true
+emission = Color(0.97, 0.907273, 0.0291, 1)
+emission_energy_multiplier = 1.08
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jpy4i"]
+
+[node name="House" type="Node3D"]
+
+[node name="house6" parent="." instance=ExtResource("1_ljaa3")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(18.1967, 0, 0, 0, 1, 0, 0, 0, 8.00229, 0, 10.49, 0)
+material_override = SubResource("StandardMaterial3D_wtequ")
+mesh = SubResource("PlaneMesh_jpy4i")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(-1.74445e-06, 0, 39.9084, 0, 39.9084, 0, -39.9084, 0, -1.74445e-06, 20.0422, 4.87391, 0.0163155)
+texture_filter = 0
+texture = ExtResource("2_0vwji")

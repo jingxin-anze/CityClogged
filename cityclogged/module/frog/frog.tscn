@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://ueg6p8sg6uih"]
+
+[ext_resource type="Texture2D" uid="uid://cw8pt4x2tst6b" path="res://module/frog/frog-Sheet.png" id="1_4b6a5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qq8iu"]
+atlas = ExtResource("1_4b6a5")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chqc3"]
+atlas = ExtResource("1_4b6a5")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwly7"]
+atlas = ExtResource("1_4b6a5")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbi5f"]
+atlas = ExtResource("1_4b6a5")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i647k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qq8iu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chqc3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwly7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vbi5f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Frog" type="Node3D"]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+billboard = 1
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_i647k")
+autoplay = "default"
+frame_progress = 0.578398
