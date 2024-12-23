@@ -5,12 +5,11 @@ var an_t:AnimationTree
 var an:AnimationPlayer
 var player:Player
 
-var state
+
 var movement_dir:Vector2
 signal to_idle(dir:Vector2,id:int)
 
 func _enter():
-	state=an_t.get("parameters/playback")
 	pass
 
 func _exit():
@@ -19,7 +18,7 @@ func _exit():
 func _tick(delta:float):
 	if not player.movement_direction:
 		state_machine.change_state("Idle")
-		state.travel("Idle")
+		an_t.get("parameters/playback").travel("Idle")
 		to_idle.emit(movement_dir,1)
 	else:
 		movement_dir=player.movement_direction

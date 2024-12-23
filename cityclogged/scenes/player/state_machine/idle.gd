@@ -5,6 +5,7 @@ var an_t:AnimationTree
 var an:AnimationPlayer
 var player:Player
 
+var move_state:bool
 var state:int
 
 func _enter():
@@ -15,10 +16,14 @@ func _exit():
 
 func _tick(delta:float):
 	if player.movement_direction:
-		state_machine.change_state("Move")
-		an_t.get("parameters/playback").travel("Move")
+		if not move_state:
+			state_machine.change_state("Move")
+			an_t.get("parameters/playback").travel("Move")
+		else:
+			state_machine.change_state("Move1")
+			an_t.get("parameters/playback").travel("Move1")
 	if Input.is_action_just_pressed("pick_drop"):
-		state_machine.change_state("Move1")
+		move_state=!move_state 
 	pass
 
 func _physics_tick(delta:float):
