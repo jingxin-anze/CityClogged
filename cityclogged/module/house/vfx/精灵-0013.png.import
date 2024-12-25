@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsuwfk82cbl88"
-path="res://.godot/imported/浮漂.png-bee40b96af75d8076f84aebcfde0f507.ctex"
+uid="uid://br2ujusl6j4h5"
+path="res://.godot/imported/精灵-0013.png-0c06cdf09d613ac694ca179f4ef592e1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://module/house/vfx/浮漂.png"
-dest_files=["res://.godot/imported/浮漂.png-bee40b96af75d8076f84aebcfde0f507.ctex"]
+source_file="res://module/house/vfx/精灵-0013.png"
+dest_files=["res://.godot/imported/精灵-0013.png-0c06cdf09d613ac694ca179f4ef592e1.ctex"]
 
 [params]
 

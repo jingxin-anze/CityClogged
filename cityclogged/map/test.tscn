@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://bwdsgtxbj5dwi"]
+[gd_scene load_steps=43 format=4 uid="uid://bwdsgtxbj5dwi"]
 
 [ext_resource type="Script" path="res://map/test.gd" id="1_qwa18"]
 [ext_resource type="PackedScene" uid="uid://dn354xhy5700u" path="res://map/map_scenes/shi_zi_lu_kou.tscn" id="2_gvkna"]
@@ -18,6 +18,12 @@
 [ext_resource type="PackedScene" uid="uid://drom6ylat6rvb" path="res://map/map_scenes/block_area_3.tscn" id="16_pt5yn"]
 [ext_resource type="PackedScene" uid="uid://dn0kc71y8pjxn" path="res://map/map_scenes/block_area_4.tscn" id="17_2eu2o"]
 [ext_resource type="PackedScene" uid="uid://ddhasb03o7ayp" path="res://map/map_scenes/block_area_5.tscn" id="18_dg2rm"]
+[ext_resource type="PackedScene" uid="uid://c88gm2s2axwcm" path="res://map/map_scenes/block_area_6.tscn" id="19_dbf2w"]
+[ext_resource type="PackedScene" uid="uid://ckwy3xh5ao26b" path="res://map/map_scenes/block_area_7.tscn" id="20_w2k66"]
+[ext_resource type="PackedScene" uid="uid://dnkbx65cbkiep" path="res://map/map_scenes/block_area_8.tscn" id="21_sr4um"]
+[ext_resource type="PackedScene" uid="uid://cub02o3uigwws" path="res://map/map_scenes/block_area_9.tscn" id="22_8x65k"]
+[ext_resource type="PackedScene" uid="uid://b6f6bmprmvqw" path="res://map/map_scenes/block_area_10.tscn" id="23_tf08f"]
+[ext_resource type="PackedScene" uid="uid://ci1pk85eq8sw3" path="res://map/map_scenes/block_area_11.tscn" id="24_rrt0f"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_acj28"]
 panorama = ExtResource("8_kfyjg")
@@ -319,7 +325,7 @@ _data = {
 }
 point_count = 9
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_y45dw"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_psnoq"]
 custom_aabb = AABB(-251, -1, -251, 502, 2, 502)
 size = Vector2(500, 500)
 subdivide_width = 124
@@ -336,7 +342,7 @@ environment = SubResource("Environment_3yu4e")
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 81.7239, 1.34103, 17.3408)
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.528438, -0.848972, 0, 0.848972, 0.528438, 0, 19.7229, 27.2367)
+transform = Transform3D(1, 0, 0, 0, -0.948876, -0.315649, 0, 0.315649, -0.948876, 0, 19.7229, 27.2367)
 light_energy = 0.5
 light_bake_mode = 0
 shadow_enabled = true
@@ -1838,7 +1844,7 @@ speed = 30
 [node name="Water" parent="." instance=ExtResource("15_d0qlx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.4704, -1.39671, 65.1018)
 size = Vector2(500, 500)
-mesh = SubResource("PlaneMesh_y45dw")
+mesh = SubResource("PlaneMesh_psnoq")
 
 [node name="BlockArea3" parent="." instance=ExtResource("16_pt5yn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.0099, 0, -8.02527)
@@ -1848,3 +1854,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.9926, 0, 71.9921)
 
 [node name="block_area_5" parent="." instance=ExtResource("18_dg2rm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.96915, 0, 232.004)
+
+[node name="BlockArea6" parent="." instance=ExtResource("19_dbf2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 169, 0, 152)
+
+[node name="BlockArea7" parent="." instance=ExtResource("20_w2k66")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89, 0, 232)
+
+[node name="BlockArea8" parent="." instance=ExtResource("21_sr4um")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72, 0, 152)
+
+[node name="BlockArea9" parent="." instance=ExtResource("22_8x65k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, -1, 152)
+
+[node name="BlockArea10" parent="." instance=ExtResource("23_tf08f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 169, 0, -8)
+
+[node name="BlockArea11" parent="." instance=ExtResource("24_rrt0f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89, 0, 152)
