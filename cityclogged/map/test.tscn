@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://bwdsgtxbj5dwi"]
+[gd_scene load_steps=37 format=4 uid="uid://bwdsgtxbj5dwi"]
 
 [ext_resource type="Script" path="res://map/test.gd" id="1_qwa18"]
 [ext_resource type="PackedScene" uid="uid://dn354xhy5700u" path="res://map/map_scenes/shi_zi_lu_kou.tscn" id="2_gvkna"]
@@ -15,6 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://05wfrqbdwyjo" path="res://module/house/background_house.glb" id="12_ohf0f"]
 [ext_resource type="PackedScene" uid="uid://creccss1i05uc" path="res://module/hsr/hsr.tscn" id="13_c1a12"]
 [ext_resource type="PackedScene" uid="uid://ck6xo5fwq4133" path="res://module/water/water.tscn" id="15_d0qlx"]
+[ext_resource type="PackedScene" uid="uid://drom6ylat6rvb" path="res://map/map_scenes/block_area_3.tscn" id="16_pt5yn"]
+[ext_resource type="PackedScene" uid="uid://dn0kc71y8pjxn" path="res://map/map_scenes/block_area_4.tscn" id="17_2eu2o"]
+[ext_resource type="PackedScene" uid="uid://ddhasb03o7ayp" path="res://map/map_scenes/block_area_5.tscn" id="18_dg2rm"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_acj28"]
 panorama = ExtResource("8_kfyjg")
@@ -316,7 +319,7 @@ _data = {
 }
 point_count = 9
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_v78fr"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_y45dw"]
 custom_aabb = AABB(-251, -1, -251, 502, 2, 502)
 size = Vector2(500, 500)
 subdivide_width = 124
@@ -330,7 +333,7 @@ script = ExtResource("1_qwa18")
 environment = SubResource("Environment_3yu4e")
 
 [node name="Player" parent="." instance=ExtResource("8_jyykq")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -4.21854, 1.34103, -47.3505)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 81.7239, 1.34103, 17.3408)
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.528438, -0.848972, 0, 0.848972, 0.528438, 0, 19.7229, 27.2367)
@@ -1835,4 +1838,13 @@ speed = 30
 [node name="Water" parent="." instance=ExtResource("15_d0qlx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.4704, -1.39671, 65.1018)
 size = Vector2(500, 500)
-mesh = SubResource("PlaneMesh_v78fr")
+mesh = SubResource("PlaneMesh_y45dw")
+
+[node name="BlockArea3" parent="." instance=ExtResource("16_pt5yn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.0099, 0, -8.02527)
+
+[node name="BlockArea4" parent="." instance=ExtResource("17_2eu2o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.9926, 0, 71.9921)
+
+[node name="block_area_5" parent="." instance=ExtResource("18_dg2rm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.96915, 0, 232.004)
