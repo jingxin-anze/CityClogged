@@ -38,6 +38,8 @@ enabled=PackedStringArray("res://addons/changeallattribute/plugin.cfg")
 [global_group]
 
 road=""
+alert_robot_path=""
+player=""
 
 [input]
 

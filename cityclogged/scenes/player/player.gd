@@ -30,8 +30,11 @@ func _physics_process(delta: float) -> void:
 	movement_direction_3d= basis.x * movement_direction.y  - basis.z * movement_direction.x
 	if not is_on_floor():
 		velocity.y-=gravity*delta*0.01
+	else:
+		if Input.is_action_just_pressed("jump"):
+			velocity.y+=jump_speed*delta
 	move_and_slide()
-
+	
 func _input(event:InputEvent) -> void:
 	if event.is_action_pressed("quit"):
 		get_tree().quit()

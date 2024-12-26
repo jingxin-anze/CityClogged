@@ -1089,9 +1089,9 @@ states/Start/position = Vector2(336.938, 97.1503)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_nptqg"), "Idle", "Move", SubResource("AnimationNodeStateMachineTransition_8gnj4"), "Move", "Idle", SubResource("AnimationNodeStateMachineTransition_0h4gf"), "Idle", "End", SubResource("AnimationNodeStateMachineTransition_wxutm"), "Move", "End", SubResource("AnimationNodeStateMachineTransition_xwcna"), "Move", "Move1", SubResource("AnimationNodeStateMachineTransition_qj28e"), "Move1", "Idle", SubResource("AnimationNodeStateMachineTransition_iv80o"), "Move1", "Move", SubResource("AnimationNodeStateMachineTransition_ufyyy"), "Move1", "Idle1", SubResource("AnimationNodeStateMachineTransition_s4dmw"), "Idle1", "Move", SubResource("AnimationNodeStateMachineTransition_ss6am"), "Idle1", "Move1", SubResource("AnimationNodeStateMachineTransition_eutfo"), "Idle", "Idle1", SubResource("AnimationNodeStateMachineTransition_tu4ih")]
 graph_offset = Vector2(167, -74.6994)
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["player"]]
 collision_layer = 4
-collision_mask = 3
+collision_mask = 19
 script = ExtResource("1_1ts8h")
 self_attri = ExtResource("2_2wrdh")
 

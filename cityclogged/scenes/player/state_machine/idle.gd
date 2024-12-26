@@ -35,7 +35,6 @@ func _on_move_to_idle(dir: Vector2,id:int) -> void:
 	an_t.set("parameters/Idle/blend_position",dir)
 	state=id
 
-
 func _on_hand_up_to_idle(dir:Vector2,id:int) -> void:
 	an_t.set("parameters/Idle1/blend_position",dir)
 	state=id
