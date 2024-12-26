@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dlbpuf67ft571"]
+[gd_scene load_steps=20 format=3 uid="uid://dlbpuf67ft571"]
 
 [ext_resource type="MeshLibrary" uid="uid://cw28n4m23ehib" path="res://scenes/space_library/space_library.tres" id="1_llmn4"]
 [ext_resource type="PackedScene" uid="uid://bmio6xvvn4bdf" path="res://scenes/player/player.tscn" id="2_y577h"]
@@ -9,9 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://ywgrdrwt1wle" path="res://module/house/house_1.tscn" id="8_57rec"]
 [ext_resource type="Texture2D" uid="uid://cjqf3ketgcj4r" path="res://scenes/fireworks_00008.jpg" id="8_fqt87"]
 [ext_resource type="PackedScene" uid="uid://c1e3iyda3msmo" path="res://scenes/alert_robot/alert_robot.tscn" id="9_ni1yb"]
-[ext_resource type="Texture2D" uid="uid://q3wn8eyxtqgg" path="res://icon.svg" id="10_dqte1"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_5g032"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_5g0v8"]
 custom_aabb = AABB(-51, -1, -51, 102, 2, 102)
 size = Vector2(100, 100)
 subdivide_width = 24
@@ -80,7 +79,7 @@ directional_shadow_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.56105, -6.30071, -9.87137)
 script = ExtResource("5_b44ar")
 size = Vector2(100, 100)
-mesh = SubResource("PlaneMesh_5g032")
+mesh = SubResource("PlaneMesh_5g0v8")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.98525, 0.171121, 0, -0.171121, 0.98525, -1.45989, 1.48997, 1.38194)
@@ -94,15 +93,10 @@ process_material = SubResource("ParticleProcessMaterial_x7be0")
 draw_pass_1 = SubResource("QuadMesh_3kojy")
 
 [node name="Player" parent="." instance=ExtResource("2_y577h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.9911, 2.531, -16.6026)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0434437, 2.531, -4.4136)
 
 [node name="House1" parent="." instance=ExtResource("8_57rec")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0479, 0, -21.7371)
 
 [node name="AlertRobot" parent="." instance=ExtResource("9_ni1yb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.33984, -12.1605)
-
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.88212, 0)
-billboard = 2
-texture = ExtResource("10_dqte1")

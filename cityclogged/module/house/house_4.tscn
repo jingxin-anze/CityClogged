@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://dg1v753nrbwi7"]
+[gd_scene load_steps=11 format=4 uid="uid://boqhgk7874ip6"]
 
 [ext_resource type="Texture2D" uid="uid://k8iubgwgsgfp" path="res://module/house/vfx/精灵-0008-Sheet.png" id="1_02bnb"]
 
@@ -193,6 +193,7 @@ transform = Transform3D(-2.74972e-07, 0, 2, 0, 37.7785, 0, -6.29063, 0, -8.74228
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_ylye3")
 autoplay = "default"
+frame_progress = 0.468063
 
 [node name="AnimatedSprite3D3" type="AnimatedSprite3D" parent="house3"]
 transform = Transform3D(1.4264e-14, 1.0099e-07, 2, 7.46537, -1.0099e-07, 0, 3.26321e-07, 2.31039, -8.74228e-08, 12.4172, 2.58802, -2.87397)
@@ -205,6 +206,7 @@ transform = Transform3D(1.4264e-14, 1.0099e-07, 2, 7.46537, -1.0099e-07, 0, 3.26
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_ylye3")
 autoplay = "default"
+frame_progress = 0.659432
 
 [node name="AnimatedSprite3D5" type="AnimatedSprite3D" parent="house3"]
 transform = Transform3D(1.4264e-14, 1.0099e-07, 2, 7.46537, -1.0099e-07, 0, 3.26321e-07, 2.31039, -8.74228e-08, 12.4172, 4.91033, 5.7161)

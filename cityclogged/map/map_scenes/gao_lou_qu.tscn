@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b7aow1xfnokrr"]
 
-[ext_resource type="PackedScene" uid="uid://dgsqrl53oeire" path="res://module/house/house_3.tscn" id="1_rmwuw"]
-[ext_resource type="PackedScene" uid="uid://dg1v753nrbwi7" path="res://module/house/house_4.tscn" id="2_0k210"]
+[ext_resource type="PackedScene" uid="uid://cr38krjeb0h2a" path="res://module/house/house_3.tscn" id="1_rmwuw"]
+[ext_resource type="PackedScene" uid="uid://boqhgk7874ip6" path="res://module/house/house_4.tscn" id="2_0k210"]
 [ext_resource type="MeshLibrary" uid="uid://bmsgpshcj2gbr" path="res://module/road/road_mesh_library.tres" id="3_xeyom"]
 
 [node name="GaoLouQu" type="Node3D"]

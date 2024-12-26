@@ -23,7 +23,6 @@ func _tick(delta:float):
 		movement_dir=player.movement_direction
 	pass
 
-
 func _physics_tick(delta:float):
 	an_t.set("parameters/Move1/blend_position",player.movement_direction)
 	
