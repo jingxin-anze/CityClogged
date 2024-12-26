@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2wu82jwud7o5"]
+
+[ext_resource type="Script" path="res://module/Imputcamera/camera_3d.gd" id="1_f3nk1"]
+
+[node name="Camera3D" type="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0.708032, 0.706181, 0, -0.706181, 0.708032, 0, 1.34863, 0)
+script = ExtResource("1_f3nk1")
+max_tilt_degrees = Vector2(10, 10)
