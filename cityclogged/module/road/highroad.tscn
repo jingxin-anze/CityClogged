@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b5gepi5nynnov"]
+[gd_scene load_steps=15 format=3 uid="uid://b5gepi5nynnov"]
 
 [ext_resource type="PackedScene" uid="uid://dhanjwn4i8xui" path="res://module/road/highroad.glb" id="1_uga52"]
 
@@ -37,6 +37,8 @@ data = PackedVector3Array(-0.5, 0, 0.5, 0.5, 0, -0.5, 0.5, 0, 0.5, -0.5, 0, 0.5,
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_miunr"]
 data = PackedVector3Array(-0.5, 0, 0.5, 0.5, 0, -0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, -0.5, 0, -0.5, 0.5, 0, -0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2wp74"]
 
 [node name="highroad" instance=ExtResource("1_uga52")]
 
@@ -99,3 +101,9 @@ shape = SubResource("ConcavePolygonShape3D_01ski")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="平面_011/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_miunr")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="平面_012" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="平面_012/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_2wp74")

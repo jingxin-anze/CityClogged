@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://boqhgk7874ip6"]
+[gd_scene load_steps=9 format=4 uid="uid://dg1v753nrbwi7"]
 
 [ext_resource type="Texture2D" uid="uid://k8iubgwgsgfp" path="res://module/house/vfx/精灵-0008-Sheet.png" id="1_02bnb"]
 
@@ -158,21 +158,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_sxwvd")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yknt4"]
-atlas = ExtResource("1_02bnb")
-region = Rect2(64, 0, 16, 128)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ylye3"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yknt4")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
 [node name="House4" type="Node3D"]
 
 [node name="house3" type="Node3D" parent="."]
@@ -182,70 +167,79 @@ transform = Transform3D(10, 0, 0, 0, 25, 0, 0, 0, 10, 0, 0, 0)
 mesh = SubResource("ArrayMesh_nefaw")
 skeleton = NodePath("")
 
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="house3"]
+[node name="AnimatedSprite3D" type="Sprite3D" parent="house3"]
 transform = Transform3D(-2.74972e-07, 0, 2, 0, 37.7785, 0, -6.29063, 0, -8.74228e-08, 11.1664, 1.21474, 10.4971)
 texture_filter = 0
-sprite_frames = SubResource("SpriteFrames_ylye3")
-autoplay = "default"
+texture = ExtResource("1_02bnb")
+hframes = 5
+frame = 4
 
-[node name="AnimatedSprite3D2" type="AnimatedSprite3D" parent="house3"]
+[node name="AnimatedSprite3D2" type="Sprite3D" parent="house3"]
 transform = Transform3D(-2.74972e-07, 0, 2, 0, 37.7785, 0, -6.29063, 0, -8.74228e-08, 11.1664, 1.21474, -10.5531)
 texture_filter = 0
-sprite_frames = SubResource("SpriteFrames_ylye3")
-autoplay = "default"
-frame_progress = 0.468063
+texture = ExtResource("1_02bnb")
+hframes = 5
+frame = 4
 
-[node name="AnimatedSprite3D3" type="AnimatedSprite3D" parent="house3"]
+[node name="AnimatedSprite3D3" type="Sprite3D" parent="house3"]
 transform = Transform3D(1.4264e-14, 1.0099e-07, 2, 7.46537, -1.0099e-07, 0, 3.26321e-07, 2.31039, -8.74228e-08, 12.4172, 2.58802, -2.87397)
 texture_filter = 0
-sprite_frames = SubResource("SpriteFrames_ylye3")
-autoplay = "default"
+texture = ExtResource("1_02bnb")
+hframes = 5
+frame = 4
 
-[node name="AnimatedSprite3D4" type="AnimatedSprite3D" parent="house3"]
+[node name="AnimatedSprite3D4" type="Sprite3D" parent="house3"]
 transform = Transform3D(1.4264e-14, 1.0099e-07, 2, 7.46537, -1.0099e-07, 0, 3.26321e-07, 2.31039, -8.74228e-08, 12.4172, 7.83959, -2.87397)
 texture_filter = 0
-sprite_frames = SubResource("SpriteFrames_ylye3")
-autoplay = "default"
-frame_progress = 0.659432
+texture = ExtResource("1_02bnb")
+hframes = 5
+frame = 4
 
-[node name="AnimatedSprite3D5" type="AnimatedSprite3D" parent="house3"]
+[node name="AnimatedSprite3D5" type="Sprite3D" parent="house3"]
 transform = Transform3D(1.4264e-14, 1.0099e-07, 2, 7.46537, -1.0099e-07, 0, 3.26321e-07, 2.31039, -8.74228e-08, 12.4172, 4.91033, 5.7161)
 texture_filter = 0
-sprite_frames = SubResource("SpriteFrames_ylye3")
-autoplay = "default"
+texture = ExtResource("1_02bnb")
+hframes = 5
+frame = 4
 
-[node name="AnimatedSprite3D6" type="AnimatedSprite3D" parent="house3"]
+[node name="AnimatedSprite3D6" type="Sprite3D" parent="house3"]
 transform = Transform3D(1.4264e-14, 1.0099e-07, 2, 7.46537, -1.0099e-07, 0, 3.26321e-07, 2.31039, -8.74228e-08, 12.4172, -11.0975, -2.87397)
 texture_filter = 0
-sprite_frames = SubResource("SpriteFrames_ylye3")
-autoplay = "default"
+texture = ExtResource("1_02bnb")
+hframes = 5
+frame = 4
 
-[node name="AnimatedSprite3D7" type="AnimatedSprite3D" parent="house3"]
+[node name="AnimatedSprite3D7" type="Sprite3D" parent="house3"]
 transform = Transform3D(1.4264e-14, 1.0099e-07, 2, 7.46537, -1.0099e-07, 0, 3.26321e-07, 2.31039, -8.74228e-08, 12.4172, -3.04536, -2.87397)
 texture_filter = 0
-sprite_frames = SubResource("SpriteFrames_ylye3")
-autoplay = "default"
+texture = ExtResource("1_02bnb")
+hframes = 5
+frame = 4
 
-[node name="AnimatedSprite3D8" type="AnimatedSprite3D" parent="house3"]
+[node name="AnimatedSprite3D8" type="Sprite3D" parent="house3"]
 transform = Transform3D(1.4264e-14, 1.0099e-07, 2, 7.46537, -1.0099e-07, 0, 3.26321e-07, 2.31039, -8.74228e-08, 12.4172, -7.52048, 5.7161)
 texture_filter = 0
-sprite_frames = SubResource("SpriteFrames_ylye3")
-autoplay = "default"
+texture = ExtResource("1_02bnb")
+hframes = 5
+frame = 4
 
-[node name="AnimatedSprite3D9" type="AnimatedSprite3D" parent="house3"]
+[node name="AnimatedSprite3D9" type="Sprite3D" parent="house3"]
 transform = Transform3D(1.4264e-14, 1.0099e-07, 2, 7.46537, -1.0099e-07, 0, 3.26321e-07, 2.31039, -8.74228e-08, 12.4172, 14.5095, -2.87397)
 texture_filter = 0
-sprite_frames = SubResource("SpriteFrames_ylye3")
-autoplay = "default"
+texture = ExtResource("1_02bnb")
+hframes = 5
+frame = 4
 
-[node name="AnimatedSprite3D10" type="AnimatedSprite3D" parent="house3"]
+[node name="AnimatedSprite3D10" type="Sprite3D" parent="house3"]
 transform = Transform3D(1.4264e-14, 1.0099e-07, 2, 7.46537, -1.0099e-07, 0, 3.26321e-07, 2.31039, -8.74228e-08, 12.4172, 23.1267, -2.87397)
 texture_filter = 0
-sprite_frames = SubResource("SpriteFrames_ylye3")
-autoplay = "default"
+texture = ExtResource("1_02bnb")
+hframes = 5
+frame = 4
 
-[node name="AnimatedSprite3D11" type="AnimatedSprite3D" parent="house3"]
+[node name="AnimatedSprite3D11" type="Sprite3D" parent="house3"]
 transform = Transform3D(1.4264e-14, 1.0099e-07, 2, 7.46537, -1.0099e-07, 0, 3.26321e-07, 2.31039, -8.74228e-08, 12.4172, 14.243, 5.7161)
 texture_filter = 0
-sprite_frames = SubResource("SpriteFrames_ylye3")
-autoplay = "default"
+texture = ExtResource("1_02bnb")
+hframes = 5
+frame = 4

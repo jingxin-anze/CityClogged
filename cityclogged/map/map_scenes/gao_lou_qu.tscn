@@ -20,7 +20,7 @@ data = {
 }
 
 [node name="House5" parent="." instance=ExtResource("2_0k210")]
-transform = Transform3D(0.998333, 0, -0.0577209, 0, 1, 0, 0.0577209, 0, 0.998333, 49.1908, 20.8325, -24.2806)
+transform = Transform3D(0.998333, 0, -0.0577209, 0, 1, 0, 0.0577209, 0, 0.998333, 50.1908, 20.8325, -24.2806)
 
 [node name="House6" parent="." instance=ExtResource("2_0k210")]
 transform = Transform3D(0.776443, 0, 0.630188, 0, 1, 0, -0.630188, 0, 0.776443, 44.5407, 10.7758, -47.8751)

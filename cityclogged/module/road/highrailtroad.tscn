@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://q8p4hct0lkrc"]
+
+[ext_resource type="PackedScene" uid="uid://cwdvyoxqbekq2" path="res://module/road/highrailtroad.glb" id="1_dd3ar"]
+
+[node name="highrailtroad" instance=ExtResource("1_dd3ar")]
