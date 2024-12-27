@@ -1,8 +1,9 @@
-extends Node3D
+class_name TrafficSignal extends Node3D
 
 @onready var sprite_green: Sprite3D = $SpriteGreen
 @onready var sprite_yellow: Sprite3D = $SpriteYellow
 @onready var sprite_red: Sprite3D = $SpriteRed
+@onready var area_3d: Area3D = $Area3D
 
 @export_enum("red","yellow","green") var initial_state: String = "green"
 @export var red_duration: float = 5.0   
@@ -45,3 +46,4 @@ func update_lights():
 	sprite_red.visible = current_state == "red"
 	sprite_yellow.visible = current_state == "yellow"
 	sprite_green.visible = current_state == "green"	
+	area_3d.current_state = current_state
