@@ -328,7 +328,7 @@ _data = {
 }
 point_count = 9
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_1dej7"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_bnfmy"]
 custom_aabb = AABB(-251, -1, -251, 502, 2, 502)
 size = Vector2(500, 500)
 subdivide_width = 124
@@ -345,10 +345,10 @@ environment = SubResource("Environment_3yu4e")
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 81.7239, 1.34103, 17.3408)
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.948876, -0.315649, 0, 0.315649, -0.948876, 0, 19.7229, 27.2367)
-light_energy = 0.5
-light_bake_mode = 0
+transform = Transform3D(0.837719, -0.268083, 0.475772, 0, 0.871214, 0.490904, -0.546102, -0.411239, 0.729832, 0, 19.7229, 27.2367)
+light_bake_mode = 1
 shadow_enabled = true
+shadow_transmittance_bias = -4.342
 directional_shadow_mode = 0
 directional_shadow_fade_start = 0.5
 
@@ -1847,7 +1847,7 @@ speed = 30
 [node name="Water" parent="." instance=ExtResource("15_d0qlx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.4704, -1.39671, 65.1018)
 size = Vector2(500, 500)
-mesh = SubResource("PlaneMesh_1dej7")
+mesh = SubResource("PlaneMesh_bnfmy")
 
 [node name="BlockArea3" parent="." instance=ExtResource("16_pt5yn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.0099, 0, -8.02527)

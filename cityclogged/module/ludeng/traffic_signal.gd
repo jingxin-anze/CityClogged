@@ -1,0 +1,47 @@
+extends Node3D
+
+@onready var sprite_green: Sprite3D = $SpriteGreen
+@onready var sprite_yellow: Sprite3D = $SpriteYellow
+@onready var sprite_red: Sprite3D = $SpriteRed
+
+@export_enum("red","yellow","green") var initial_state: String = "green"
+@export var red_duration: float = 5.0   
+@export var yellow_duration: float = 2.0 
+@export var green_duration: float = 5.0
+
+var current_state: String # 当前的信号灯状态
+var timer: float = 0.0
+
+func _ready() -> void:
+	init() # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	timer += delta
+
+	match current_state:
+		"red": # 红灯
+			if timer >= red_duration:
+				current_state = "green" # 切换到绿灯
+				timer = 0.0
+		"green": # 绿灯
+			if timer >= green_duration:
+				current_state = "yellow" # 切换到黄灯
+				timer = 0.0
+		"yellow": # 黄灯
+			if timer >= yellow_duration:
+				current_state = "red" # 切换到红灯
+				timer = 0.0
+	update_lights()
+
+# 初始化
+func init():
+	current_state = initial_state
+	update_lights()
+	
+# 更新灯光显示
+func update_lights():
+	sprite_red.visible = current_state == "red"
+	sprite_yellow.visible = current_state == "yellow"
+	sprite_green.visible = current_state == "green"	
