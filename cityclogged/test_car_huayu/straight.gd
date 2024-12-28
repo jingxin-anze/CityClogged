@@ -20,7 +20,12 @@ func physics_process(delta: float) -> void:
 	#汽车直线行驶时的逻辑
 	#if common_car
 	#print(common_car._interpolation(common_car.target_point,common_car.global_position))
+	
 	common_car.steering = 0
+	if common_car.front_car_ray.is_colliding():
+		state_machine.state_changed("Park")
+	if common_car.front_light_ray.is_colliding():
+		state_machine.state_changed("Park")
 	if abs(common_car._interpolation(common_car.target_point,common_car.global_position) )>= 0.05:
 		
 		common_car.steering = common_car._interpolation(common_car.target_point,common_car.global_position)/2
