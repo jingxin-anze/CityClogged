@@ -15,7 +15,7 @@ ambient_light_energy = 0.8
 [node name="ShiZiLuKou" parent="." instance=ExtResource("1_5swxv")]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 15.5728, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2.44311, 11.8929, 2.32343)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_pj6is")
@@ -36,4 +36,10 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20, 0,
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, 0, 0)
 
 [node name="test_car_4" parent="." instance=ExtResource("4_ojxgt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.11193, 0.242444, 0.833448)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.6171, 0.332713, -1.59044)
+mass = 50.0
+urgent_brake_factor = 0.0
+common_brake_factor = 0.0
+straight_engine_factor = 50.0
+straight_speed = 5.0
+turn_reduce_lenth = 1.0

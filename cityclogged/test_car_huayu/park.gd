@@ -1,6 +1,6 @@
 extends CarState
 
-func _physics_process(delta: float) -> void:
+func physics_process(delta: float) -> void:
 	#因为停车，所以应该。。
 	if common_car.park_type == 0:
 		pass
