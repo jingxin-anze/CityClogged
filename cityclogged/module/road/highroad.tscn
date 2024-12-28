@@ -43,21 +43,28 @@ data = PackedVector3Array(-0.5, 0, 0.5, 0.5, 0, -0.5, 0.5, 0, 0.5, -0.5, 0, 0.5,
 [node name="highroad" instance=ExtResource("1_uga52")]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="平面" index="0"]
+collision_layer = 64
+collision_mask = 12
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="平面/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_tb00p")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="平面_001" index="0"]
+collision_layer = 64
+collision_mask = 12
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="平面_001/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_cd5g5")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="平面_002" index="0"]
+collision_mask = 12
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="平面_002/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_apvh0")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="平面_003" index="0"]
+collision_layer = 64
+collision_mask = 12
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="平面_003/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_bjg85")
@@ -98,6 +105,8 @@ shape = SubResource("ConcavePolygonShape3D_6fss8")
 shape = SubResource("ConcavePolygonShape3D_01ski")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="平面_011" index="0"]
+collision_layer = 64
+collision_mask = 12
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="平面_011/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_miunr")
