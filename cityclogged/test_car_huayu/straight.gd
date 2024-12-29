@@ -5,7 +5,7 @@ func enter() -> void:
 	common_car.steering = 0
 
 func physics_process(delta: float) -> void:
-	print(common_car.linear_velocity)
+	#print(common_car.linear_velocity)
 	#print(common_car.target_rotation)
 	#common_car.steering = 0
 	#print(common_car.linear_velocity)

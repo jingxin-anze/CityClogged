@@ -326,7 +326,7 @@ shape = SubResource("BoxShape3D_l63y1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.03, 0.53)
 use_as_steering = true
 wheel_radius = 0.2
-suspension_stiffness = 20.0
+suspension_stiffness = 100.0
 damping_compression = 0.3
 damping_relaxation = 0.5
 
@@ -339,7 +339,7 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.03, 0.530202)
 use_as_steering = true
 wheel_radius = 0.2
-suspension_stiffness = 20.0
+suspension_stiffness = 100.0
 damping_compression = 0.3
 damping_relaxation = 0.5
 
@@ -352,7 +352,7 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.03, -0.66)
 use_as_traction = true
 wheel_radius = 0.2
-suspension_stiffness = 20.0
+suspension_stiffness = 100.0
 damping_compression = 0.3
 damping_relaxation = 0.5
 
@@ -365,7 +365,7 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.03, -0.66)
 use_as_traction = true
 wheel_radius = 0.2
-suspension_stiffness = 20.0
+suspension_stiffness = 100.0
 damping_compression = 0.3
 damping_relaxation = 0.5
 

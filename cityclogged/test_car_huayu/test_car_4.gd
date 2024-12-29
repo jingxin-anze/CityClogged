@@ -51,6 +51,10 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	self.rotation.y = _positive_degree(self.rotation.y)
+	if left_road_ray.is_colliding():
+		print("l1")
+	if right_road_ray.is_colliding():
+		print("r2")
 	#print(position)
 	#print(target_rotation)
 	#print(linear_velocity.length())
