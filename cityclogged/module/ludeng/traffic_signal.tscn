@@ -20,16 +20,19 @@ transform = Transform3D(1.00471, 0, 0, 0, 0.703029, 0, 0, 0, 1.00471, 0, 0, 0)
 
 [node name="SpriteRed" type="Sprite3D" parent="."]
 transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 0.228542, 2.75168, -1.83659)
+visible = false
 texture_filter = 0
 texture = ExtResource("2_yx07m")
 
 [node name="SpriteGreen" type="Sprite3D" parent="."]
 transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 0.25744, 2.75168, -3.69286)
+visible = false
 texture_filter = 0
 texture = ExtResource("3_glr3v")
 
 [node name="SpriteYellow" type="Sprite3D" parent="."]
 transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 0.231145, 2.75168, -2.81549)
+visible = false
 texture_filter = 0
 texture = ExtResource("4_5d3ad")
 

@@ -1,23 +1,36 @@
 class_name TrafficSignal extends Node3D
 
+
+@export var red_duration: float = 5.0 
+@export var yellow_duration: float = 2.0 
+@export var green_duration: float = 5.0
+
 @onready var sprite_green: Sprite3D = $SpriteGreen
 @onready var sprite_yellow: Sprite3D = $SpriteYellow
 @onready var sprite_red: Sprite3D = $SpriteRed
 @onready var area_3d: Area3D = $Area3D
 
-@export_enum("red","yellow","green") var initial_state: String = "green"
-@export var red_duration: float = 5.0   
-@export var yellow_duration: float = 2.0 
-@export var green_duration: float = 5.0
+@export_enum("red","green") var initial_state: String = "green"
 
-var current_state: String # 当前的信号灯状态
 var timer: float = 0.0
-
+var current_state
 func _ready() -> void:
 	init() # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+# 初始化
+func init():
+	current_state = initial_state
+	update_lights()
+	
+	
+# 更新灯光显示
+func update_lights():
+	sprite_red.visible = current_state == "red"
+	sprite_yellow.visible = current_state == "yellow"
+	sprite_green.visible = current_state == "green"	
+	area_3d.current_state = current_state
+
 func _process(delta: float) -> void:
 	timer += delta
 
@@ -35,15 +48,3 @@ func _process(delta: float) -> void:
 				current_state = "red" # 切换到红灯
 				timer = 0.0
 	update_lights()
-
-# 初始化
-func init():
-	current_state = initial_state
-	update_lights()
-	
-# 更新灯光显示
-func update_lights():
-	sprite_red.visible = current_state == "red"
-	sprite_yellow.visible = current_state == "yellow"
-	sprite_green.visible = current_state == "green"	
-	area_3d.current_state = current_state
