@@ -5,11 +5,11 @@ class_name Player extends CharacterBody3D
 @export var self_attri:EntityAttributes
 @export var is1920:bool=true
 
-var movement_speed:float=30
-var jump_speed:float=50
+var movement_speed:int=30
+var jump_speed:int=50
 
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
-var mouse_sensitivity:int=250
+#var mouse_sensitivity:int=250
 var movement_direction:Vector2
 var movement_direction_3d:Vector3
 
@@ -43,15 +43,17 @@ func _input(event:InputEvent) -> void:
 		
 	if event.is_action_pressed("turn_left"):
 		self.rotation_degrees.y+=90.0
-		#var t:Tween=create_tween()
-		#t.tween_property(self,"rotation_degrees:y",self.rotation_degrees.y-90,1)
+
 	if event.is_action_pressed("turn_right"):
 		self.rotation_degrees.y-=90.0
-		#var t:Tween=create_tween()
-		#t.tween_property(self,"rotation_degrees:y",self.rotation_degrees.y+90,1)
-	#if not event is InputEventMouseMotion:
-		#return
-	#
-	#var mouse_movement:Vector2 = event.screen_relative /mouse_sensitivity * PI
-	#self.rotate_y(-mouse_movement.x )
-	#pitch.rotate_x(-mouse_movement.y )
+	
+	if event.is_action_pressed("speed_up"):
+		change_speed(movement_speed*2)
+	if event.is_action_released("speed_up"):
+		change_speed(movement_speed/2)
+
+func change_speed(movement:int,jump:int=200,):
+	self_attri.attri["movement_speed"]=movement
+	self_attri.attri["jump_speed"]=jump
+	movement_speed=self_attri.attri["movement_speed"]
+	jump_speed=self_attri.attri["jump_speed"]

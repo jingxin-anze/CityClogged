@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://c1e3iyda3msmo" path="res://scenes/alert_robot/alert_robot.tscn" id="9_ni1yb"]
 [ext_resource type="PackedScene" uid="uid://b04ynawi2o4gf" path="res://scenes/alert_robot_path/alert_robot_path.tscn" id="10_iswug"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_er67l"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_dwje6"]
 custom_aabb = AABB(-51, -1, -51, 102, 2, 102)
 size = Vector2(100, 100)
 subdivide_width = 24
@@ -55,8 +55,8 @@ alpha_curve = SubResource("CurveTexture_s3ol7")
 
 [sub_resource type="QuadMesh" id="QuadMesh_3kojy"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_1bmib"]
-size = Vector3(2, 1, 3)
+[sub_resource type="BoxShape3D" id="BoxShape3D_cafnr"]
+size = Vector3(1.77454, 1, 4.33521)
 
 [node name="Main" type="Node3D"]
 
@@ -83,7 +83,7 @@ directional_shadow_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.56105, -6.30071, -9.87137)
 script = ExtResource("5_b44ar")
 size = Vector2(100, 100)
-mesh = SubResource("PlaneMesh_er67l")
+mesh = SubResource("PlaneMesh_dwje6")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.98525, 0.171121, 0, -0.171121, 0.98525, -1.45989, 1.48997, 1.38194)
@@ -97,19 +97,17 @@ process_material = SubResource("ParticleProcessMaterial_x7be0")
 draw_pass_1 = SubResource("QuadMesh_3kojy")
 
 [node name="Player" parent="." instance=ExtResource("2_y577h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.12597, 2.531, -10.935)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0434, 2.531, -17.4136)
 
 [node name="House1" parent="." instance=ExtResource("8_57rec")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0479, 0, -21.7371)
 
 [node name="AlertRobot" parent="." instance=ExtResource("9_ni1yb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0214868, 0.769205, -19.7611)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.55651, -0.592021, -22.714)
 
-[node name="AlertRobotPath" parent="." node_paths=PackedStringArray("alert_robot") instance=ExtResource("10_iswug")]
-alert_robot = NodePath("../AlertRobot")
-is_follow_z = true
+[node name="AlertRobotPath" parent="." instance=ExtResource("10_iswug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -18.9306)
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="AlertRobotPath"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01957, -13)
-visible = false
-mesh = SubResource("BoxMesh_1bmib")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AlertRobotPath"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.387268, 0.450308, -0.25769)
+shape = SubResource("BoxShape3D_cafnr")
