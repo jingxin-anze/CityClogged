@@ -28,9 +28,10 @@ extends VehicleBody3D
 ##转弯时的目标y 旋转角度
 var target_rotation: float = 0
 var target_point: Vector3 = Vector3.ZERO
-##当前左转还是右转
+##当前左转还是右转，0是左转，1是右转
 var left_right_turn: int = -1
-
+##当前因为前面有车还是红绿灯停车，有车为0，红绿灯为1
+var park_type: int = -1
 @onready var front_light_ray: RayCast3D = $FrontLightRay
 @onready var front_car_ray: RayCast3D = $FrontCarRay
 @onready var front_road_ray: RayCast3D = $FrontRoadRay

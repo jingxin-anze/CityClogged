@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://y4am0ftwvcf8"]
+
+[ext_resource type="PackedScene" uid="uid://dn354xhy5700u" path="res://map/map_scenes/shi_zi_lu_kou.tscn" id="1_5swxv"]
+[ext_resource type="PackedScene" uid="uid://deomq4opw88wa" path="res://map/map_scenes/zhi_dao.tscn" id="2_s2iym"]
+[ext_resource type="PackedScene" uid="uid://c57kky2or3h33" path="res://map/map_scenes/zhi_dao_2.tscn" id="3_fw6we"]
+[ext_resource type="PackedScene" uid="uid://bajygilvfbv7s" path="res://test_car_huayu/test_car_4.tscn" id="4_ojxgt"]
+
+[sub_resource type="Environment" id="Environment_pj6is"]
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.8
+
+[node name="TestMain2" type="Node3D"]
+
+[node name="ShiZiLuKou" parent="." instance=ExtResource("1_5swxv")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2.44311, 11.8929, 2.32343)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_pj6is")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.87016, 0)
+
+[node name="ZhiDao" parent="." instance=ExtResource("2_s2iym")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20)
+
+[node name="ZhiDao2" parent="." instance=ExtResource("2_s2iym")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -19)
+
+[node name="ZhiDao3" parent="." instance=ExtResource("3_fw6we")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20, 0, 0)
+
+[node name="ZhiDao4" parent="." instance=ExtResource("3_fw6we")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, 0, 0)
+
+[node name="test_car_4" parent="." instance=ExtResource("4_ojxgt")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.6171, 0.332713, -1.59044)
+mass = 50.0
+urgent_brake_factor = 0.0
+common_brake_factor = 0.0
+straight_engine_factor = 50.0
+straight_speed = 5.0
+turn_reduce_lenth = 1.0
