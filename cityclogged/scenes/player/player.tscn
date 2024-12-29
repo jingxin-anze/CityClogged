@@ -1,7 +1,7 @@
 [gd_scene load_steps=62 format=3 uid="uid://bmio6xvvn4bdf"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_1ts8h"]
-[ext_resource type="Resource" uid="uid://c8nprk81gh2sc" path="res://scenes/player/player_attri.tres" id="2_2wrdh"]
+[ext_resource type="Resource" uid="uid://bdcqkrf2k7cf0" path="res://scenes/player/player_attri.tres" id="2_2wrdh"]
 [ext_resource type="Script" path="res://scenes/player/state_machine/state_machine.gd" id="3_k6116"]
 [ext_resource type="Texture2D" uid="uid://ne74c3hcoa6m" path="res://scenes/player/art/player.png" id="3_w6ymd"]
 [ext_resource type="Script" path="res://scenes/player/state_machine/move.gd" id="4_c4g23"]
@@ -10,9 +10,9 @@
 [ext_resource type="Script" path="res://scenes/player/state_machine/hand_up.gd" id="8_p483y"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_n63s8"]
-top_radius = 0.04
-bottom_radius = 0.05
-height = 0.15
+top_radius = 0.05
+bottom_radius = 0.04
+height = 0.18
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fo1up"]
 radius = 0.1
@@ -1102,7 +1102,7 @@ hframes = 6
 vframes = 7
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Sprite3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0073851, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00876487, 0)
 cast_shadow = 3
 mesh = SubResource("CylinderMesh_n63s8")
 skeleton = NodePath("../..")
@@ -1122,9 +1122,11 @@ transform = Transform3D(1, 0, 0, 0, 0.312869, -0.987688, 0, 1.97538, 0.156434, 0
 collision_mask = 5
 script = ExtResource("4_mcxnv")
 
-[node name="StateMachine" type="Node3D" parent="." node_paths=PackedStringArray("current_state")]
+[node name="StateMachine" type="Node3D" parent="." node_paths=PackedStringArray("current_state", "animation_player", "animation_tree")]
 script = ExtResource("3_k6116")
 current_state = NodePath("Idle")
+animation_player = NodePath("AnimationPlayer")
+animation_tree = NodePath("AnimationTree")
 
 [node name="Move" type="Node3D" parent="StateMachine" groups=["state_base"]]
 script = ExtResource("4_c4g23")
