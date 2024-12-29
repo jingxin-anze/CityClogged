@@ -1,27 +1,59 @@
-[gd_scene load_steps=5 format=3 uid="uid://n6fmy6mdqetq"]
+[gd_scene load_steps=9 format=3 uid="uid://n6fmy6mdqetq"]
 
 [ext_resource type="PackedScene" uid="uid://baqermpckxtic" path="res://module/ludeng/honglvdeng.glb" id="1_4hspj"]
+[ext_resource type="Script" path="res://module/ludeng/traffic_signal.gd" id="1_gi365"]
 [ext_resource type="Texture2D" uid="uid://cx4wwcarind2t" path="res://module/ludeng/精灵-0001.png" id="2_yx07m"]
+[ext_resource type="Texture2D" uid="uid://bc7k4hbfduhgw" path="res://module/ludeng/精灵-0004.png" id="3_a8kho"]
 [ext_resource type="Texture2D" uid="uid://ci2x50mhxdbmu" path="res://module/ludeng/精灵-0002.png" id="3_glr3v"]
 [ext_resource type="Texture2D" uid="uid://hh0khb8imgdt" path="res://module/ludeng/精灵-0003.png" id="4_5d3ad"]
+[ext_resource type="Script" path="res://module/ludeng/area_3d.gd" id="6_ewxd7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t25xr"]
+size = Vector3(1, 1, 4.84473)
 
 [node name="TrafficSignal" type="Node3D"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+script = ExtResource("1_gi365")
 
 [node name="honglvdeng" parent="." instance=ExtResource("1_4hspj")]
 transform = Transform3D(1.00471, 0, 0, 0, 0.703029, 0, 0, 0, 1.00471, 0, 0, 0)
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 0.21999, 2.75168, -1.83659)
+[node name="SpriteRed" type="Sprite3D" parent="."]
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 0.228542, 2.75168, -1.83659)
+visible = false
 texture_filter = 0
 texture = ExtResource("2_yx07m")
 
-[node name="Sprite3D3" type="Sprite3D" parent="."]
-transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 0.21999, 2.75168, -3.69286)
+[node name="SpriteGreen" type="Sprite3D" parent="."]
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 0.25744, 2.75168, -3.69286)
+visible = false
 texture_filter = 0
 texture = ExtResource("3_glr3v")
 
-[node name="Sprite3D2" type="Sprite3D" parent="."]
-transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 0.21999, 2.75168, -2.81549)
+[node name="SpriteYellow" type="Sprite3D" parent="."]
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 0.231145, 2.75168, -2.81549)
+visible = false
 texture_filter = 0
 texture = ExtResource("4_5d3ad")
+
+[node name="Area3D" type="Area3D" parent="."]
+script = ExtResource("6_ewxd7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.22823, -1.92236)
+shape = SubResource("BoxShape3D_t25xr")
+
+[node name="Sprite" type="Sprite3D" parent="."]
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 0.21999, 2.75168, -1.83659)
+texture_filter = 0
+texture = ExtResource("3_a8kho")
+
+[node name="Sprite2" type="Sprite3D" parent="."]
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 0.21999, 2.75168, -2.81115)
+texture_filter = 0
+texture = ExtResource("3_a8kho")
+
+[node name="Sprite3" type="Sprite3D" parent="."]
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 0.21999, 2.75168, -3.696)
+texture_filter = 0
+texture = ExtResource("3_a8kho")

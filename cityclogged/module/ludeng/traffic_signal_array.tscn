@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqm3wp3iftqif"]
+
+[ext_resource type="Script" path="res://module/ludeng/traffic_signal_array.gd" id="1_va81b"]
+
+[node name="TrafficSignalArray" type="Node3D"]
+script = ExtResource("1_va81b")

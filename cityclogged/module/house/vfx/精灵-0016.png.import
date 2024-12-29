@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ci2x50mhxdbmu"
-path="res://.godot/imported/精灵-0002.png-a0cb183f9177dfd914a5b7af2e3601a1.ctex"
+uid="uid://jm4rlwtccb21"
+path="res://.godot/imported/精灵-0016.png-d263936be289e36d7dce40b57357d4f7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://module/ludeng/精灵-0002.png"
-dest_files=["res://.godot/imported/精灵-0002.png-a0cb183f9177dfd914a5b7af2e3601a1.ctex"]
+source_file="res://module/house/vfx/精灵-0016.png"
+dest_files=["res://.godot/imported/精灵-0016.png-d263936be289e36d7dce40b57357d4f7.ctex"]
 
 [params]
 

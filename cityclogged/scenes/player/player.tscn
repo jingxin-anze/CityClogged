@@ -1,10 +1,11 @@
-[gd_scene load_steps=62 format=3 uid="uid://bmio6xvvn4bdf"]
+[gd_scene load_steps=63 format=3 uid="uid://bmio6xvvn4bdf"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_1ts8h"]
 [ext_resource type="Resource" uid="uid://bdcqkrf2k7cf0" path="res://scenes/player/player_attri.tres" id="2_2wrdh"]
 [ext_resource type="Script" path="res://scenes/player/state_machine/state_machine.gd" id="3_k6116"]
 [ext_resource type="Texture2D" uid="uid://ne74c3hcoa6m" path="res://scenes/player/art/player.png" id="3_w6ymd"]
 [ext_resource type="Script" path="res://scenes/player/state_machine/move.gd" id="4_c4g23"]
+[ext_resource type="Script" path="res://module/Imputcamera/camera_3d.gd" id="4_e32sp"]
 [ext_resource type="Script" path="res://scenes/player/ray_cast_3d.gd" id="4_mcxnv"]
 [ext_resource type="Script" path="res://scenes/player/state_machine/idle.gd" id="6_6y7xq"]
 [ext_resource type="Script" path="res://scenes/player/state_machine/hand_up.gd" id="8_p483y"]
@@ -1116,6 +1117,7 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0.675, 1.5)
 
 [node name="Camera3D" type="Camera3D" parent="Pitch"]
+script = ExtResource("4_e32sp")
 
 [node name="RayCast3D" type="RayCast3D" parent="Pitch/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 0.312869, -0.987688, 0, 1.97538, 0.156434, 0, 0, 0)
