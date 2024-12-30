@@ -763,6 +763,7 @@ alert_robot = NodePath("../..")
 [node name="Patrol" type="Node" parent="StateMachine" node_paths=PackedStringArray("alert_robot") groups=["state_base"]]
 script = ExtResource("6_lk2kv")
 alert_robot = NodePath("../..")
+speed = 0
 
 [connection signal="body_entered" from="AlertRobotArea" to="AlertRobotArea" method="_on_body_entered"]
 [connection signal="body_exited" from="AlertRobotArea" to="AlertRobotArea" method="_on_body_exited"]

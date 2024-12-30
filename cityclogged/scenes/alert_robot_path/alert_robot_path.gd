@@ -21,15 +21,14 @@ func _ready() -> void:
 	var collision:CollisionShape3D=CollisionShape3D.new()
 	var shape:BoxShape3D=BoxShape3D.new()
 	collision.shape=shape
-	collision.global_position=mi.global_position
 	collision.shape.size=mi.mesh.size
-	call_deferred("add_child",collision)
+	add_child(collision)
+	collision.global_position=mi.global_position
 	
-	await get_tree().create_timer(0.5).timeout
 	alert_robot.global_position=collision.global_position
 	await get_tree().create_timer(1).timeout
 	_set_p(collision)
-	call_deferred("queue_free",mi)
+	mi.call_deferred("queue_free")
 
 
 func _set_p(collision:CollisionShape3D):
