@@ -54,17 +54,13 @@ func _set_p(collision:CollisionShape3D):
 	alert_robot.p2=p2
 
 
-
-
-
 func _on_body_entered(body: Node3D) -> void:
-	#if body is Player:
-		#alert_robot.can_track=true
-
+	if body is Player:
+		alert_robot.can_track=true
 	pass # Replace with function body.
-#
-#
-#func _on_body_exited(body: Node3D) -> void:
-	#if body is AlertRobot:
-		#body.can_track=false
-	#pass # Replace with function body.
+
+
+func _on_body_exited(body: Node3D) -> void:
+	if body is Player:
+		alert_robot.can_track=false
+	pass # Replace with function body.

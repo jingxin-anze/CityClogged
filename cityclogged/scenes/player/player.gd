@@ -26,10 +26,8 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-
 	movement_direction= Input.get_vector("move_backward", "move_forward", "move_left", "move_right")
 	movement_direction_3d= basis.x * movement_direction.y  - basis.z * movement_direction.x
-	
 	if not is_on_floor():
 		velocity.y-=gravity*delta*0.01
 	else:
