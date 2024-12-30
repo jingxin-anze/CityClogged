@@ -51,10 +51,11 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	self.rotation.y = _positive_degree(self.rotation.y)
-	if left_road_ray.is_colliding():
-		print("l1")
-	if right_road_ray.is_colliding():
-		print("r2")
+	#if left_road_ray.is_colliding():
+		#print("l1")
+	#if right_road_ray.is_colliding():
+		#print("r2")
+	#_ray_road(right_road_ray)
 	#print(position)
 	#print(target_rotation)
 	#print(linear_velocity.length())
@@ -137,3 +138,12 @@ func _interpolation(_t: Vector3, _t2: Vector3) -> float:
 		return _t.x - _t2.x
 	else:
 		return _t2.x - _t.x
+##检测道路的碰撞射线，获取grimap的item的索引来判断是不是路面
+func _ray_road(_ray: RayCast3D) -> bool:
+	if _ray.is_colliding():
+		if _ray.get_collider() is GridMap:
+			var _gridmap: GridMap = _ray.get_collider()
+			var _item_index:int = _gridmap.get_cell_item(_gridmap.local_to_map(_gridmap.to_local(_ray.get_collision_point())))
+			if _item_index == 0 || _item_index == 11 || _item_index == 3 || _item_index == 1: 
+				return true
+	return false

@@ -39,14 +39,14 @@ func physics_process(delta: float) -> void:
 		common_car.engine_force = 0
 		common_car.brake = common_car.common_brake_factor
 	#状态切换
-	if common_car.left_road_ray.is_colliding():
+	if common_car._ray_road(common_car.left_road_ray):
 		common_car.target_point = common_car._fixes_point(common_car.left_road_ray.get_collision_point(),common_car.target_rotation,common_car.target_rotation + PI/2)
 		print(common_car.target_point)
 		common_car.target_rotation = common_car._fixes_degree(common_car.target_rotation + PI/2)
 		common_car.left_right_turn = 0
 		state_machine.state_changed("Turn")
 		return
-	if common_car.right_road_ray.is_colliding():
+	if common_car._ray_road(common_car.right_road_ray):
 		common_car.target_point = common_car._fixes_point(common_car.right_road_ray.get_collision_point(),common_car.target_rotation,common_car.target_rotation - PI/2)
 		print(common_car.target_point)
 		common_car.target_rotation = common_car._fixes_degree(common_car.target_rotation - PI/2)
