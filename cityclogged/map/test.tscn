@@ -329,7 +329,7 @@ _data = {
 }
 point_count = 9
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_on70v"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_pqnyp"]
 custom_aabb = AABB(-251, -1, -251, 502, 2, 502)
 size = Vector2(500, 500)
 subdivide_width = 124
@@ -1848,7 +1848,7 @@ speed = 30
 [node name="Water" parent="." instance=ExtResource("15_d0qlx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.4704, -1.39671, 65.1018)
 size = Vector2(500, 500)
-mesh = SubResource("PlaneMesh_on70v")
+mesh = SubResource("PlaneMesh_pqnyp")
 
 [node name="BlockArea3" parent="." instance=ExtResource("16_pt5yn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.0099, 0, -8.02527)
@@ -1888,6 +1888,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 169, 0, 232)
 
 [node name="AlertRobot" parent="." instance=ExtResource("28_m8cxc")]
 transform = Transform3D(-5, 0, 6.55671e-07, 0, 5, 0, -6.55671e-07, 0, -5, 76, 1, -6)
-
-[node name="Player2" parent="." instance=ExtResource("8_jyykq")]
-transform = Transform3D(2.78142e-07, 0, -5, 0, 5, 0, 5, 0, 2.78142e-07, 73.7239, 1.34103, -6.6592)

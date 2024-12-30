@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctcka3hy32xrh"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_or8ip"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_j14qr"]
+
+[node name="RobotTest" type="Node3D"]
+
+[node name="HingeJoint3D" type="HingeJoint3D" parent="."]
+transform = Transform3D(0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, 0, 1, 0, 1, 0)
+node_a = NodePath("../StaticBody3D")
+node_b = NodePath("../StaticBody3D2")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_or8ip")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
+mesh = SubResource("CylinderMesh_j14qr")
