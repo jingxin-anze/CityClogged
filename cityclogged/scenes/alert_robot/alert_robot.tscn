@@ -1,8 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://c1e3iyda3msmo"]
+[gd_scene load_steps=23 format=3 uid="uid://c1e3iyda3msmo"]
 
 [ext_resource type="Texture2D" uid="uid://ocw67pun1ju4" path="res://scenes/alert_robot/alert_robot.png" id="1_g2imu"]
 [ext_resource type="Script" path="res://scenes/alert_robot/alert_robot.gd" id="1_o4b7h"]
 [ext_resource type="Script" path="res://scenes/alert_robot/alert_robot_area.gd" id="3_qtt3l"]
+[ext_resource type="Script" path="res://scenes/player/state_machine/state_machine.gd" id="4_cbj4j"]
+[ext_resource type="Script" path="res://scenes/alert_robot/track.gd" id="5_4qmjk"]
+[ext_resource type="Script" path="res://scenes/alert_robot/patrol.gd" id="6_lk2kv"]
 
 [sub_resource type="Animation" id="Animation_af066"]
 length = 0.001
@@ -725,6 +728,7 @@ axis_lock_angular_z = true
 script = ExtResource("1_o4b7h")
 
 [node name="AlertRobot" type="Sprite3D" parent="."]
+billboard = 2
 texture_filter = 0
 texture = ExtResource("1_g2imu")
 hframes = 4
@@ -746,6 +750,19 @@ script = ExtResource("3_qtt3l")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AlertRobotArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.96046e-08, 1.49012e-08, -2.23517e-08)
 shape = SubResource("CylinderShape3D_x7y5e")
+
+[node name="StateMachine" type="Node3D" parent="." node_paths=PackedStringArray("current_state", "animation_player")]
+script = ExtResource("4_cbj4j")
+current_state = NodePath("Patrol")
+animation_player = NodePath("../AlertRobot/AnimationPlayer")
+
+[node name="Track" type="Node" parent="StateMachine" node_paths=PackedStringArray("alert_robot") groups=["state_base"]]
+script = ExtResource("5_4qmjk")
+alert_robot = NodePath("../..")
+
+[node name="Patrol" type="Node" parent="StateMachine" node_paths=PackedStringArray("alert_robot") groups=["state_base"]]
+script = ExtResource("6_lk2kv")
+alert_robot = NodePath("../..")
 
 [connection signal="body_entered" from="AlertRobotArea" to="AlertRobotArea" method="_on_body_entered"]
 [connection signal="body_exited" from="AlertRobotArea" to="AlertRobotArea" method="_on_body_exited"]

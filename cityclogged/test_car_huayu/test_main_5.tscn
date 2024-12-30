@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://dnet73ymk4oly"]
+
+[ext_resource type="PackedScene" uid="uid://dn354xhy5700u" path="res://map/map_scenes/shi_zi_lu_kou.tscn" id="1_8d2px"]
+[ext_resource type="PackedScene" uid="uid://deomq4opw88wa" path="res://map/map_scenes/zhi_dao.tscn" id="2_wshdb"]
+
+[sub_resource type="Environment" id="Environment_0utlo"]
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.8
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_4ufgl"]
+geometry_source_geometry_mode = 1
+geometry_source_group_name = &"road"
+cell_height = 0.1
+agent_height = 0.2
+agent_radius = 0.1
+edge_max_length = 1.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_3g8yx"]
+
+[node name="TestMain5" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0utlo")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.52267, 6.42898, -11.5074)
+
+[node name="ShiZiLuKou" parent="." groups=["road"] instance=ExtResource("1_8d2px")]
+
+[node name="ZhiDao" parent="." groups=["road"] instance=ExtResource("2_wshdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20)
+
+[node name="ZhiDao2" parent="." groups=["road"] instance=ExtResource("2_wshdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -19)
+
+[node name="ZhiDao3" parent="." groups=["road"] instance=ExtResource("2_wshdb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20, 0, 0)
+
+[node name="ZhiDao4" parent="." groups=["road"] instance=ExtResource("2_wshdb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, 0, 0)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_4ufgl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.745, 0, 0, 0, 3.745, 0, 0, 0, 3.745, -16.5581, 0.0120087, 22.242)
+mesh = SubResource("BoxMesh_3g8yx")
