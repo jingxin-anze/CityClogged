@@ -10,6 +10,7 @@ var player:Player
 var dir:Vector3
 
 func _enter():
+	an.play("front_run_alert")
 	pass
 
 func _exit():
