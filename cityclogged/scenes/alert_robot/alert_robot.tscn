@@ -711,29 +711,30 @@ _data = {
 "right_run_alert": SubResource("Animation_nkcki")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0cdbv"]
-animation = &"front_run"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_87pp4"]
+animation = &"front_run_alert"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_c4m5k"]
-animation = &"left_run"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fe1dx"]
+animation = &"left_run_alert"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jdm6j"]
-animation = &"right_run"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hvlfc"]
+animation = &"right_run_alert"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_805yu"]
-animation = &"back_run"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_m76rt"]
+animation = &"back_run_alert"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_42n8g"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_0cdbv")
+blend_point_0/node = SubResource("AnimationNodeAnimation_87pp4")
 blend_point_0/pos = Vector2(0, 1)
-blend_point_1/node = SubResource("AnimationNodeAnimation_c4m5k")
+blend_point_1/node = SubResource("AnimationNodeAnimation_fe1dx")
 blend_point_1/pos = Vector2(-1, 0)
-blend_point_2/node = SubResource("AnimationNodeAnimation_jdm6j")
+blend_point_2/node = SubResource("AnimationNodeAnimation_hvlfc")
 blend_point_2/pos = Vector2(1, 0)
-blend_point_3/node = SubResource("AnimationNodeAnimation_805yu")
+blend_point_3/node = SubResource("AnimationNodeAnimation_m76rt")
 blend_point_3/pos = Vector2(0, -1)
 min_space = Vector2(-1.1, -1.1)
 max_space = Vector2(1.1, 1.1)
+blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_fpkkd"]
 states/Run/node = SubResource("AnimationNodeBlendSpace2D_42n8g")
@@ -772,7 +773,7 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="AlertRobot"]
 tree_root = SubResource("AnimationNodeStateMachine_fpkkd")
 anim_player = NodePath("../AnimationPlayer")
-parameters/Run/blend_position = Vector2(-0.00235879, 0.959575)
+parameters/Run/blend_position = Vector2(-1.0131, 0.0193833)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_ny47l")
