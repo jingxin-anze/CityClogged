@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c1e3iyda3msmo"]
+[gd_scene load_steps=29 format=3 uid="uid://c1e3iyda3msmo"]
 
 [ext_resource type="Texture2D" uid="uid://ocw67pun1ju4" path="res://scenes/alert_robot/alert_robot.png" id="1_g2imu"]
 [ext_resource type="Script" path="res://scenes/alert_robot/alert_robot.gd" id="1_o4b7h"]
@@ -711,6 +711,36 @@ _data = {
 "right_run_alert": SubResource("Animation_nkcki")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0cdbv"]
+animation = &"front_run"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_c4m5k"]
+animation = &"left_run"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jdm6j"]
+animation = &"right_run"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_805yu"]
+animation = &"back_run"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_42n8g"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_0cdbv")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_c4m5k")
+blend_point_1/pos = Vector2(-1, 0)
+blend_point_2/node = SubResource("AnimationNodeAnimation_jdm6j")
+blend_point_2/pos = Vector2(1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_805yu")
+blend_point_3/pos = Vector2(0, -1)
+min_space = Vector2(-1.1, -1.1)
+max_space = Vector2(1.1, 1.1)
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_fpkkd"]
+states/Run/node = SubResource("AnimationNodeBlendSpace2D_42n8g")
+states/Run/position = Vector2(355.5, 100.375)
+states/Start/position = Vector2(195.5, 100.75)
+graph_offset = Vector2(-13, -38)
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ny47l"]
 radius = 0.13
 height = 0.3
@@ -739,6 +769,11 @@ libraries = {
 "": SubResource("AnimationLibrary_q45dk")
 }
 
+[node name="AnimationTree" type="AnimationTree" parent="AlertRobot"]
+tree_root = SubResource("AnimationNodeStateMachine_fpkkd")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Run/blend_position = Vector2(-0.00235879, 0.959575)
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_ny47l")
 
@@ -751,10 +786,11 @@ script = ExtResource("3_qtt3l")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.96046e-08, 1.49012e-08, -2.23517e-08)
 shape = SubResource("CylinderShape3D_x7y5e")
 
-[node name="StateMachine" type="Node3D" parent="." node_paths=PackedStringArray("current_state", "animation_player")]
+[node name="StateMachine" type="Node3D" parent="." node_paths=PackedStringArray("current_state", "animation_player", "animation_tree")]
 script = ExtResource("4_cbj4j")
 current_state = NodePath("Patrol")
 animation_player = NodePath("../AlertRobot/AnimationPlayer")
+animation_tree = NodePath("../AlertRobot/AnimationTree")
 
 [node name="Track" type="Node" parent="StateMachine" node_paths=PackedStringArray("alert_robot") groups=["state_base"]]
 script = ExtResource("5_4qmjk")
