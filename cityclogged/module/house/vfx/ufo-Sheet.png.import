@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gd1hr4sih404"
-path="res://.godot/imported/alarm_robot.png-83198a4870b67844f0991d5771b86ca4.ctex"
+uid="uid://28h5ufseao71"
+path="res://.godot/imported/ufo-Sheet.png-48dc3427d33a6876cb804722e2d08d66.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://module/robot/alarm_robot.png"
-dest_files=["res://.godot/imported/alarm_robot.png-83198a4870b67844f0991d5771b86ca4.ctex"]
+source_file="res://module/house/vfx/ufo-Sheet.png"
+dest_files=["res://.godot/imported/ufo-Sheet.png-48dc3427d33a6876cb804722e2d08d66.ctex"]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

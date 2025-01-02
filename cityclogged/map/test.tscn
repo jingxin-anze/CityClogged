@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://bwdsgtxbj5dwi"]
+[gd_scene load_steps=48 format=4 uid="uid://bwdsgtxbj5dwi"]
 
 [ext_resource type="Script" path="res://map/test.gd" id="1_qwa18"]
 [ext_resource type="PackedScene" uid="uid://dn354xhy5700u" path="res://map/map_scenes/shi_zi_lu_kou.tscn" id="2_gvkna"]
@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://5ympq2g2ycd0" path="res://map/map_scenes/block_area_13.tscn" id="26_cb1ed"]
 [ext_resource type="PackedScene" uid="uid://bdu03pmcx8jiy" path="res://map/map_scenes/block_area_14.tscn" id="27_4lcx8"]
 [ext_resource type="PackedScene" uid="uid://c1e3iyda3msmo" path="res://scenes/alert_robot/alert_robot.tscn" id="28_m8cxc"]
+[ext_resource type="PackedScene" uid="uid://cggcg8te8cnjj" path="res://robot_2.tscn" id="29_ns6bj"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_acj28"]
 panorama = ExtResource("8_kfyjg")
@@ -329,7 +330,7 @@ _data = {
 }
 point_count = 9
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_pqnyp"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_m4pxw"]
 custom_aabb = AABB(-251, -1, -251, 502, 2, 502)
 size = Vector2(500, 500)
 subdivide_width = 124
@@ -1848,7 +1849,7 @@ speed = 30
 [node name="Water" parent="." instance=ExtResource("15_d0qlx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.4704, -1.39671, 65.1018)
 size = Vector2(500, 500)
-mesh = SubResource("PlaneMesh_pqnyp")
+mesh = SubResource("PlaneMesh_m4pxw")
 
 [node name="BlockArea3" parent="." instance=ExtResource("16_pt5yn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.0099, 0, -8.02527)
@@ -1888,3 +1889,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 169, 0, 232)
 
 [node name="AlertRobot" parent="." instance=ExtResource("28_m8cxc")]
 transform = Transform3D(-5, 0, 6.55671e-07, 0, 5, 0, -6.55671e-07, 0, -5, 76, 1, -6)
+
+[node name="robot2" parent="." instance=ExtResource("29_ns6bj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76, 3, -5)

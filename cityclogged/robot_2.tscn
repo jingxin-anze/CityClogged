@@ -1,0 +1,146 @@
+[gd_scene load_steps=14 format=3 uid="uid://cggcg8te8cnjj"]
+
+[ext_resource type="Texture2D" uid="uid://bdwtqaoscdbwh" path="res://module/robot/ufo-Sheet.png" id="1_fg4im"]
+[ext_resource type="Script" path="res://module/robot/robot_2.gd" id="1_tulpn"]
+[ext_resource type="PackedScene" uid="uid://bxypesuamtn6r" path="res://module/robot/robot2.glb" id="2_iqu2y"]
+
+[sub_resource type="Animation" id="Animation_eoq25"]
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("robot2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 30, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_x8sgj"]
+resource_name = "rotation"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_g2w5c"]
+resource_name = "down"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("robot2:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 30, 0), Vector3(0, 2, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_emkpe"]
+_data = {
+"RESET": SubResource("Animation_eoq25"),
+"down": SubResource("Animation_g2w5c"),
+"rotation": SubResource("Animation_x8sgj")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qaymg"]
+atlas = ExtResource("1_fg4im")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwaho"]
+atlas = ExtResource("1_fg4im")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfwwn"]
+atlas = ExtResource("1_fg4im")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sb33k"]
+atlas = ExtResource("1_fg4im")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ms6sf"]
+atlas = ExtResource("1_fg4im")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7dj2k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qaymg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwaho")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nfwwn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sb33k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ms6sf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="robot2" type="Node3D"]
+script = ExtResource("1_tulpn")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="AnimRotation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_emkpe")
+}
+autoplay = "rotation"
+
+[node name="robot2" parent="." instance=ExtResource("2_iqu2y")]
+transform = Transform3D(-0.698862, 0, 0.715256, 0, 1, 0, -0.715256, 0, -0.698862, 0, 30, 0)
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="robot2"]
+transform = Transform3D(-2.79545, 0, -2.86102, 0, 8, 0, 2.86102, 0, -2.79545, 0, -0.701025, 0)
+visible = false
+billboard = 1
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_7dj2k")
+autoplay = "default"
+frame_progress = 0.0461329
+
+[node name="AnimDown" type="AnimationPlayer" parent="robot2"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_emkpe")
+}
+autoplay = "rotation"
+
+[connection signal="animation_finished" from="robot2/AnimDown" to="." method="_on_anim_down_animation_finished"]

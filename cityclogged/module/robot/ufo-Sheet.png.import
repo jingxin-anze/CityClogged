@@ -2,20 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gd1hr4sih404"
-path="res://.godot/imported/alarm_robot.png-83198a4870b67844f0991d5771b86ca4.ctex"
+uid="uid://bdwtqaoscdbwh"
+path.s3tc="res://.godot/imported/ufo-Sheet.png-cd3da979442089dbbe7e751f6f958664.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://module/robot/alarm_robot.png"
-dest_files=["res://.godot/imported/alarm_robot.png-83198a4870b67844f0991d5771b86ca4.ctex"]
+source_file="res://module/robot/ufo-Sheet.png"
+dest_files=["res://.godot/imported/ufo-Sheet.png-cd3da979442089dbbe7e751f6f958664.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
