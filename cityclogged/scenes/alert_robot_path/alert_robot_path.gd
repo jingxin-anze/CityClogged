@@ -6,30 +6,13 @@ var p1:Vector3
 var p2:Vector3
 
 func _ready() -> void:
-	var mi:MeshInstance3D
-	for i in self.get_children():
-		if i is MeshInstance3D:
-			if i.mesh is BoxMesh:
-				mi=i
-				break
-	if not is_instance_valid(mi):
-		printerr("不存在含有BoxMesh的MeshInstance3D")
-		return
-	if not is_instance_valid(alert_robot):
-		printerr("未设置报警机器人")
-		return
-	var collision:CollisionShape3D=CollisionShape3D.new()
-	var shape:BoxShape3D=BoxShape3D.new()
-	collision.shape=shape
-	collision.global_position=mi.global_position
-	collision.shape.size=mi.mesh.size
-	call_deferred("add_child",collision)
+	var mi:MeshInstance3D=_init_mesh()
+	var coll:CollisionShape3D=_init_collision(mi)
 	
-	await get_tree().create_timer(0.5).timeout
-	alert_robot.global_position=collision.global_position
+	alert_robot.global_position=coll.global_position
 	await get_tree().create_timer(1).timeout
-	_set_p(collision)
-	call_deferred("queue_free",mi)
+	_set_p(coll)
+	mi.call_deferred("queue_free")
 
 
 func _set_p(collision:CollisionShape3D):
@@ -53,7 +36,25 @@ func _set_p(collision:CollisionShape3D):
 	alert_robot.p1=p1
 	alert_robot.p2=p2
 
+func _init_mesh()->MeshInstance3D:
+	for i in self.get_children():
+		if i is MeshInstance3D:
+			if i.mesh is BoxMesh:
+				return i
+	if not is_instance_valid(alert_robot):
+		printerr("未设置报警机器人")
+		return
+	printerr("未设置包含BoxMesh的MeshInstance3D")
+	return
 
+func _init_collision(m:MeshInstance3D)->CollisionShape3D:
+	var collision:CollisionShape3D=CollisionShape3D.new()
+	collision.shape=BoxShape3D.new()
+	collision.shape.size=m.mesh.size
+	add_child(collision)
+	collision.global_position=m.global_position
+	return collision
+	
 func _on_body_entered(body: Node3D) -> void:
 	if body is Player:
 		alert_robot.can_track=true

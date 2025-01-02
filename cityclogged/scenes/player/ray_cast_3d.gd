@@ -11,8 +11,8 @@ func _ready() -> void:
 	self.hit_from_inside=true
 
 func _process(delta: float) -> void:
-	if self.is_colliding():
-		var colled_entity:=self.get_collider()
+	#if self.is_colliding():
+		#var colled_entity:=self.get_collider()
 		#if (colled_entity  is not Player) and is_first:
 			#sprite.no_depth_test=true
 			#sprite.modulate=Color.BLACK
@@ -27,5 +27,5 @@ func _process(delta: float) -> void:
 			#print(colled_entity.get_cell_item(colled_entity.local_to_map(local)))
 		#if colled_entity.has_meta("is_white"):
 			#print("aaa")
-	self.force_raycast_update()
+	#self.force_raycast_update()
 	pass

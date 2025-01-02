@@ -10,7 +10,6 @@ var player:Player
 var dir:Vector3
 
 func _enter():
-	an.play("front_run_alert")
 	pass
 
 func _exit():
@@ -24,4 +23,6 @@ func _tick(delta:float):
 func _physics_tick(delta:float):
 	dir=(player.global_position-alert_robot.global_position).normalized()
 	alert_robot.velocity=dir*delta*speed
+	an_t.get("parameters/playback").travel("Run")
+	an_t.set("parameters/Run/blend_position",alert_robot.dir)
 	pass

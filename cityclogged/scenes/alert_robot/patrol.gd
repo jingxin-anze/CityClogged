@@ -13,7 +13,6 @@ var dir:Vector3
 
 
 func _enter():
-	an.play("front_run")
 	pass
 
 func _exit():
