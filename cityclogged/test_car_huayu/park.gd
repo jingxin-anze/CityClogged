@@ -6,4 +6,4 @@ func physics_process(delta: float) -> void:
 		pass
 	#因为信号灯，所以应该。。
 	if common_car.park_type == 1:
-		pass
+		common_car.brake = common_car.common_brake_factor

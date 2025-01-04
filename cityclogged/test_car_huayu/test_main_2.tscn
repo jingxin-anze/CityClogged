@@ -13,8 +13,6 @@ ambient_light_energy = 0.8
 [node name="TestMain2" type="Node3D"]
 script = ExtResource("1_nudh2")
 
-[node name="ShiZiLuKou" parent="." instance=ExtResource("1_5swxv")]
-
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 25, 0)
 
@@ -23,14 +21,6 @@ environment = SubResource("Environment_pj6is")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.87016, 0)
-
-[node name="test_car_4" parent="." instance=ExtResource("4_ojxgt")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.6578, 0.332713, 1.24879)
-mass = 50.0
-turn_brake_factor = 0.5
-straight_engine_factor = 50.0
-turn_steering = 0.2
-road_width = 6.0
 
 [node name="ZhiDao5" parent="." instance=ExtResource("2_s2iym")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, 0, 0)
@@ -43,3 +33,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20)
 
 [node name="ZhiDao8" parent="." instance=ExtResource("2_s2iym")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -19)
+
+[node name="test_car_4" parent="." instance=ExtResource("4_ojxgt")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -27.6155, 0.32794, -1.41533)
+straight_engine_factor = 200.0
+turn_steering = 0.2
+road_width = 7.0
+turn_timer = 3.0
+
+[node name="ShiZiLuKou" parent="." instance=ExtResource("1_5swxv")]

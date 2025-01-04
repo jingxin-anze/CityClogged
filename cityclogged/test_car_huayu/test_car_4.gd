@@ -2,7 +2,7 @@ class_name CommonCar
 extends VehicleBody3D
 
 ##急刹车
-@export var urgent_brake_factor: float = 15
+#@export var urgent_brake_factor: float = 15
 ##正常刹车
 @export var common_brake_factor: float = 10
 ##转弯减速刹车
@@ -17,7 +17,7 @@ extends VehicleBody3D
 @export var turn_speed: float = 3
 ##转弯角度变化的快慢
 @export var turn_steering: float = PI/8
-##距离多少米时开始减速
+##距离路口转弯多少米时开始减速
 @export var turn_reduce_lenth: float = 1.1
 ##距离信号灯多少米开始刹车
 @export var light_lenth: float = 2
@@ -25,6 +25,8 @@ extends VehicleBody3D
 @export var car_lengh: float = 1
 ##一辆车道的宽度多少米（格子）
 @export var road_width: float = 1
+##转弯的最小时间
+@export var turn_timer: float = 2.4
 ##转弯时的目标y 旋转角度
 var target_rotation: float = 0
 var target_point: Vector3 = Vector3.ZERO
@@ -51,6 +53,10 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	self.rotation.y = _positive_degree(self.rotation.y)
+	_ray_light()
+	if front_light_ray.is_colliding():
+		print("1")
+	#print(_ray_road(right_road_ray))
 	#if left_road_ray.is_colliding():
 		#print("l1")
 	#if right_road_ray.is_colliding():
@@ -101,6 +107,7 @@ func _positive_degree(_t: float) -> float:
 		_t = _t - 2*PI
 	return _t
 
+##修改车的目标点，是自己沿直线行驶的10000个像素远的点
 func _fixes_point(_t: Vector3, _turn: float, _turn2: float) -> Vector3:
 	var _t2:Vector3i = _t
 	var _turnv: Vector3 = _direction_vector(_turn)
@@ -145,5 +152,15 @@ func _ray_road(_ray: RayCast3D) -> bool:
 			var _gridmap: GridMap = _ray.get_collider()
 			var _item_index:int = _gridmap.get_cell_item(_gridmap.local_to_map(_gridmap.to_local(_ray.get_collision_point())))
 			if _item_index == 0 || _item_index == 11 || _item_index == 3 || _item_index == 1: 
+				return true
+	return false
+##检测当前是不是红灯
+func _ray_light() -> bool:
+	if front_light_ray.is_colliding():
+		print("1")
+		if front_light_ray.get_collider().get_parent() is TrafficSignal:
+			var _traffic_signal: TrafficSignal = front_light_ray.get_collider().get_parent()
+			
+			if _traffic_signal.current_state == "red":
 				return true
 	return false
