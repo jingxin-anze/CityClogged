@@ -374,13 +374,13 @@ mesh = SubResource("ArrayMesh_l8o5v")
 skeleton = NodePath("")
 
 [node name="FrontLightRay" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 4)
 target_position = Vector3(0, 0, 50)
 collide_with_areas = true
 collide_with_bodies = false
 
 [node name="FrontCarRay" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.324146, 1.19959)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 1.38296)
 target_position = Vector3(0, 0, 2)
 collision_mask = 8
 

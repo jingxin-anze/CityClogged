@@ -14,7 +14,7 @@ ambient_light_energy = 0.8
 script = ExtResource("1_nudh2")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 25, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 23, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_pj6is")
@@ -35,9 +35,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -19)
 
 [node name="test_car_4" parent="." instance=ExtResource("4_ojxgt")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -27.6155, 0.32794, -1.41533)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -23.2032, 0.32794, -1.41533)
 straight_engine_factor = 200.0
+turn_engine_factor = 30.0
 turn_steering = 0.2
+light_lenth = 15.0
+car_lengh = 4.0
+road_width = 7.0
+turn_timer = 3.0
+
+[node name="test_car_5" parent="." instance=ExtResource("4_ojxgt")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -27.7944, 0.32794, -1.41533)
+straight_engine_factor = 200.0
+turn_engine_factor = 30.0
+turn_steering = 0.2
+light_lenth = 15.0
+car_lengh = 4.0
 road_width = 7.0
 turn_timer = 3.0
 

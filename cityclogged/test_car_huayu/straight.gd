@@ -26,11 +26,17 @@ func physics_process(delta: float) -> void:
 	#if common_car.front_car_ray.is_colliding():
 		#state_machine.state_changed("Park")
 	common_car.steering = 0
-	#暂时写的转入停车
-	#if common_car._ray_light() and common_car.left_road_ray.is_colliding():
-		#common_car.park_type = 1
-		#state_machine.state_changed("Park")
-		#return
+	##暂时写的前方有车辆停车
+	if common_car._ray_car():
+		common_car.park_type = 0
+		state_machine.state_changed("Park")
+		return
+	
+	#暂时写的红绿灯停车
+	if common_car._ray_light() and common_car.left_road_ray.is_colliding():
+		common_car.park_type = 1
+		state_machine.state_changed("Park")
+		return
 	#if common_car._ray_road(common_car.left_road_ray) and :
 	if abs(common_car._interpolation(common_car.target_point,common_car.global_position) )>= 0.05:
 		common_car.steering = common_car._interpolation(common_car.target_point,common_car.global_position)/2
@@ -52,7 +58,6 @@ func physics_process(delta: float) -> void:
 		state_machine.state_changed("Turn")
 		return
 	if common_car._ray_road(common_car.right_road_ray):
-		print("1")
 		common_car.target_point = common_car._fixes_point(common_car.right_road_ray.get_collision_point(),common_car.target_rotation,common_car.target_rotation - PI/2)
 		#print(common_car.target_point)
 		common_car.target_rotation = common_car._fixes_degree(common_car.target_rotation - PI/2)

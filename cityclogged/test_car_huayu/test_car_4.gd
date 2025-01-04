@@ -53,9 +53,9 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	self.rotation.y = _positive_degree(self.rotation.y)
-	_ray_light()
-	if front_light_ray.is_colliding():
-		print("1")
+	#_ray_light()
+	#if front_light_ray.is_colliding():
+		#print("1")
 	#print(_ray_road(right_road_ray))
 	#if left_road_ray.is_colliding():
 		#print("l1")
@@ -157,10 +157,18 @@ func _ray_road(_ray: RayCast3D) -> bool:
 ##检测当前是不是红灯
 func _ray_light() -> bool:
 	if front_light_ray.is_colliding():
-		print("1")
+		#print("1")
 		if front_light_ray.get_collider().get_parent() is TrafficSignal:
 			var _traffic_signal: TrafficSignal = front_light_ray.get_collider().get_parent()
 			
 			if _traffic_signal.current_state == "red":
+				return true
+	return false
+##前方车的状态
+func _ray_car() -> bool:
+	if front_car_ray.is_colliding():
+		if front_car_ray.get_collider() is CommonCar:
+			var _common_car: CommonCar = front_car_ray.get_collider()
+			if _common_car.park_type != -1:
 				return true
 	return false
