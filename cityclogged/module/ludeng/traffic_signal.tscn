@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://module/ludeng/area_3d.gd" id="6_ewxd7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t25xr"]
-size = Vector3(1, 1, 4.84473)
+size = Vector3(1, 2.5, 4.845)
 
 [node name="TrafficSignal" type="Node3D"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
@@ -37,10 +37,11 @@ texture_filter = 0
 texture = ExtResource("4_5d3ad")
 
 [node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.358643, 0)
 script = ExtResource("6_ewxd7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.22823, -1.92236)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.16843, -2.29574)
 shape = SubResource("BoxShape3D_t25xr")
 
 [node name="Sprite" type="Sprite3D" parent="."]

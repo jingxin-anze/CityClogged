@@ -4,4 +4,4 @@ extends Node3D
 var road_gridmap: GridMap
 
 func _ready() -> void:
-	road_gridmap = shi_zi_lu_kou.get_child(0)
+	road_gridmap = shi_zi_lu_kou.get_child(0)                    

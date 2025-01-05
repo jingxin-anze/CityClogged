@@ -1,12 +1,16 @@
 extends CarState
 
+var _timer: int = 0
+
 func enter() -> void:
 	super.enter()
+	_timer = 0
 	#common_car.engine_force = 0
 	#common_car.brake_factor = 5
 func physics_process(delta: float) -> void:
 	#print(common_car.linear_velocity)
 	#print(common_car.linear_velocity.length())
+	_timer += 1
 	if common_car.left_right_turn == 0:
 		common_car.steering = common_car.turn_steering
 	elif  common_car.left_right_turn == 1:
@@ -21,12 +25,22 @@ func physics_process(delta: float) -> void:
 	else:
 		common_car.engine_force = 0
 		common_car.brake = common_car.turn_brake_factor
-
+	_state_straight()
+	#if _timer >= common_car.turn_timer * 60:
+		#_state_straight()
+	#if common_car.left_right_turn == 0 and not common_car._ray_road(common_car.left_road_ray):
+		#_state_straight()
+	#elif common_car.left_right_turn == 1 and not common_car._ray_road(common_car.right_road_ray):
+		#_state_straight()
+##状态切换成直行
+func _state_straight() -> void:
 	if is_zero_approx(common_car.target_rotation) and common_car.rotation.y > 7*PI/4:
 		#print("1")
 		if 2*PI - common_car.rotation.y <= PI/90:
 			common_car.steering = 0
-			state_machine.state_changed("Straight")
+			if _timer >= common_car.turn_timer * 60:
+				state_machine.state_changed("Straight")
 	elif abs(common_car.rotation.y - common_car.target_rotation) <= PI/90:
 		common_car.steering = 0
-		state_machine.state_changed("Straight")
+		if _timer >= common_car.turn_timer * 60:
+			state_machine.state_changed("Straight")
