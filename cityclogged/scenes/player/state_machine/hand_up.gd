@@ -1,9 +1,4 @@
-extends Node3D
-
-var state_machine:StateMachine
-var an_t:AnimationTree
-var an:AnimationPlayer
-var player:Player
+extends StateBase
 
 var movement_dir:Vector2
 signal to_idle(dir:Vector2,id:int)

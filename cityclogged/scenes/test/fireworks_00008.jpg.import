@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cjqf3ketgcj4r"
-path.s3tc="res://.godot/imported/fireworks_00008.jpg-79151e43ff01417c2f23d6c87fe6b248.s3tc.ctex"
+path.s3tc="res://.godot/imported/fireworks_00008.jpg-2e68328249681f841cd09c3145d614d8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://scenes/fireworks_00008.jpg"
-dest_files=["res://.godot/imported/fireworks_00008.jpg-79151e43ff01417c2f23d6c87fe6b248.s3tc.ctex"]
+source_file="res://scenes/test/fireworks_00008.jpg"
+dest_files=["res://.godot/imported/fireworks_00008.jpg-2e68328249681f841cd09c3145d614d8.s3tc.ctex"]
 
 [params]
 

@@ -1,16 +1,10 @@
-extends Node
-
-var state_machine:StateMachine
-var an_t:AnimationTree
-var an:AnimationPlayer
-var player:Player
+extends StateBase
 
 @export var alert_robot:CharacterBody3D
 @export var speed:int=100
 
 var is_right:bool
 var dir:Vector3
-
 
 func _enter():
 	pass

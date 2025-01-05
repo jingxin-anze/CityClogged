@@ -7,11 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://ck6xo5fwq4133" path="res://module/water/water.tscn" id="5_u4fmj"]
 [ext_resource type="Shader" uid="uid://bso3c0fxi44oh" path="res://scenes/main/explosion.tres" id="7_pjdo5"]
 [ext_resource type="PackedScene" uid="uid://ywgrdrwt1wle" path="res://module/house/house_1.tscn" id="8_57rec"]
-[ext_resource type="Texture2D" uid="uid://cjqf3ketgcj4r" path="res://scenes/fireworks_00008.jpg" id="8_fqt87"]
+[ext_resource type="Texture2D" uid="uid://cjqf3ketgcj4r" path="res://scenes/test/fireworks_00008.jpg" id="8_fqt87"]
 [ext_resource type="PackedScene" uid="uid://c1e3iyda3msmo" path="res://scenes/alert_robot/alert_robot.tscn" id="9_ni1yb"]
 [ext_resource type="PackedScene" uid="uid://b04ynawi2o4gf" path="res://scenes/alert_robot_path/alert_robot_path.tscn" id="10_iswug"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_m67kr"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_k06ce"]
 custom_aabb = AABB(-51, -1, -51, 102, 2, 102)
 size = Vector2(100, 100)
 subdivide_width = 24
@@ -83,7 +83,7 @@ directional_shadow_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.56105, -6.30071, -9.87137)
 script = ExtResource("5_b44ar")
 size = Vector2(100, 100)
-mesh = SubResource("PlaneMesh_m67kr")
+mesh = SubResource("PlaneMesh_k06ce")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.98525, 0.171121, 0, -0.171121, 0.98525, -1.45989, 1.48997, 1.38194)

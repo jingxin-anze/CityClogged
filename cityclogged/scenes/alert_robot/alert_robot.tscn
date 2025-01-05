@@ -787,20 +787,22 @@ script = ExtResource("3_qtt3l")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.96046e-08, 1.49012e-08, -2.23517e-08)
 shape = SubResource("CylinderShape3D_x7y5e")
 
-[node name="StateMachine" type="Node3D" parent="." node_paths=PackedStringArray("current_state", "animation_player", "animation_tree")]
+[node name="StateMachine" type="Node3D" parent="." node_paths=PackedStringArray("current_state")]
 script = ExtResource("4_cbj4j")
 current_state = NodePath("Patrol")
-animation_player = NodePath("../AlertRobot/AnimationPlayer")
-animation_tree = NodePath("../AlertRobot/AnimationTree")
 
-[node name="Track" type="Node" parent="StateMachine" node_paths=PackedStringArray("alert_robot") groups=["state_base"]]
+[node name="Track" type="Node" parent="StateMachine" node_paths=PackedStringArray("alert_robot", "an_t", "an") groups=["state_base"]]
 script = ExtResource("5_4qmjk")
 alert_robot = NodePath("../..")
+an_t = NodePath("../../AlertRobot/AnimationTree")
+an = NodePath("../../AlertRobot/AnimationPlayer")
 
-[node name="Patrol" type="Node" parent="StateMachine" node_paths=PackedStringArray("alert_robot") groups=["state_base"]]
+[node name="Patrol" type="Node" parent="StateMachine" node_paths=PackedStringArray("alert_robot", "an_t", "an") groups=["state_base"]]
 script = ExtResource("6_lk2kv")
 alert_robot = NodePath("../..")
 speed = 0
+an_t = NodePath("../../AlertRobot/AnimationTree")
+an = NodePath("../../AlertRobot/AnimationPlayer")
 
 [connection signal="body_entered" from="AlertRobotArea" to="AlertRobotArea" method="_on_body_entered"]
 [connection signal="body_exited" from="AlertRobotArea" to="AlertRobotArea" method="_on_body_exited"]

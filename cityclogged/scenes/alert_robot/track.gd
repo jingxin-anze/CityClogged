@@ -1,13 +1,13 @@
-extends Node
-
-var state_machine:StateMachine
-var an_t:AnimationTree
-var an:AnimationPlayer
-var player:Player
+extends StateBase
 
 @export var alert_robot:CharacterBody3D
 @export var speed:int=100
+
 var dir:Vector3
+
+func _ready() -> void:
+	player=get_tree().get_first_node_in_group("player")
+	pass
 
 func _enter():
 	pass
