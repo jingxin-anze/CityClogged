@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://bwdsgtxbj5dwi"]
+[gd_scene load_steps=49 format=4 uid="uid://bwdsgtxbj5dwi"]
 
 [ext_resource type="Script" path="res://map/test.gd" id="1_qwa18"]
 [ext_resource type="PackedScene" uid="uid://dn354xhy5700u" path="res://map/map_scenes/shi_zi_lu_kou.tscn" id="2_gvkna"]
@@ -56,6 +56,11 @@ fog_depth_end = 168.8
 adjustment_enabled = true
 adjustment_contrast = 1.16
 adjustment_saturation = 1.16
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_cfm66"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 25.0
+dof_blur_near_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y6rx0"]
 resource_name = "材质.009"
@@ -330,7 +335,7 @@ _data = {
 }
 point_count = 9
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_m4pxw"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_qshw0"]
 custom_aabb = AABB(-251, -1, -251, 502, 2, 502)
 size = Vector2(500, 500)
 subdivide_width = 124
@@ -342,6 +347,7 @@ script = ExtResource("1_qwa18")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3yu4e")
+camera_attributes = SubResource("CameraAttributesPractical_cfm66")
 
 [node name="Player" parent="." instance=ExtResource("8_jyykq")]
 transform = Transform3D(2.78142e-07, 0, -5, 0, 5, 0, 5, 0, 2.78142e-07, 76.7239, 1.34103, -12.6592)
@@ -1849,7 +1855,7 @@ speed = 30
 [node name="Water" parent="." instance=ExtResource("15_d0qlx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.4704, -1.39671, 65.1018)
 size = Vector2(500, 500)
-mesh = SubResource("PlaneMesh_m4pxw")
+mesh = SubResource("PlaneMesh_qshw0")
 
 [node name="BlockArea3" parent="." instance=ExtResource("16_pt5yn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.0099, 0, -8.02527)

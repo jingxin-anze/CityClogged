@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://c74xhrko1f0f3"]
+
+[ext_resource type="Texture2D" uid="uid://bsfq51qygv8xy" path="res://UI/images/progress.png" id="2_bsrd7"]
+[ext_resource type="Texture2D" uid="uid://b0uv6444fltst" path="res://UI/images/progress2.png" id="3_dabe1"]
+
+[sub_resource type="Environment" id="Environment_dy106"]
+background_mode = 3
+glow_enabled = true
+glow_levels/2 = 1.0
+glow_levels/3 = 0.0
+glow_levels/5 = 0.0
+glow_intensity = 0.75
+glow_strength = 2.0
+glow_blend_mode = 1
+glow_hdr_threshold = 0.9
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_dy106")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 40.0
+scale = Vector2(2, 2)
+value = 40.0
+nine_patch_stretch = true
+texture_under = ExtResource("2_bsrd7")
+texture_progress = ExtResource("3_dabe1")

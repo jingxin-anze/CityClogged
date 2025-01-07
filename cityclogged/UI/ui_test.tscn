@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cavlugy3hjkm7"]
+
+[ext_resource type="Texture2D" uid="uid://q3wn8eyxtqgg" path="res://icon.svg" id="1_ge3uf"]
+[ext_resource type="PackedScene" uid="uid://c74xhrko1f0f3" path="res://UI/load.tscn" id="2_8bkdw"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Icon" type="Sprite2D" parent="."]
+modulate = Color(0.8, 0.8, 0.8, 1)
+position = Vector2(415, 361)
+scale = Vector2(5, 5)
+texture = ExtResource("1_ge3uf")
+
+[node name="Control" parent="." instance=ExtResource("2_8bkdw")]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+grow_horizontal = 0
+grow_vertical = 0
