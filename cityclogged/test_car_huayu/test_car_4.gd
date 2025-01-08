@@ -154,6 +154,7 @@ func _ray_road(_ray: RayCast3D) -> bool:
 			if _item_index == 0 || _item_index == 11 || _item_index == 3 || _item_index == 1: 
 				return true
 	return false
+	
 ##检测当前是不是红灯
 func _ray_light() -> bool:
 	if front_light_ray.is_colliding():
