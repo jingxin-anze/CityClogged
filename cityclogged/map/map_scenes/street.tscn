@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddp68wj7irvvs"]
+
+[ext_resource type="PackedScene" uid="uid://deomq4opw88wa" path="res://map/map_scenes/zhi_dao.tscn" id="1_6tpk2"]
+[ext_resource type="Script" path="res://map/map_scenes/street.gd" id="1_owa7j"]
+[ext_resource type="PackedScene" uid="uid://ddcr0chpdukwn" path="res://module/3d_car/car_bus.tscn" id="4_jqpes"]
+
+[node name="Street" type="Node3D"]
+script = ExtResource("1_owa7j")
+car_scene = ExtResource("4_jqpes")
+lane_length = 63.0
+lane_width = 1.5
+lane_separation = 0.0
+spawn_interval = Vector2(1, 2)
+debug_color_lane_1 = Color(1, 0, 0, 0.962)
+
+[node name="ZhiDao" parent="." instance=ExtResource("1_6tpk2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 21)
+
+[node name="ZhiDao2" parent="." instance=ExtResource("1_6tpk2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -21)
+
+[node name="ZhiDao3" parent="." instance=ExtResource("1_6tpk2")]

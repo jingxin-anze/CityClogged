@@ -62,12 +62,12 @@ linked_parent_graph_frame = 22
 op_type = 0
 
 [sub_resource type="VisualShaderNodeFrame" id="VisualShaderNodeFrame_q6ir2"]
-size = Vector2(1321, 1099)
+size = Vector2(1284, 1058)
 title = "UV Panning"
 attached_nodes = PackedInt32Array(18, 15, 16, 21, 20, 19, 17)
 
 [sub_resource type="VisualShaderNodeFrame" id="VisualShaderNodeFrame_nww7v"]
-size = Vector2(1324, 529)
+size = Vector2(1324, 358)
 title = "Depth"
 attached_nodes = PackedInt32Array(12, 13, 11, 10, 9, 8)
 
