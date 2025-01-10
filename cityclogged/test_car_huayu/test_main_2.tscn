@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://y4am0ftwvcf8"]
+[gd_scene load_steps=6 format=3 uid="uid://y4am0ftwvcf8"]
 
 [ext_resource type="PackedScene" uid="uid://dn354xhy5700u" path="res://map/map_scenes/shi_zi_lu_kou.tscn" id="1_5swxv"]
 [ext_resource type="PackedScene" uid="uid://ddp68wj7irvvs" path="res://map/map_scenes/street.tscn" id="2_rk07f"]
@@ -9,9 +9,6 @@
 ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 0.8
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_h2ss7"]
-size = Vector3(2.5293, 1, 3.09869)
 
 [node name="TestMain2" type="Node3D"]
 
@@ -27,6 +24,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.87016, 0)
 
 [node name="Street" parent="prop" instance=ExtResource("2_rk07f")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 40)
+spawn_interval = Vector2(2, 2)
 
 [node name="Street2" parent="prop" instance=ExtResource("2_rk07f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -40)
@@ -39,20 +37,17 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 40, 0,
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40, 0, 0)
 spawn_interval = Vector2(1, 2)
 
-[node name="VehicleBody3D" parent="." instance=ExtResource("3_tppsa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.43889, 0.0960259, -7.09928)
-
-[node name="RayCast3D" type="RayCast3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.593, 0.238508, 1.55641)
-target_position = Vector3(0, 0, 2)
-
-[node name="Area3D" type="Area3D" parent="RayCast3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RayCast3D/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.244141, 0, -1.04935)
-shape = SubResource("BoxShape3D_h2ss7")
-
 [node name="Player" parent="." instance=ExtResource("3_hmrko")]
 transform = Transform3D(-4.99812, 0, 0.136992, 0, 5, 0, -0.136992, 0, -4.99812, 5.18256, 0.71772, -5.10341)
 
-[connection signal="body_entered" from="RayCast3D/Area3D" to="VehicleBody3D" method="_on_area_3d_body_entered"]
+[node name="VehicleBody3D" parent="." instance=ExtResource("3_tppsa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3567, 0.681544, -5.69421)
+engine_force = 15.0
+turn_speed = 2.0
+target_speed = 10.0
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.83091, 0.325507, 1.53708)
+target_position = Vector3(0, 0, 3)
+
+[node name="Marker3D" type="Marker3D" parent="RayCast3D"]

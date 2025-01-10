@@ -1,79 +1,77 @@
-extends VehicleBody3D
+extends RigidBody3D
 
-@export var speed = 10
-@export var steering_sensitivity = 0.3
-@export var max_steering_angle = 0.5  # 最大转向角度（弧度），约30度
-@export var turn_radius = 10.0          # 转弯半径
+# 基础参数
+@export var engine_force := 15.0  # 引擎力
+@export var turn_speed := 2.0     # 转向速度
+@export var target_speed := 10.0  # 目标速度
 @onready var ray_cast_3d: RayCast3D = $"../RayCast3D"
-var a: bool = true
-func _ready() -> void:
-	engine_force = speed
+
+# 转向控制
+var target_rotation: float
+var is_turning := false
+var turn_direction := 0.0
+
+func _ready():
+	# 设置物理参数
+	gravity_scale = 1  # 保持重力
+	linear_damp = 1.0  # 添加一些阻尼防止滑行
+	angular_damp = 3.0 # 角速度阻尼
+	
+	# 如果要转向X轴方向
+	turn_to_direction(Vector3.RIGHT)
+	# 或者使用目标点的方向
+	turn_to_direction(ray_cast_3d.global_transform.basis.x)
 
 func _physics_process(delta: float) -> void:
-	if a:
-		# 获取到目标点的方向向量
-		var to_target = ray_cast_3d.global_position - global_position
-		to_target.y = 0  # 忽略高度差
-		
-		# 获取车辆当前朝向
-		var forward = -global_transform.basis.z
-		forward.y = 0
-		
-		# 计算到目标点的距离
-		var distance = to_target.length()
-		
-		# 计算期望的转向角度
-		var desired_angle = calculate_desired_steering(forward.normalized(), to_target.normalized())
-		
-		# 根据距离调整转向角度
-		var steering_factor = clampf(distance / turn_radius, 0.0, 1.0)
-		steering = desired_angle * steering_factor * steering_sensitivity
+	if is_turning:
+		handle_turning(delta)
 	else:
-		# 计算车与目标之间的朝向差异
-		var turn_angle = get_direction_angle(self, ray_cast_3d)
-		# 将转向角度限制在合理范围内
-		var target_steering = clampf(turn_angle * steering_sensitivity * 2, -max_steering_angle, max_steering_angle)
-		steering = target_steering
+		# 正常前进
+		apply_forward_force()
 
-# 计算两个节点之间的朝向夹角，并判断转向方向
-func get_direction_angle(vehicle: VehicleBody3D, target: RayCast3D) -> float:
-	# 获取车的朝向（前向量）
-	var vehicle_forward = -vehicle.global_transform.basis.z
-	# 获取目标的朝向
-	var target_forward = -target.global_transform.basis.z
+# 处理转向
+func handle_turning(delta: float) -> void:
+	var current_angle = global_rotation.y
+	var angle_diff = wrapf(target_rotation - current_angle, -PI, PI)
 	
-	# 投影到水平面（忽略y轴的影响）
-	vehicle_forward.y = 0
-	target_forward.y = 0
-	
-	# 重新归一化向量
-	vehicle_forward = vehicle_forward.normalized()
-	target_forward = target_forward.normalized()
-	
-	# 计算夹角
-	var angle = vehicle_forward.angle_to(target_forward)
-	
-	# 使用叉积判断是向左转还是向右转
-	var cross_product = vehicle_forward.cross(target_forward)
-	
-	# 返回带方向的角度
-	# 如果cross_product.y小于0，说明目标在右边，需要向右转（正值）
-	# 如果cross_product.y大于0，说明目标在左边，需要向左转（负值）
-	return angle * sign(cross_product.y)
-	
-func calculate_desired_steering(forward: Vector3, to_target: Vector3) -> float:
-	# 计算夹角
-	var angle = forward.angle_to(to_target)
-	
-	# 使用叉积判断转向方向
-	var cross_product = forward.cross(to_target)
-	
-	# 获取带方向的转向角度
-	var signed_angle = angle * sign(-cross_product.y)
-	
-	# 限制最大转向角度
-	return clampf(signed_angle, -max_steering_angle, max_steering_angle)
+	if abs(angle_diff) > 0.05:  # 如果还没到达目标角度
+		# 添加转向力
+		var turn_force = turn_direction * turn_speed
+		apply_torque(Vector3.UP * turn_force)
+		
+		# 在转向时适当减速
+		var forward_force = engine_force * 0.5
+		apply_central_force(global_transform.basis.z * forward_force)
+	else:
+		# 到达目标角度，停止转向
+		is_turning = false
+		# 继续前进
+		apply_forward_force()
 
+# 开始转向
+func start_turn(direction: Vector3) -> void:
+	var target_dir = direction.normalized()
+	var current_dir = -global_transform.basis.z
+	
+	# 计算目标旋转角度
+	target_rotation = atan2(target_dir.x, -target_dir.z)
+	
+	# 确定转向方向（左转为负，右转为正）
+	var angle_diff = wrapf(target_rotation - global_rotation.y, -PI, PI)
+	turn_direction = sign(angle_diff)
+	
+	is_turning = true
 
-func _on_area_3d_body_entered(body: Node3D) -> void:
-	a = false
+# 应用前进力
+func apply_forward_force() -> void:
+	var current_speed = linear_velocity.length()
+	if current_speed < target_speed:
+		apply_central_force(global_transform.basis.z * engine_force)
+
+# 外部调用的转向函数
+func turn_to_direction(world_direction: Vector3) -> void:
+	start_turn(world_direction)
+
+# 辅助函数：获取当前速度
+func get_current_speed() -> float:
+	return linear_velocity.length()
