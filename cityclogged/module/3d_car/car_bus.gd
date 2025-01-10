@@ -13,19 +13,26 @@ var is_enter_tree:bool = false
 @onready var front_ray: RayCast3D = $RayCast3D
 # 添加停止检测的阈值
 const STOP_THRESHOLD: float = 2
+@onready var ray_cast_the_select_startpoint: RayCast3D = $RayCastTheSelectStartpoint
+
 
 func _ready() -> void:	
 	engine_force = speed
-	
+
+		
 func _physics_process(delta: float) -> void:
 		if  !get_colliding_bodies().is_empty():
 			status_accident()
 			
 		check_front_traffic()
-	
+
 
 # 检查前方交通状况
 func check_front_traffic() -> void:
+	if ray_cast_the_select_startpoint.is_colliding():
+		var collider = front_ray.get_collider()
+		if collider is SlelectStartPoint:
+			pass
 	if front_ray.is_colliding():
 		var collider = front_ray.get_collider()
 		if collider is Car:

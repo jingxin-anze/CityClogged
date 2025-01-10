@@ -64,7 +64,7 @@ shader_parameter/normalmap_b_sampler = SubResource("NoiseTexture2D_4vuqy")
 shader_parameter/caustic_sampler = SubResource("Texture2DArray_7g5yo")
 shader_parameter/noise_sampler = ExtResource("2_wgdr4")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_ax313"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_effmr"]
 custom_aabb = AABB(-1, -1, -1, 2, 2, 2)
 size = Vector2(0, 0)
 
@@ -114,7 +114,7 @@ script = ExtResource("1_hp1ot")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.374789, 0, 1.71849)
 material_override = SubResource("ShaderMaterial_m6ath")
-mesh = SubResource("PlaneMesh_ax313")
+mesh = SubResource("PlaneMesh_effmr")
 
 [node name="ground" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000255823, 0, 1.33057)
