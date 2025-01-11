@@ -3,7 +3,10 @@ extends CharacterBody3D
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
+var s:SLSystem=SLSystem.new()
 
+func _ready() -> void:
+	s.save_data("test",true)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.

@@ -1,3 +1,13 @@
-[gd_scene format=3 uid="uid://c4oggk81bwc5v"]
+[gd_scene load_steps=3 format=3 uid="uid://c4oggk81bwc5v"]
 
-[node name="BlackMan" type="Node3D"]
+[ext_resource type="Script" path="res://scenes/black_man/black_man.gd" id="1_81kny"]
+[ext_resource type="Texture2D" uid="uid://d1vut8l6d2hwy" path="res://scenes/black_man/art/black.png" id="2_c4n8x"]
+
+[node name="BlackMan" type="CharacterBody3D"]
+script = ExtResource("1_81kny")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture_filter = 0
+texture = ExtResource("2_c4n8x")
+hframes = 6
+vframes = 4

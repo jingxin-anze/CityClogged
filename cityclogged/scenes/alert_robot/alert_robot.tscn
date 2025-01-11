@@ -800,7 +800,6 @@ an = NodePath("../../AlertRobot/AnimationPlayer")
 [node name="Patrol" type="Node" parent="StateMachine" node_paths=PackedStringArray("alert_robot", "an_t", "an") groups=["state_base"]]
 script = ExtResource("6_lk2kv")
 alert_robot = NodePath("../..")
-speed = 0
 an_t = NodePath("../../AlertRobot/AnimationTree")
 an = NodePath("../../AlertRobot/AnimationPlayer")
 

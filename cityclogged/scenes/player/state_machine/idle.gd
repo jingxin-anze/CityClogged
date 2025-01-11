@@ -18,7 +18,7 @@ func _tick(delta:float):
 			state_machine.change_state("Move")
 			an_t.get("parameters/playback").travel("Move")
 		else:
-			state_machine.change_state("Move1")
+			state_machine.change_state("HandUp")
 			an_t.get("parameters/playback").travel("Move1")
 	if Input.is_action_just_pressed("pick_drop"):
 		move_state=!move_state 
