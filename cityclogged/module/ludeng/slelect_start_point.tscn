@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cevbv5i0c3kha"]
+
+[ext_resource type="Script" path="res://module/ludeng/slelect_start_point.gd" id="1_wqpay"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hnki2"]
+size = Vector3(0.108948, 1, 2.38635)
+
+[node name="SlelectStartPoint" type="Area3D"]
+transform = Transform3D(0.00467747, 0, 0.999989, 0, 1, 0, -0.999989, 0, 0.00467747, 0, 0, 0)
+script = ExtResource("1_wqpay")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_hnki2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
