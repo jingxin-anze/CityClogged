@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://b04ynawi2o4gf"]
 
-[ext_resource type="Script" path="res://scenes/alert_robot_path/alert_robot_path.gd" id="1_4c3bm"]
+[ext_resource type="Script" path="res://scenes/npc_path/alert_robot_path.gd" id="1_4c3bm"]
 
-[node name="AlertRobotPath" type="Area3D" groups=["alert_robot_path"]]
+[node name="NPCPath" type="Area3D" groups=["alert_robot_path"]]
 collision_mask = 20
 script = ExtResource("1_4c3bm")
 
