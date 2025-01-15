@@ -7,7 +7,7 @@ func _ready() -> void:
 
 
 		
-func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body is Car:
-		body.engine_force = body.speed
-		body.reach_next_street()
+#func _on_area_3d_body_entered(body: Node3D) -> void:
+	#if body is Car:
+		#body.engine_force = body.speed
+		#body.reach_next_street()

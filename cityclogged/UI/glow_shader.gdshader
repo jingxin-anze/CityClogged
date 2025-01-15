@@ -13,7 +13,7 @@ void fragment() {
     vec4 orig_color = texture(TEXTURE, UV);
     vec4 glow = vec4(0.0);
     float total_weight = 0.0;
-    
+
     // 双遍高斯模糊
     for(float i = -blur_amount; i <= blur_amount; i++) {
         float weight = gaussian(i, blur_amount * 0.5);
@@ -22,7 +22,7 @@ void fragment() {
         total_weight += weight;
     }
     glow /= total_weight;
-    
+
     total_weight = 0.0;
     vec4 final_glow = vec4(0.0);
     for(float i = -blur_amount; i <= blur_amount; i++) {
@@ -32,7 +32,7 @@ void fragment() {
         total_weight += weight;
     }
     final_glow /= total_weight;
-    
+
     // 混合原始颜色和发光效果
     vec4 glow_effect = final_glow * glow_color * glow_intensity;
     COLOR = orig_color + glow_effect;

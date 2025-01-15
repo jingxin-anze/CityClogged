@@ -2,6 +2,8 @@
 class_name State
 extends Node
 
+@onready var machine: CarStateMachine
+@onready var car: Car
 # 虚函数：进入状态
 func enter() -> void:
 	pass

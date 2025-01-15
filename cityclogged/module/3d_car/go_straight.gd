@@ -1,21 +1,17 @@
 # 状态：直走
 class_name GoStraightState
 extends State
-
-func enter() -> void:
-	print("进入待机状态")
-
-func exit() -> void:
-	print("退出待机状态")
-
-func update(delta: float) -> void:
-	# 待机状态逻辑
-	pass
-
+func enter():
+	print("进入直行")
+	
 func physics_update(delta: float) -> void:
-	# 待机状态物理逻辑
-	pass
 
-func handle_input(event: InputEvent) -> void:
-	# 待机状态输入处理
-	pass
+	# 抱持恒定得速度
+	if car.linear_velocity.length() > car.max_velocity:
+		car.engine_force = 0
+	else:
+		car.engine_force = 4	# 待机状态物理逻辑
+		
+	if car.ray_cast_3d.get_collider():
+		machine.transition_to("SlowDown")
+	

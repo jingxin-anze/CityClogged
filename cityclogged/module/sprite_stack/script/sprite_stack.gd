@@ -1,5 +1,5 @@
 @tool
-class_name Car extends Sprite2D
+class_name Cars extends Sprite2D
 
 
 @export var show_sprites:bool:

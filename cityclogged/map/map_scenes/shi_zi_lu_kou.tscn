@@ -1,27 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dn354xhy5700u"]
+[gd_scene load_steps=4 format=3 uid="uid://dn354xhy5700u"]
 
 [ext_resource type="Script" path="res://map/test.gd" id="1_rmvxc"]
-[ext_resource type="PackedScene" uid="uid://dr7yn72oktmmg" path="res://module/ludeng/ray_cast_next_street.tscn" id="2_55jlh"]
-[ext_resource type="PackedScene" uid="uid://n6fmy6mdqetq" path="res://module/ludeng/traffic_signal.tscn" id="3_0str1"]
 [ext_resource type="MeshLibrary" uid="uid://bmsgpshcj2gbr" path="res://module/road/road_mesh_library.tres" id="3_dsbbj"]
-[ext_resource type="PackedScene" uid="uid://cevbv5i0c3kha" path="res://module/ludeng/slelect_start_point.tscn" id="4_iecbb"]
+[ext_resource type="PackedScene" uid="uid://n6fmy6mdqetq" path="res://module/ludeng/traffic_signal.tscn" id="3_xooal"]
 
 [node name="ShiZiLuKou" type="Node3D"]
 script = ExtResource("1_rmvxc")
-
-[node name="RayCast3D1" parent="." instance=ExtResource("2_55jlh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.58052, 0.23851, 5.96875)
-debug_shape_custom_color = Color(0.98, 0.34937, 0.00979999, 1)
-
-[node name="RayCast3D2" parent="." instance=ExtResource("2_55jlh")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.70041, 0.23851, -1.37914)
-
-[node name="RayCast3D3" parent="." instance=ExtResource("2_55jlh")]
-transform = Transform3D(-1, 0, -8.74227e-08, 0, 1, 0, 8.74227e-08, 0, -1, 1.24011, 0.23851, -6.14006)
-debug_shape_custom_color = Color(0.00979999, 0.98, 0.00979999, 1)
-
-[node name="RayCast3D4" parent="." instance=ExtResource("2_55jlh")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.3902, 0.23851, 1.51524)
 
 [node name="RoadGridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("3_dsbbj")
@@ -31,47 +15,14 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
-[node name="prop" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0744305, 0.0623989, 0.0213652)
+[node name="TrafficSignal" parent="." instance=ExtResource("3_xooal")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2.58901, 4)
 
-[node name="TrafficSignal" parent="." node_paths=PackedStringArray("select_point") instance=ExtResource("3_0str1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.44554, 2.42993, 3.3668)
-select_point = NodePath("../SlelectStartPoint4")
+[node name="TrafficSignal2" parent="." instance=ExtResource("3_xooal")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4, 2.58901, -4)
 
-[node name="TrafficSignal2" parent="." node_paths=PackedStringArray("select_point") instance=ExtResource("3_0str1")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.61107, 2.42993, 4.03405)
-select_point = NodePath("../SlelectStartPoint")
-initial_state = "red"
+[node name="TrafficSignal3" parent="." instance=ExtResource("3_xooal")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 4, 2.58901, -4)
 
-[node name="TrafficSignal3" parent="." node_paths=PackedStringArray("select_point") instance=ExtResource("3_0str1")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.61107, 2.2957, -3.41901)
-select_point = NodePath("../SlelectStartPoint3")
-
-[node name="TrafficSignal4" parent="." node_paths=PackedStringArray("select_point") instance=ExtResource("3_0str1")]
-transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, -3.67018, 2.17334, -3.41236)
-select_point = NodePath("../SlelectStartPoint2")
-initial_state = "red"
-
-[node name="SlelectStartPoint" parent="." node_paths=PackedStringArray("next_left_street", "next_right_street", "next_straight_street") instance=ExtResource("4_iecbb")]
-transform = Transform3D(0.00467747, 0, 0.999989, 0, 1, 0, -0.999989, 0, 0.00467747, -1.29322, 0.511889, -6.12761)
-next_left_street = NodePath("../RayCast3D4")
-next_right_street = NodePath("../RayCast3D2")
-next_straight_street = NodePath("../RayCast3D1")
-
-[node name="SlelectStartPoint2" parent="." node_paths=PackedStringArray("next_left_street", "next_right_street", "next_straight_street") instance=ExtResource("4_iecbb")]
-transform = Transform3D(0.00467747, 0, 0.999989, 0, 1, 0, -0.999989, 0, 0.00467747, 1.11685, 0.527149, 6.48471)
-next_left_street = NodePath("../RayCast3D2")
-next_right_street = NodePath("../RayCast3D3")
-next_straight_street = NodePath("../RayCast3D4")
-
-[node name="SlelectStartPoint3" parent="." node_paths=PackedStringArray("next_left_street", "next_right_street", "next_straight_street") instance=ExtResource("4_iecbb")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -6.19666, 0.527149, 1.14959)
-next_left_street = NodePath("../RayCast3D3")
-next_right_street = NodePath("../RayCast3D1")
-next_straight_street = NodePath("../RayCast3D4")
-
-[node name="SlelectStartPoint4" parent="." node_paths=PackedStringArray("next_left_street", "next_right_street", "next_straight_street") instance=ExtResource("4_iecbb")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.04246, 0.527149, -1.20575)
-next_left_street = NodePath("../RayCast3D1")
-next_right_street = NodePath("../RayCast3D3")
-next_straight_street = NodePath("../RayCast3D2")
+[node name="TrafficSignal4" parent="." instance=ExtResource("3_xooal")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 4, 2.58901, 4)

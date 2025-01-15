@@ -7,13 +7,16 @@ var current_state: State
 var states: Dictionary = {}
 # 是否处于过渡状态
 var is_transitioning: bool = false
+@onready var car: Car = $".."
 
 func _ready() -> void:
 	# 获取所有State节点
 	for child in get_children():
 		if child is State:
 			states[child.name.to_lower()] = child
-	
+			child.machine = self
+			child.car = car
+			
 	# 初始化第一个状态
 	if not states.is_empty():
 		current_state = states.values()[0]

@@ -1,4 +1,4 @@
-class_name Car extends VehicleBody3D
+extends VehicleBody3D
 
 @export var speed = 200
 @export var max_speed: float = 3.0 
@@ -16,7 +16,7 @@ const STOP_THRESHOLD: float = 2
 @onready var ray_cast_the_select_startpoint: RayCast3D = $RayCastTheSelectStartpoint
 @export var steering_sensitivity = 0.09
 @export var max_steering_angle = 0.5  # 最大转向角度（弧度），约30度
-@export var turn_radius = 2.0          # 转弯半径
+@export var turn_radius = 20.0          # 转弯半径
 
 # 开始修正
 var is_start_correction: bool = false
@@ -29,6 +29,7 @@ var is_go_to_next_street: bool = false
 
 func _ready() -> void:	
 	engine_force = speed
+	lock_rotation =true
 
 		
 func _physics_process(delta: float) -> void:
@@ -58,25 +59,25 @@ func _physics_process(delta: float) -> void:
 			var target_steering = clampf(turn_angle * steering_sensitivity * 2, -max_steering_angle, max_steering_angle)
 			steering = target_steering
 			
-			## 获取到目标点的方向向量
-			#var to_target = target_street.global_position - global_position
-			#to_target.y = 0  # 忽略高度差
-			#
-			## 获取车辆当前朝向
-			#var forward = -global_transform.basis.z
-			#forward.y = 0
-			#
-			## 计算到目标点的距离
-			#var distance = to_target.length()
-			#var current_speed = linear_velocity.length()
-			 ## 使用考虑速度的转向因子
-			#var steering_factor = calculate_steering_factor(distance, current_speed)
-			## 计算期望的转向角度
-			#var desired_angle = calculate_desired_steering(forward.normalized(), to_target.normalized())
-			#
-			## 在高速时降低转向敏感度
-			#var speed_based_sensitivity = steering_sensitivity * (1.0 - (current_speed / max_speed) * 0.3)
-			#steering = desired_angle * steering_factor * steering_sensitivity
+			# 获取到目标点的方向向量
+			var to_target = target_street.global_position - global_position
+			to_target.y = 0  # 忽略高度差
+			
+			# 获取车辆当前朝向
+			var forward = -global_transform.basis.z
+			forward.y = 0
+			
+			# 计算到目标点的距离
+			var distance = to_target.length()
+			var current_speed = linear_velocity.length()
+			 # 使用考虑速度的转向因子
+			var steering_factor = calculate_steering_factor(distance, current_speed)
+			# 计算期望的转向角度
+			var desired_angle = calculate_desired_steering(forward.normalized(), to_target.normalized())
+			
+			# 在高速时降低转向敏感度
+			var speed_based_sensitivity = steering_sensitivity * (1.0 - (current_speed / max_speed) * 0.3)
+			steering = desired_angle * steering_factor * steering_sensitivity
 			
 
 # 检查前方交通状况

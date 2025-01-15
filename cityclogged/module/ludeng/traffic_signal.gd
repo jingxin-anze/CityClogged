@@ -30,7 +30,7 @@ func update_lights():
 	sprite_red.visible = current_state == "red"
 	sprite_yellow.visible = current_state == "yellow"
 	sprite_green.visible = current_state == "green"	
-	select_point.current_state = current_state
+	#select_point.current_state = current_state
 
 func _process(delta: float) -> void:
 	timer += delta
@@ -49,3 +49,9 @@ func _process(delta: float) -> void:
 				current_state = "red" # 切换到红灯
 				timer = 0.0
 	update_lights()
+
+
+func _on_area_3d_area_entered(area: Area3D) -> void:
+	
+	if area.get_parent() is Street:
+		print(area.get_rid())
