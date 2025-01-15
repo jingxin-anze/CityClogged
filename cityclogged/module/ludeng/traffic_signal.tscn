@@ -51,10 +51,11 @@ texture_filter = 0
 texture = ExtResource("3_a8kho")
 
 [node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.19624, -2.41344)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.58565, -2.19624, -2.6507)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.192454, 0)
 shape = SubResource("BoxShape3D_18dy1")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

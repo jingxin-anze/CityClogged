@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://dn354xhy5700u"]
+[gd_scene load_steps=5 format=3 uid="uid://dn354xhy5700u"]
 
 [ext_resource type="Script" path="res://map/test.gd" id="1_rmvxc"]
 [ext_resource type="MeshLibrary" uid="uid://bmsgpshcj2gbr" path="res://module/road/road_mesh_library.tres" id="3_dsbbj"]
 [ext_resource type="PackedScene" uid="uid://n6fmy6mdqetq" path="res://module/ludeng/traffic_signal.tscn" id="3_xooal"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4dweh"]
+size = Vector3(5.31577, 1, 5.33562)
 
 [node name="ShiZiLuKou" type="Node3D"]
 script = ExtResource("1_rmvxc")
@@ -26,3 +29,12 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 4, 2.5
 
 [node name="TrafficSignal4" parent="." instance=ExtResource("3_xooal")]
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 4, 2.58901, 4)
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.518373, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0582123, 0, -0.0496902)
+shape = SubResource("BoxShape3D_4dweh")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

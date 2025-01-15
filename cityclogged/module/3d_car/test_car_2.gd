@@ -1,4 +1,4 @@
-class_name Car extends VehicleBody3D
+extends VehicleBody3D
 
 @onready var front_left: VehicleWheel3D = $front_left
 @onready var front_right: VehicleWheel3D = $front_right
@@ -11,28 +11,16 @@ class_name Car extends VehicleBody3D
 var tar_get: Marker3D
 var is_ready: bool = false
 
-var street_now:Street # 当前所在的车道
+var street_now:Street # 当前所在的车道,当车辆生成的时候，所在的车道会给这个值赋值
 
+var at_the_intersection:bool = false # 是否到达路口
 
 func _process(delta: float) -> void:
 	if  !get_colliding_bodies().is_empty():
 			status_accident()
-	#print(linear_velocity.length())
 	
-	#if linear_velocity.length() < 0.001:
-		#is_ready = true
-	#
-	#if is_ready:
-		#
-		## 抱持恒定得速度
-		#if linear_velocity.length() > 2:
-			#engine_force = 0
-		#else:
-			#engine_force = 4
-		#
-		#
-		#lock_rotation = false 
-	if     tar_get:
+		
+	if  tar_get:
 		var target_steer = calculate_steering_angle(tar_get.global_position)
 		# 平滑转向
 		steering = move_toward(steering, target_steer, steering_speed * delta)

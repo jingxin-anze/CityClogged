@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://y4am0ftwvcf8"]
+[gd_scene load_steps=4 format=3 uid="uid://y4am0ftwvcf8"]
 
 [ext_resource type="PackedScene" uid="uid://dn354xhy5700u" path="res://map/map_scenes/shi_zi_lu_kou.tscn" id="1_5swxv"]
 [ext_resource type="PackedScene" uid="uid://ddp68wj7irvvs" path="res://map/map_scenes/street.tscn" id="2_rk07f"]
 [ext_resource type="PackedScene" uid="uid://bmio6xvvn4bdf" path="res://scenes/player/player.tscn" id="3_hmrko"]
-[ext_resource type="PackedScene" uid="uid://ddcr0chpdukwn" path="res://module/3d_car/car_bus.tscn" id="4_sa8g8"]
 
 [node name="TestMain2" type="Node3D"]
 
@@ -33,8 +32,3 @@ spawn_interval = Vector2(1, 2)
 
 [node name="Player" parent="." instance=ExtResource("3_hmrko")]
 transform = Transform3D(-4.99812, 0, 0.136992, 0, 5, 0, -0.136992, 0, -4.99812, 5.18256, 0.71772, -5.10341)
-
-[node name="VehicleBody3D" parent="." instance=ExtResource("4_sa8g8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.53322, 0.185745, -20.4559)
-MAX_STEER_ANGLE = 1.0
-steering_speed = 1.0

@@ -313,15 +313,10 @@ mass = 1000.0
 contact_monitor = true
 max_contacts_reported = 10
 script = ExtResource("1_l0q5d")
-speed = null
-max_speed = null
-steering_sensitivity = null
-max_steering_angle = null
-turn_radius = null
+steering_speed = 0.1
 
 [node name="front_right" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -0.475162, 0.194511, 0.519543)
-use_as_traction = true
 use_as_steering = true
 wheel_radius = 0.2
 suspension_stiffness = 200.0
@@ -335,7 +330,6 @@ skeleton = NodePath("")
 
 [node name="front_left" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 0.524838, 0.194511, 0.519745)
-use_as_traction = true
 use_as_steering = true
 wheel_radius = 0.2
 suspension_stiffness = 200.0
@@ -398,3 +392,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.477429, 0.677613)
 target_position = Vector3(0, 0, 0.8)
 collide_with_areas = true
 collide_with_bodies = false
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

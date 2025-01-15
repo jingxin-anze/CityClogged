@@ -390,6 +390,7 @@ shape = SubResource("BoxShape3D_yrqvg")
 [node name="RayCast3D" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.321101, 0.941985)
 target_position = Vector3(0, 0, 4)
+collide_with_areas = true
 
 [node name="Machine" type="Node" parent="."]
 script = ExtResource("3_cl36x")
