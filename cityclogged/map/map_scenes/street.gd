@@ -4,6 +4,8 @@ class_name Street extends Node3D
 @export var flush: bool = false
 @export var create_car: bool = false
 @export var car_scene: PackedScene
+@export var max_density_calculation: float = 10 # 最大密度
+
 @export_group("Lane Settings")
 @export var lane_length: float = 20.0
 @export var lane_width: float = 4.0
@@ -36,12 +38,13 @@ class Lane:
 	var traffic_density: float
 	var start_marker: Marker3D
 	var end_marker: Marker3D
+	var lane_type: String  # 新增：用于标识车道类型（"red" 或 "blue"）
 
-	func _init(pos: float, dir: float, density: float = 1.0):
+	func _init(pos: float, dir: float, density: float = 1.0, type: String = "red"):
 		position = pos
 		direction = dir
 		traffic_density = density
-
+		lane_type = type
 var lanes: Array[Lane] = []
 
 # 获取道路点的方法
@@ -66,8 +69,8 @@ func setup_lanes() -> void:
 	point_meshes.clear()
 	
 	# 创建左车道和右车道
-	var left_lane = Lane.new(-lane_width - lane_separation/2, 0, 1.0)
-	var right_lane = Lane.new(lane_width + lane_separation/2, PI, 1.0)
+	var left_lane = Lane.new(-lane_width - lane_separation/2, 0, 1.0, "red")  # 左车道为红色
+	var right_lane = Lane.new(lane_width + lane_separation/2, PI, 1.0, "blue")  # 右车道为蓝色
 	lanes = [left_lane, right_lane]
 	
 	# 为每条车道添加起点和终点标记
@@ -82,8 +85,8 @@ func setup_lanes() -> void:
 	# 更新车道的标记引用
 	left_lane.start_marker = road_points["left_start"]
 	left_lane.end_marker = road_points["left_end"]
-	right_lane.start_marker = road_points["right_start"]
-	right_lane.end_marker = road_points["right_end"]
+	right_lane.end_marker = road_points["right_start"]
+	right_lane.start_marker = road_points["right_end"]
 	
 	# 创建点的可视化
 	_create_point_visualization()
@@ -172,13 +175,18 @@ func _process(delta: float) -> void:
 			_create_debug_visualization()
 		flush = false
 	
-	if create_car:
+	# 添加密度检查
+	if create_car and density_calculation < max_density_calculation:  # 只有当密度小于max_density_calculation时才继续倒计时和生成
 		time_to_next_spawn -= delta
 		if time_to_next_spawn <= 0:
 			spawn_car()
 			time_to_next_spawn = randf_range(spawn_interval.x, spawn_interval.y)
 
 func spawn_car() -> void:
+	# 添加密度检查
+	if density_calculation >= 10:
+		return
+		
 	if car_scene:
 		var lane = choose_lane()
 		var car = car_scene.instantiate()
@@ -189,11 +197,6 @@ func spawn_car() -> void:
 		var road_rotation = global_rotation.y
 		var car_direction = lane.direction
 		car.global_rotation.y = road_rotation + car_direction
-		
-		## 根据车辆的行驶方向设置目标点
-		## 如果车辆朝正方向，使用终点标记；否则使用起点标记
-		#var target_marker = lane.end_marker if abs(car_direction) < PI/2 else lane.start_marker
-		#car.set("target_point", target_marker)
 
 func choose_lane() -> Lane:
 	var total_density = 0.0
@@ -210,51 +213,43 @@ func choose_lane() -> Lane:
 	
 	return lanes[0]
 
+# 在车辆进入检测中添加车道类型判断
 func _on_density_calculation_body_entered(body: Node3D) -> void:
 	if body is Car:
 		density_calculation += 1
 		body.street_now = self
+		body.next_street = null
+		# 将车辆的全局位置转换为道路的本地坐标
+		var car_local_pos = to_local(body.global_position)
+		var car_local_forward = to_local(body.global_transform.basis.z + body.global_position) - car_local_pos
 		
-		# 根据车辆的行驶方向设置目标点
-		var car_global_rotation = body.global_rotation.y
-		var road_rotation = global_rotation.y
-		
-		# 定义方向判断的容差值（比如30度 = PI/6）
-		var direction_tolerance = PI / 6
-		
-		# 寻找最近的车道和确定行驶方向
+		# 寻找最近的车道
 		var nearest_lane
 		var min_distance = INF
 		for l in lanes:
-			var lane_pos = Vector3(l.position, 0, 0)
-			var car_local_pos = body.global_position - global_position
-			var distance = abs(car_local_pos.x - lane_pos.x)
-			
+			var distance = abs(car_local_pos.x - l.position)
 			if distance < min_distance:
 				min_distance = distance
 				nearest_lane = l
 		
 		if nearest_lane:
-			# 计算期望的理想方向（车道的基准方向）
-			var ideal_direction = nearest_lane.direction + road_rotation
+			# 计算车道方向在本地坐标系中的向量
+			var lane_direction = Vector3(0, 0, 1).rotated(Vector3.UP, nearest_lane.direction)
 			
-			# 将车辆的实际方向规范化到 [-PI, PI] 范围内
-			var actual_direction = wrapf(car_global_rotation, -PI, PI)
-			var ideal_direction_normalized = wrapf(ideal_direction, -PI, PI)
+			# 计算车辆前向方向与车道方向的点积
+			var dot_product = car_local_forward.normalized().dot(lane_direction)
 			
-			# 计算方向差的绝对值
-			var direction_diff = abs(wrapf(actual_direction - ideal_direction_normalized, -PI, PI))
-			
-			# 根据方向差判断目标点
+			# 根据点积判断车辆是否在按车道方向行驶
 			var target_marker
-			if direction_diff <= direction_tolerance:
-				# 车辆方向接近车道的正向方向
+			if dot_product > 0:
 				target_marker = nearest_lane.end_marker
 			else:
-				# 车辆方向接近车道的反向方向
 				target_marker = nearest_lane.start_marker
 			
+			# 设置目标点
 			body.set("target_point", target_marker)
+			
+			body.current_lane_type = nearest_lane.lane_type
 		
 		print("车辆进入：", density_calculation)
 		print("当前街道密度：", density_calculation)

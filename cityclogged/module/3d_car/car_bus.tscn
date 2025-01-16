@@ -313,7 +313,7 @@ mass = 1000.0
 contact_monitor = true
 max_contacts_reported = 10
 script = ExtResource("1_l0q5d")
-steering_speed = 0.1
+steering_speed = 0.5
 
 [node name="front_right" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -0.475162, 0.194511, 0.519543)
@@ -389,7 +389,7 @@ debug_shape_custom_color = Color(0.97, 0.00969999, 0.249775, 1)
 
 [node name="RayCastTheSelectStartpoint" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.477429, 0.677613)
-target_position = Vector3(0, 0, 0.8)
+target_position = Vector3(0, 0, 2)
 collide_with_areas = true
 collide_with_bodies = false
 

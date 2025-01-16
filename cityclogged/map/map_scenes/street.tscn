@@ -5,15 +5,17 @@
 [ext_resource type="PackedScene" uid="uid://ddcr0chpdukwn" path="res://module/3d_car/car_bus.tscn" id="2_3c0p4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ihheg"]
-size = Vector3(5.151, 2.97754, 74.9027)
+size = Vector3(5.151, 2.97754, 75.1216)
 
 [node name="Street" type="Node3D"]
 script = ExtResource("1_owa7j")
+create_car = true
 car_scene = ExtResource("2_3c0p4")
+max_density_calculation = 5.0
 lane_length = 63.0
 lane_width = 1.5
 lane_separation = 0.0
-spawn_interval = Vector2(10, 10)
+spawn_interval = Vector2(5, 10)
 debug_color_lane_1 = Color(1, 0, 0, 0.962)
 
 [node name="ZhiDao" parent="." instance=ExtResource("1_6tpk2")]
@@ -27,8 +29,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -21)
 [node name="DensityCalculation" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DensityCalculation"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00335693, 1.57114, -0.553352)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00335693, 1.57114, -0.523243)
 shape = SubResource("BoxShape3D_ihheg")
 
 [connection signal="body_entered" from="DensityCalculation" to="." method="_on_density_calculation_body_entered"]
 [connection signal="body_exited" from="DensityCalculation" to="." method="_on_density_calculation_body_exited"]
+[connection signal="body_entered" from="VehicleBody3D" to="VehicleBody3D" method="_on_body_entered"]
+[connection signal="body_entered" from="@VehicleBody3D@21372" to="@VehicleBody3D@21372" method="_on_body_entered"]
+[connection signal="body_entered" from="@VehicleBody3D@21373" to="@VehicleBody3D@21373" method="_on_body_entered"]
+[connection signal="body_entered" from="@VehicleBody3D@21377" to="@VehicleBody3D@21377" method="_on_body_entered"]
+[connection signal="body_entered" from="@VehicleBody3D@22549" to="@VehicleBody3D@22549" method="_on_body_entered"]
+[connection signal="body_entered" from="@VehicleBody3D@56216" to="@VehicleBody3D@56216" method="_on_body_entered"]
+[connection signal="body_entered" from="@VehicleBody3D@56716" to="@VehicleBody3D@56716" method="_on_body_entered"]
+[connection signal="body_entered" from="@VehicleBody3D@56717" to="@VehicleBody3D@56717" method="_on_body_entered"]
+[connection signal="body_entered" from="@VehicleBody3D@56723" to="@VehicleBody3D@56723" method="_on_body_entered"]
+[connection signal="body_entered" from="@VehicleBody3D@56724" to="@VehicleBody3D@56724" method="_on_body_entered"]
+[connection signal="body_entered" from="@VehicleBody3D@57227" to="@VehicleBody3D@57227" method="_on_body_entered"]
+[connection signal="body_entered" from="@VehicleBody3D@57239" to="@VehicleBody3D@57239" method="_on_body_entered"]
+[connection signal="body_entered" from="@VehicleBody3D@57240" to="@VehicleBody3D@57240" method="_on_body_entered"]
+[connection signal="body_entered" from="@VehicleBody3D@57745" to="@VehicleBody3D@57745" method="_on_body_entered"]

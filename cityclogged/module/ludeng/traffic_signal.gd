@@ -21,13 +21,19 @@ var self_street:Street
 var left_street:Street
 var go_street:Street
 var right:Street
+
+
+var next_state: String = "red"
+
 func _ready() -> void:
 	init() # Replace with function body.
 
 
-# 初始化
+# 始化函数，确保正确设置初始状态
 func init():
 	current_state = initial_state
+	# 设置初始的next_state
+	next_state = "red" if initial_state == "green" else "green"
 	update_lights()
 	
 	
@@ -39,20 +45,26 @@ func update_lights():
 
 func _process(delta: float) -> void:
 	timer += delta
-
+	
 	match current_state:
 		"red": # 红灯
 			if timer >= red_duration:
-				current_state = "green" # 切换到绿灯
+				# 红灯结束时，先切换到黄灯，并标记下一个状态为绿灯
+				current_state = "yellow"
+				next_state = "green"
 				timer = 0.0
 		"green": # 绿灯
 			if timer >= green_duration:
-				current_state = "yellow" # 切换到黄灯
+				# 绿灯结束时，先切换到黄灯，并标记下一个状态为红灯
+				current_state = "yellow"
+				next_state = "red"
 				timer = 0.0
 		"yellow": # 黄灯
 			if timer >= yellow_duration:
-				current_state = "red" # 切换到红灯
+				# 黄灯结束时，切换到之前标记的下一个状态
+				current_state = next_state
 				timer = 0.0
+	
 	update_lights()
 	
 	
@@ -62,19 +74,32 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 	# 这里是防止重复发送信号
 	var rid:RID
 	if area.get_parent() is Street and area.get_rid() != rid:
+		self_street = area.get_parent()
 		rid = area.get_rid()
 		street_is_ready.emit(area.get_parent())
 		
 	
 
 func find_min_density_street(streets: Array[Street]) -> Street:
-	if streets.is_empty():
-		return null
-	streets.erase(self_street)
-	var min_street = streets[0]
-	var min_density = streets[0].density_calculation
+	# 创建一个新的数组，避免修改原始数组
+	var available_streets = streets.duplicate()
 	
-	for street in streets:
+	# 如果输入数组为空，返回 null
+	if available_streets.is_empty():
+		return null
+		
+	# 从数组中移除 self_street
+	available_streets.erase(self_street)
+	
+	# 如果移除后数组为空，返回 null
+	if available_streets.is_empty():
+		return null
+	
+	# 找出密度最小的街道
+	var min_street = available_streets[0]
+	var min_density = available_streets[0].density_calculation
+	
+	for street in available_streets:
 		if street.density_calculation < min_density:
 			min_density = street.density_calculation
 			min_street = street
