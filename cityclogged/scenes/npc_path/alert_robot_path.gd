@@ -7,12 +7,15 @@ var p2:Vector3
 
 func _ready() -> void:
 	var mi:MeshInstance3D=_init_mesh()
-	var coll:CollisionShape3D=_init_collision(mi)
+	var coll:CollisionShape3D
+	if is_instance_valid(mi):
+		coll=_init_collision(mi)
 	
-	npc.global_position=coll.global_position
-	await get_tree().create_timer(1).timeout
-	_set_p(coll)
-	mi.call_deferred("queue_free")
+	if is_instance_valid(npc):
+		npc.global_position=coll.global_position
+		await get_tree().create_timer(1).timeout
+		_set_p(coll)
+		mi.call_deferred("queue_free")
 
 
 func _set_p(collision:CollisionShape3D):
