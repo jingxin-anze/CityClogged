@@ -56,6 +56,8 @@ func _ready() -> void:
 	time_to_next_spawn = randf_range(spawn_interval.x, spawn_interval.y)
 	if show_debug_visuals:
 		_create_debug_visualization()
+		# 创建点的可视化
+		_create_point_visualization()
 
 func setup_lanes() -> void:
 	# 清除之前的标记点和可视化
@@ -88,8 +90,7 @@ func setup_lanes() -> void:
 	right_lane.end_marker = road_points["right_start"]
 	right_lane.start_marker = road_points["right_end"]
 	
-	# 创建点的可视化
-	_create_point_visualization()
+	
 
 # 创建标记点的辅助函数
 func _create_marker(name: String, lane: Lane, is_start: bool) -> Marker3D:
@@ -218,7 +219,6 @@ func _on_density_calculation_body_entered(body: Node3D) -> void:
 	if body is Car:
 		density_calculation += 1
 		body.street_now = self
-		body.next_street = null
 		# 将车辆的全局位置转换为道路的本地坐标
 		var car_local_pos = to_local(body.global_position)
 		var car_local_forward = to_local(body.global_transform.basis.z + body.global_position) - car_local_pos
@@ -248,15 +248,16 @@ func _on_density_calculation_body_entered(body: Node3D) -> void:
 			
 			# 设置目标点
 			body.set("target_point", target_marker)
-			
+				
 			body.current_lane_type = nearest_lane.lane_type
 		
 		print("车辆进入：", density_calculation)
 		print("当前街道密度：", density_calculation)
 
+	if body is Player:
+		body.street = self
 func _on_density_calculation_body_exited(body: Node3D) -> void:
 	if body is Car:
 		density_calculation = max(0, density_calculation - 1)
-		body.traffic_signal = null
 		print("车俩离开：", density_calculation)
 		print("当前街道密度：", density_calculation)

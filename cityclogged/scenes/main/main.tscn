@@ -2,7 +2,7 @@
 
 [ext_resource type="MeshLibrary" uid="uid://dx2bh8jtyvj6f" path="res://scenes/space_library/space_libray.tres" id="1_5ti7x"]
 [ext_resource type="PackedScene" uid="uid://bmio6xvvn4bdf" path="res://scenes/player/player.tscn" id="2_y577h"]
-[ext_resource type="Environment" uid="uid://bhj0n7730mo2l" path="res://scenes/main/world_envir.tres" id="4_7rx4y"]
+[ext_resource type="Environment" uid="uid://bq5i57hepdapi" path="res://scenes/main/world_envir.tres" id="4_7rx4y"]
 [ext_resource type="Script" path="res://scenes/main/water.gd" id="5_b44ar"]
 [ext_resource type="PackedScene" uid="uid://ck6xo5fwq4133" path="res://module/water/water.tscn" id="5_u4fmj"]
 [ext_resource type="Shader" uid="uid://bso3c0fxi44oh" path="res://scenes/main/explosion.tres" id="7_pjdo5"]

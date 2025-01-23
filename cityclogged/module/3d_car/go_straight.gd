@@ -1,4 +1,4 @@
-# 状态：直走
+# 状态：前进
 class_name GoStraightState
 extends State
 func enter():
@@ -10,8 +10,14 @@ func physics_update(delta: float) -> void:
 	if car.linear_velocity.length() > car.max_velocity:
 		car.engine_force = 0
 	else:
-		car.engine_force = 4	# 待机状态物理逻辑
+		car.engine_force = car.speed
 		
-	if car.ray_cast_3d.get_collider():
+	if car.ray_cast_3d.get_collider() is Car:
 		machine.transition_to("SlowDown")
 	
+	if car.traffic_signal:
+		machine.transition_to("WaitingSignalLight")
+	
+# 虚函数：退出状态
+func exit() -> void:
+	pass

@@ -1,9 +1,10 @@
-[gd_scene load_steps=27 format=4 uid="uid://brmqbr5e7fosm"]
+[gd_scene load_steps=28 format=4 uid="uid://brmqbr5e7fosm"]
 
 [ext_resource type="Script" path="res://module/3d_car/test_car_2.gd" id="1_5dr21"]
 [ext_resource type="Script" path="res://module/3d_car/state_machine.gd" id="3_cl36x"]
 [ext_resource type="Script" path="res://module/3d_car/init.gd" id="4_hm0rl"]
 [ext_resource type="Script" path="res://module/3d_car/go_straight.gd" id="5_7a1he"]
+[ext_resource type="Script" path="res://module/3d_car/waiting_signal_light.gd" id="6_6mihc"]
 [ext_resource type="Script" path="res://module/3d_car/slow_down.gd" id="6_q6agb"]
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_qkl63"]
@@ -318,6 +319,8 @@ contact_monitor = true
 max_contacts_reported = 1
 angular_damp_mode = 1
 script = ExtResource("1_5dr21")
+speed = 8
+max_velocity = 4.0
 
 [node name="front_right" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -0.475162, 0.194511, 0.519543)
@@ -403,3 +406,6 @@ script = ExtResource("5_7a1he")
 
 [node name="SlowDown" type="Node" parent="Machine"]
 script = ExtResource("6_q6agb")
+
+[node name="WaitingSignalLight" type="Node" parent="Machine"]
+script = ExtResource("6_6mihc")
