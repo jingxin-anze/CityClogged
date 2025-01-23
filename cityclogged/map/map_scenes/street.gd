@@ -218,7 +218,6 @@ func _on_density_calculation_body_entered(body: Node3D) -> void:
 	if body is Car:
 		density_calculation += 1
 		body.street_now = self
-		body.next_street = null
 		# 将车辆的全局位置转换为道路的本地坐标
 		var car_local_pos = to_local(body.global_position)
 		var car_local_forward = to_local(body.global_transform.basis.z + body.global_position) - car_local_pos
@@ -248,7 +247,7 @@ func _on_density_calculation_body_entered(body: Node3D) -> void:
 			
 			# 设置目标点
 			body.set("target_point", target_marker)
-			
+				
 			body.current_lane_type = nearest_lane.lane_type
 		
 		print("车辆进入：", density_calculation)
@@ -257,6 +256,5 @@ func _on_density_calculation_body_entered(body: Node3D) -> void:
 func _on_density_calculation_body_exited(body: Node3D) -> void:
 	if body is Car:
 		density_calculation = max(0, density_calculation - 1)
-		body.traffic_signal = null
 		print("车俩离开：", density_calculation)
 		print("当前街道密度：", density_calculation)

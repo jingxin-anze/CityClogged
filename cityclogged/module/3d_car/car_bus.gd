@@ -1,4 +1,4 @@
-class_name Car extends VehicleBody3D
+class_name Car2 extends VehicleBody3D
 
 @export var speed = 200
 @export var max_velocity: float = 1.0 
@@ -91,6 +91,7 @@ func handle_speed_control() -> void:
 	if front_ray.is_colliding():
 		var collider = front_ray.get_collider()
 		if collider is Car:
+			
 			var front_car_speed = collider.linear_velocity.length()
 			
 			# 前车速度过低时进入拥堵状态
@@ -227,7 +228,7 @@ func calculate_steering_angle(target_position: Vector3) -> float:
 
 
 func go_to_next_point():
-	
+	print("下一个街道",next_street)
 	if next_street:		
 		if current_lane_type == "red":		
 			target_point = next_street.get_road_point("right_end")
