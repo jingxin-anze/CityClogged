@@ -1,15 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://ddp68wj7irvvs"]
+[gd_scene load_steps=7 format=3 uid="uid://ddp68wj7irvvs"]
 
 [ext_resource type="PackedScene" uid="uid://deomq4opw88wa" path="res://map/map_scenes/zhi_dao.tscn" id="1_6tpk2"]
 [ext_resource type="Script" path="res://map/map_scenes/street.gd" id="1_owa7j"]
-[ext_resource type="PackedScene" uid="uid://ddcr0chpdukwn" path="res://module/3d_car/car_bus.tscn" id="2_3c0p4"]
+[ext_resource type="PackedScene" uid="uid://brmqbr5e7fosm" path="res://module/3d_car/test_car_2.tscn" id="2_uhrxi"]
+[ext_resource type="PackedScene" uid="uid://b04ynawi2o4gf" path="res://scenes/npc_path/alert_robot_path.tscn" id="4_0vu7h"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ihheg"]
 size = Vector3(5.151, 2.97754, 75.1216)
 
+[sub_resource type="BoxMesh" id="BoxMesh_l8i6y"]
+
 [node name="Street" type="Node3D"]
 script = ExtResource("1_owa7j")
-car_scene = ExtResource("2_3c0p4")
+car_scene = ExtResource("2_uhrxi")
 max_density_calculation = 5.0
 lane_length = 63.0
 lane_width = 1.5
@@ -30,6 +33,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -21)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DensityCalculation"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00335693, 1.57114, -0.523243)
 shape = SubResource("BoxShape3D_ihheg")
+
+[node name="NPCPath" parent="." instance=ExtResource("4_0vu7h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.85575, 0, -5.65292)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NPCPath"]
+transform = Transform3D(4.89565, 0, 0, 0, 1, 0, 0, 0, 61.5809, 0.370873, 0, 4.94731)
+visible = false
+mesh = SubResource("BoxMesh_l8i6y")
+
+[node name="NPCPath2" parent="." instance=ExtResource("4_0vu7h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1192, 0, -5.65292)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NPCPath2"]
+transform = Transform3D(4.89565, 0, 0, 0, 1, 0, 0, 0, 61.5809, 0.370873, 0, 4.94731)
+visible = false
+mesh = SubResource("BoxMesh_l8i6y")
 
 [connection signal="body_entered" from="DensityCalculation" to="." method="_on_density_calculation_body_entered"]
 [connection signal="body_exited" from="DensityCalculation" to="." method="_on_density_calculation_body_exited"]

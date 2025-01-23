@@ -2,7 +2,7 @@
 
 [ext_resource type="MeshLibrary" uid="uid://dx2bh8jtyvj6f" path="res://scenes/space_library/space_libray.tres" id="1_5ti7x"]
 [ext_resource type="PackedScene" uid="uid://bmio6xvvn4bdf" path="res://scenes/player/player.tscn" id="2_y577h"]
-[ext_resource type="Environment" uid="uid://bhj0n7730mo2l" path="res://scenes/main/world_envir.tres" id="4_7rx4y"]
+[ext_resource type="Environment" uid="uid://bq5i57hepdapi" path="res://scenes/main/world_envir.tres" id="4_7rx4y"]
 [ext_resource type="Script" path="res://scenes/main/water.gd" id="5_b44ar"]
 [ext_resource type="PackedScene" uid="uid://ck6xo5fwq4133" path="res://module/water/water.tscn" id="5_u4fmj"]
 [ext_resource type="Shader" uid="uid://bso3c0fxi44oh" path="res://scenes/main/explosion.tres" id="7_pjdo5"]
@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://c1e3iyda3msmo" path="res://scenes/alert_robot/alert_robot.tscn" id="9_ni1yb"]
 [ext_resource type="PackedScene" uid="uid://b04ynawi2o4gf" path="res://scenes/npc_path/alert_robot_path.tscn" id="10_iswug"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_dxy06"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_wydc4"]
 custom_aabb = AABB(-51, -1, -51, 102, 2, 102)
 size = Vector2(100, 100)
 subdivide_width = 24
@@ -83,7 +83,7 @@ directional_shadow_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.56105, -6.30071, -9.87137)
 script = ExtResource("5_b44ar")
 size = Vector2(100, 100)
-mesh = SubResource("PlaneMesh_dxy06")
+mesh = SubResource("PlaneMesh_wydc4")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.98525, 0.171121, 0, -0.171121, 0.98525, -1.45989, 1.48997, 1.38194)

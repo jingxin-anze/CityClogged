@@ -31,22 +31,6 @@ tracks/1/keys = {
 "values": [Vector3(0, 30, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_x8sgj"]
-resource_name = "rotation"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_g2w5c"]
 resource_name = "down"
 length = 2.0
@@ -61,6 +45,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, 30, 0), Vector3(0, 2, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_x8sgj"]
+resource_name = "rotation"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_emkpe"]
@@ -129,7 +129,6 @@ transform = Transform3D(-0.698862, 0, 0.715256, 0, 1, 0, -0.715256, 0, -0.698862
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="robot2"]
 transform = Transform3D(-2.79545, 0, -2.86102, 0, 8, 0, 2.86102, 0, -2.79545, 0, -0.701025, 0)
-visible = false
 billboard = 1
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_7dj2k")

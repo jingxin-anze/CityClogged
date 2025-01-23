@@ -5,9 +5,8 @@ extends State
 
 # 虚函数：物理更新
 func physics_update(_delta: float) -> void:
-	print(car.brake)
 	if car.brake < 5:
-		car.brake += _delta
+		car.brake += _delta * 2
 	if is_instance_valid(car.traffic_signal):
 		if car.traffic_signal.current_state ==  "green":
 			machine.transition_to("GoStraight")

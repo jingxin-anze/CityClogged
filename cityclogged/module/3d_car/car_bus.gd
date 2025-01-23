@@ -44,6 +44,7 @@ var stuck_timer: float = 0.0
 func _ready() -> void:	
 	engine_force = speed
 	lock_rotation =true
+	next_street.rotation
 
 		
 func _physics_process(delta: float) -> void:

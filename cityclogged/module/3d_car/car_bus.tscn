@@ -313,15 +313,7 @@ mass = 1000.0
 contact_monitor = true
 max_contacts_reported = 10
 script = ExtResource("1_l0q5d")
-speed = null
-max_velocity = null
-MAX_STEER_ANGLE = null
 steering_speed = 0.5
-MIN_SPEED_THRESHOLD = null
-SPEED_MATCH_FACTOR = null
-FRONT_CAR_START_THRESHOLD = null
-FOLLOW_DISTANCE = null
-STUCK_TIMEOUT = null
 
 [node name="front_right" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -0.475162, 0.194511, 0.519543)

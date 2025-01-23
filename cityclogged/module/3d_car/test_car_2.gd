@@ -35,7 +35,7 @@ func _process(delta: float) -> void:
 func calculate_steering_angle(target_position: Vector3) -> float:
 	# 获取当前位置
 	var current_pos = global_position
-	
+	street_now.rotation
 	# 计算目标方向向量
 	var to_target = target_position - current_pos
 	to_target.y = 0
@@ -55,6 +55,7 @@ func calculate_steering_angle(target_position: Vector3) -> float:
 # 故障状态		
 func status_accident():
 	await get_tree().create_timer(2.0).timeout
+	
 	queue_free()
 	
 func go_to_next_point():

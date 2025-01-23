@@ -30,7 +30,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -40)
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 40, 0, 0)
 
 [node name="Street4" parent="prop" instance=ExtResource("2_rk07f")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -39.8235, 0.062912, 0.0841541)
 
 [node name="ShiZiLuKou2" parent="prop" instance=ExtResource("1_5swxv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 81)
@@ -53,6 +53,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81, 0, -81)
 
 [node name="Street6" parent="prop" instance=ExtResource("2_rk07f")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -81, 0, -41)
+spawn_interval = Vector2(2, 2)
 
 [node name="ShiZiLuKou7" parent="prop" instance=ExtResource("1_5swxv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -81)
@@ -94,14 +95,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.0032, 0, -9.06735)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.97414, 0, 73.0013)
 
 [node name="Player" parent="." instance=ExtResource("3_hmrko")]
-transform = Transform3D(-4.99812, 0, 0.136992, 0, 5, 0, -0.136992, 0, -4.99812, -76.8174, 3.71772, -7.10341)
+transform = Transform3D(-4.99812, 0, 0.136992, 0, 5, 0, -0.136992, 0, -4.99812, -69.4655, 0.721756, -5.23787)
 
 [node name="TestCar2" parent="." instance=ExtResource("8_yygv2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82.4184, 0.085906, -28.6716)
-speed = 8
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.0493, 0.085906, 0.825365)
 max_velocity = 2.0
 
 [node name="TestCar3" parent="." instance=ExtResource("8_yygv2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82.4184, 0.085906, -20.3494)
-speed = 8
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.1713, 0.085906, -13.4022)
 max_velocity = 2.0
