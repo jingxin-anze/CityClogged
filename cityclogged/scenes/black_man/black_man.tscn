@@ -1,10 +1,15 @@
-[gd_scene load_steps=16 format=3 uid="uid://c4oggk81bwc5v"]
+[gd_scene load_steps=18 format=3 uid="uid://c4oggk81bwc5v"]
 
 [ext_resource type="Script" path="res://scenes/black_man/black_man.gd" id="1_81kny"]
-[ext_resource type="Texture2D" uid="uid://d1vut8l6d2hwy" path="res://scenes/black_man/art/black.png" id="2_c4n8x"]
+[ext_resource type="Texture2D" uid="uid://xyxmx77vjldw" path="res://scenes/black_man/art/black .png" id="2_w30ts"]
 [ext_resource type="Script" path="res://scenes/player/state_machine/state_machine.gd" id="3_c0h0n"]
 [ext_resource type="Script" path="res://scenes/alert_robot/track.gd" id="4_solfr"]
 [ext_resource type="Script" path="res://scenes/alert_robot/patrol.gd" id="5_26qrq"]
+[ext_resource type="Script" path="res://scenes/black_man/dropped.gd" id="6_8277n"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rllw6"]
+radius = 0.1
+height = 0.2
 
 [sub_resource type="Animation" id="Animation_iripu"]
 length = 0.001
@@ -490,14 +495,20 @@ _data = {
 "toward_walk": SubResource("Animation_wsl10")
 }
 
-[node name="BlackMan" type="CharacterBody3D"]
+[node name="BlackMan" type="CharacterBody3D" groups=["can_dropped"]]
+collision_layer = 16
+collision_mask = 79
 script = ExtResource("1_81kny")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 texture_filter = 0
-texture = ExtResource("2_c4n8x")
+texture = ExtResource("2_w30ts")
 hframes = 6
 vframes = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0027637, 0)
+shape = SubResource("CapsuleShape3D_rllw6")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -506,10 +517,13 @@ libraries = {
 
 [node name="StateMachine" type="Node3D" parent="." node_paths=PackedStringArray("current_state")]
 script = ExtResource("3_c0h0n")
-current_state = NodePath("Patrol")
+current_state = NodePath("Dropped")
 
 [node name="Track" type="Node" parent="StateMachine" groups=["state_base"]]
 script = ExtResource("4_solfr")
 
 [node name="Patrol" type="Node" parent="StateMachine" groups=["state_base"]]
 script = ExtResource("5_26qrq")
+
+[node name="Dropped" type="Node" parent="StateMachine"]
+script = ExtResource("6_8277n")

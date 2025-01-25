@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://bmio6xvvn4bdf"]
+[gd_scene load_steps=67 format=3 uid="uid://bmio6xvvn4bdf"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_4hr8c"]
 [ext_resource type="Resource" uid="uid://bdcqkrf2k7cf0" path="res://scenes/player/player_attri.tres" id="2_2wrdh"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://scenes/player/state_machine/move.gd" id="6_jwf83"]
 [ext_resource type="Script" path="res://scenes/player/state_machine/idle.gd" id="7_khmw1"]
 [ext_resource type="Script" path="res://scenes/player/state_machine/hand_up.gd" id="8_p483y"]
+[ext_resource type="Script" path="res://scenes/player/pick_area.gd" id="9_5dy7f"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kyh8w"]
 render_priority = 0
@@ -24,6 +25,9 @@ height = 0.18
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fo1up"]
 radius = 0.1
 height = 0.22
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_wuvjr"]
+height = 0.25
 
 [sub_resource type="Animation" id="Animation_xq8w3"]
 length = 0.001
@@ -1096,6 +1100,10 @@ states/Start/position = Vector2(336.938, 97.1503)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_nptqg"), "Idle", "Move", SubResource("AnimationNodeStateMachineTransition_8gnj4"), "Move", "Idle", SubResource("AnimationNodeStateMachineTransition_0h4gf"), "Idle", "End", SubResource("AnimationNodeStateMachineTransition_wxutm"), "Move", "End", SubResource("AnimationNodeStateMachineTransition_xwcna"), "Move", "Move1", SubResource("AnimationNodeStateMachineTransition_qj28e"), "Move1", "Idle", SubResource("AnimationNodeStateMachineTransition_iv80o"), "Move1", "Move", SubResource("AnimationNodeStateMachineTransition_ufyyy"), "Move1", "Idle1", SubResource("AnimationNodeStateMachineTransition_s4dmw"), "Idle1", "Move", SubResource("AnimationNodeStateMachineTransition_ss6am"), "Idle1", "Move1", SubResource("AnimationNodeStateMachineTransition_eutfo"), "Idle", "Idle1", SubResource("AnimationNodeStateMachineTransition_tu4ih")]
 graph_offset = Vector2(167, -74.6994)
 
+[sub_resource type="Theme" id="Theme_tjknc"]
+Label/font_sizes/font_size = 64
+RichTextLabel/font_sizes/normal_font_size = 64
+
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 collision_layer = 4
 collision_mask = 19
@@ -1134,23 +1142,28 @@ script = ExtResource("4_mcxnv")
 script = ExtResource("3_k6116")
 current_state = NodePath("Idle")
 
-[node name="Move" type="Node3D" parent="StateMachine" node_paths=PackedStringArray("an_t", "an", "player") groups=["state_base"]]
+[node name="Move" type="Node3D" parent="StateMachine" node_paths=PackedStringArray("an_t", "an") groups=["state_base"]]
 script = ExtResource("6_jwf83")
 an_t = NodePath("../AnimationTree")
 an = NodePath("../AnimationPlayer")
-player = NodePath("../..")
 
-[node name="Idle" type="Node3D" parent="StateMachine" node_paths=PackedStringArray("an_t", "an", "player") groups=["state_base"]]
+[node name="Idle" type="Node3D" parent="StateMachine" node_paths=PackedStringArray("an_t", "an") groups=["state_base"]]
 script = ExtResource("7_khmw1")
 an_t = NodePath("../AnimationTree")
 an = NodePath("../AnimationPlayer")
-player = NodePath("../..")
 
-[node name="HandUp" type="Node3D" parent="StateMachine" node_paths=PackedStringArray("an_t", "an", "player") groups=["state_base"]]
+[node name="PickArea" type="Area3D" parent="StateMachine/Idle"]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("9_5dy7f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StateMachine/Idle/PickArea"]
+shape = SubResource("CylinderShape3D_wuvjr")
+
+[node name="HandUp" type="Node3D" parent="StateMachine" node_paths=PackedStringArray("an_t", "an") groups=["state_base"]]
 script = ExtResource("8_p483y")
 an_t = NodePath("../AnimationTree")
 an = NodePath("../AnimationPlayer")
-player = NodePath("../..")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="StateMachine"]
 unique_name_in_owner = true
@@ -1179,5 +1192,31 @@ parameters/Idle1/blend_position = Vector2(0.0083853, -0.943272)
 parameters/Move/blend_position = Vector2(-0.11066, 0.407048)
 parameters/Move1/blend_position = Vector2(0.028581, 0.124652)
 
+[node name="Drop" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.111987, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+offset_left = 618.0
+offset_top = 841.0
+offset_right = 1201.0
+offset_bottom = 1068.0
+theme = SubResource("Theme_tjknc")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "拾取"
+
 [connection signal="to_idle" from="StateMachine/Move" to="StateMachine/Idle" method="_on_move_to_idle"]
+[connection signal="body_entered" from="StateMachine/Idle/PickArea" to="StateMachine/Idle/PickArea" method="_on_body_entered"]
+[connection signal="body_exited" from="StateMachine/Idle/PickArea" to="StateMachine/Idle/PickArea" method="_on_body_exited"]
 [connection signal="to_idle" from="StateMachine/HandUp" to="StateMachine/Idle" method="_on_hand_up_to_idle"]

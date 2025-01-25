@@ -14,6 +14,9 @@ var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 var movement_direction:Vector2
 var movement_direction_3d:Vector3
 
+var move_state:bool
+var can_pick:bool
+
 enum state{
 	z_p,
 	z_n,
@@ -24,7 +27,8 @@ var current_state=state.z_p
 var body_toward:String
 var input_direction:Vector2
 
-var record_an:Dictionary={
+#动画方向
+var an_dir:Dictionary={
 	"down":Vector2(-1,0),
 	"up":Vector2(1,0),
 	"left":Vector2(0,-1),
@@ -83,7 +87,10 @@ func _input(event:InputEvent) -> void:
 				body_toward="down"
 			Vector2(0,-1):
 				body_toward="up"
-				
+	#切换移动模式
+	if Input.is_action_just_pressed("pick_drop") && can_pick:
+		move_state=!move_state 
+		
 func _view_changed(is_clockwise:bool):
 	var cp_dir:Vector3=(self.global_position-pitch.global_position)
 	#记录相机所处的方位，并作为参数发出
@@ -100,38 +107,38 @@ func _view_changed(is_clockwise:bool):
 		"down":
 			if is_clockwise:
 				state_machine.change_state("Idle")
-				idle._determine_dir(record_an["right"])
+				idle.determine_dir(an_dir["right"])
 				body_toward="right"
 			else:
 				state_machine.change_state("Idle")
-				idle._determine_dir(record_an["left"])
+				idle.determine_dir(an_dir["left"])
 				body_toward="left"
 		"up":
 			if is_clockwise:
 				state_machine.change_state("Idle")
-				idle._determine_dir(record_an["left"])
+				idle.determine_dir(an_dir["left"])
 				body_toward="left"
 			else:
 				state_machine.change_state("Idle")
-				idle._determine_dir(record_an["right"])
+				idle.determine_dir(an_dir["right"])
 				body_toward="right"
 		"right":
 			if is_clockwise:
 				state_machine.change_state("Idle")
-				idle._determine_dir(record_an["up"])
+				idle.determine_dir(an_dir["up"])
 				body_toward="up"
 			else:
 				state_machine.change_state("Idle")
-				idle._determine_dir(record_an["down"])
+				idle.determine_dir(an_dir["down"])
 				body_toward="down"
 		"left":
 			if is_clockwise:
 				state_machine.change_state("Idle")
-				idle._determine_dir(record_an["down"])
+				idle.determine_dir(an_dir["down"])
 				body_toward="down"
 			else:
 				state_machine.change_state("Idle")
-				idle._determine_dir(record_an["up"])
+				idle.determine_dir(an_dir["up"])
 				body_toward="up"
 				
 func change_speed(movement:int,jump:int=200,):

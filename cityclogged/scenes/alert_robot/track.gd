@@ -3,10 +3,12 @@ extends StateBase
 @export var alert_robot:CharacterBody3D
 @export var speed:int=100
 
+@onready var player=get_tree().get_first_node_in_group("player")
+
 var dir:Vector3
 
 func _ready() -> void:
-	player=get_tree().get_first_node_in_group("player")
+	
 	pass
 
 func _enter():

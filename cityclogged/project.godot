@@ -37,6 +37,7 @@ window/size/window_height_override=648
 road=""
 alert_robot_path=""
 player=""
+can_dropped=""
 
 [input]
 
@@ -97,7 +98,7 @@ speed_up={
 3d_physics/layer_2="envir"
 3d_physics/layer_3="player"
 3d_physics/layer_4="car"
-3d_physics/layer_5="robot"
+3d_physics/layer_5="npc"
 3d_physics/layer_6="null"
 3d_physics/layer_7="ground_road"
 
