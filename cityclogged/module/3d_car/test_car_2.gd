@@ -1,15 +1,17 @@
 class_name Car extends VehicleBody3D
 
-@onready var ray_cast_3d: RayCast3D = $RayCast3D
+
 @export var speed = 200
 @export var max_velocity: float = 1.0 
-# 添加一个标记来追踪是否已经计入密度
-var density_counted: bool = false
-var is_enter_tree:bool = false
+@export var MAX_STEER_ANGLE = 0.8  # 最大转向角度
+@export var steering_speed = 3.0   # 转向速度
+@export var max_brake = 1 # 最大刹车力度
+
+
+@onready var ray_cast_3d: RayCast3D = $RayCast3D
+@onready var machine: CarStateMachine = $Machine
 # 添加射线检测器用于检测前方车辆
 @onready var front_ray: RayCast3D = $RayCast3D
-@export var MAX_STEER_ANGLE := 0.8  # 最大转向角度
-@export var steering_speed := 3.0   # 转向速度
 
 # 目标点
 var target_point:Marker3D
@@ -17,10 +19,11 @@ var traffic_signal:TrafficSignal # 当到达信号灯位置，保存一个信号
 var current_lane_type:String
 # 下一个街道
 var next_street: Street
-
 var street_now:Street # 当前所在的车道,当车辆生成的时候，所在的车道会给这个值赋值
+# 添加一个标记来追踪是否已经计入密度
+var density_counted: bool = false
+var is_enter_tree:bool = false
 
-@onready var machine: CarStateMachine = $Machine
 
 func _process(delta: float) -> void:
 	if  !get_colliding_bodies().is_empty():
