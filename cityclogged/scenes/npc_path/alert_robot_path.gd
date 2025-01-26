@@ -65,6 +65,6 @@ func _on_body_entered(body: Node3D) -> void:
 
 
 func _on_body_exited(body: Node3D) -> void:
-	if body is Player:
+	if body is Player and npc:
 		npc.can_track=false
 	pass # Replace with function body.

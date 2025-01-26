@@ -15,7 +15,7 @@ func physics_update(delta: float) -> void:
 		if ray_car.linear_velocity.length() < car.linear_velocity.length():
 			print("刹车")
 			if car.brake < car.max_velocity:
-				car.brake += delta * 2
+				car.brake += delta * car.max_brake
 			car.engine_force = 0
 			print(car.brake)
 		else:

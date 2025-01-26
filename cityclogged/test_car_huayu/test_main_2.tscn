@@ -30,7 +30,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -40)
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 40, 0, 0)
 
 [node name="Street4" parent="prop" instance=ExtResource("2_rk07f")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -39.8235, 0.062912, 0.0841541)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40, 0, 0)
 
 [node name="ShiZiLuKou2" parent="prop" instance=ExtResource("1_5swxv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 81)
@@ -98,9 +98,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.97414, 0, 73.0013)
 transform = Transform3D(-4.99812, 0, 0.136992, 0, 5, 0, -0.136992, 0, -4.99812, -69.4655, 0.721756, -5.23787)
 
 [node name="TestCar2" parent="." instance=ExtResource("8_yygv2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.0493, 0.085906, 0.825365)
-max_velocity = 2.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82.5504, 0.085906, -14.043)
+max_velocity = 0.0
 
 [node name="TestCar3" parent="." instance=ExtResource("8_yygv2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.1713, 0.085906, -13.4022)
-max_velocity = 2.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82.4528, 0.102103, -20.8267)
+max_velocity = 0.0
