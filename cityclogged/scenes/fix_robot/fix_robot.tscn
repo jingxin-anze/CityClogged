@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b54sr2253r31w"]
+[gd_scene load_steps=9 format=3 uid="uid://edmcyn0ej4l8"]
 
 [ext_resource type="Texture2D" uid="uid://b1jitvfmotbwn" path="res://scenes/fix_robot/art/fix_robot.png" id="1_p2vqr"]
 [ext_resource type="Script" path="res://scenes/fix_robot/fix_robot.gd" id="1_tig3p"]
@@ -43,10 +43,17 @@ _data = {
 "toward_idle": SubResource("Animation_6pvbo")
 }
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t3bha"]
+radius = 0.125
+height = 0.3
+
 [node name="FixRobot" type="CharacterBody3D"]
+collision_layer = 16
+collision_mask = 79
 script = ExtResource("1_tig3p")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
+billboard = 2
 texture_filter = 0
 texture = ExtResource("1_p2vqr")
 hframes = 2
@@ -64,3 +71,6 @@ current_state = NodePath("Idle")
 [node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("an")]
 script = ExtResource("3_7apqk")
 an = NodePath("../../Sprite3D/AnimationPlayer")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_t3bha")

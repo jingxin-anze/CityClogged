@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dlbpuf67ft571"]
+[gd_scene load_steps=24 format=3 uid="uid://dlbpuf67ft571"]
 
 [ext_resource type="MeshLibrary" uid="uid://dx2bh8jtyvj6f" path="res://scenes/space_library/space_libray.tres" id="1_5ti7x"]
 [ext_resource type="PackedScene" uid="uid://bmio6xvvn4bdf" path="res://scenes/player/player.tscn" id="2_y577h"]
@@ -11,8 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://c1e3iyda3msmo" path="res://scenes/alert_robot/alert_robot.tscn" id="9_ni1yb"]
 [ext_resource type="PackedScene" uid="uid://b04ynawi2o4gf" path="res://scenes/npc_path/alert_robot_path.tscn" id="10_iswug"]
 [ext_resource type="PackedScene" uid="uid://c4oggk81bwc5v" path="res://scenes/black_man/black_man.tscn" id="11_ir133"]
+[ext_resource type="PackedScene" uid="uid://edmcyn0ej4l8" path="res://scenes/fix_robot/fix_robot.tscn" id="12_4dq4j"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_kvvcs"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_8hres"]
 custom_aabb = AABB(-51, -1, -51, 102, 2, 102)
 size = Vector2(100, 100)
 subdivide_width = 24
@@ -84,7 +85,7 @@ directional_shadow_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.56105, -6.30071, -9.87137)
 script = ExtResource("5_b44ar")
 size = Vector2(100, 100)
-mesh = SubResource("PlaneMesh_kvvcs")
+mesh = SubResource("PlaneMesh_8hres")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.98525, 0.171121, 0, -0.171121, 0.98525, -1.45989, 1.48997, 1.38194)
@@ -98,7 +99,7 @@ process_material = SubResource("ParticleProcessMaterial_x7be0")
 draw_pass_1 = SubResource("QuadMesh_3kojy")
 
 [node name="Player" parent="." instance=ExtResource("2_y577h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.12597, 2.531, -5.31133)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.52256, 2.531, -5.31133)
 
 [node name="AlertRobotPath" parent="." node_paths=PackedStringArray("npc") instance=ExtResource("10_iswug")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.302882, 0)
@@ -115,3 +116,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0479, 0, -21.7371)
 
 [node name="BlackMan" parent="." instance=ExtResource("11_ir133")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3, 3.2, -10.2)
+
+[node name="FixRobot" parent="." instance=ExtResource("12_4dq4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.74632, 2.9474, -9.96812)
