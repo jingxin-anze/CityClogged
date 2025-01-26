@@ -6,6 +6,7 @@ class_name StateBase extends Node
 var state_machine:StateMachine
 
 func _enter():
+	an.play("toward_idle")
 	pass
 
 func _exit():
