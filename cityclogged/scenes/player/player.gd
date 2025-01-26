@@ -6,6 +6,7 @@ class_name Player extends CharacterBody3D
 
 @export var self_attri:EntityAttributes
 @export var is1920:bool=true
+@onready var camera_3d: Camera3D = $Pitch/Camera3D
 
 var movement_speed:int=30
 var jump_speed:int=50
@@ -56,6 +57,16 @@ func _physics_process(delta: float) -> void:
 	else:
 		if Input.is_action_just_pressed("jump"):
 			velocity.y+=jump_speed*delta
+	
+	
+	# 用于检测汽车是否在视野内并且在视野范围内
+	if Global.breakdown_car_array:
+		var car:Car = Global.breakdown_car_array.pop_front()
+		if global_position.distance_to(car.global_position) < 10 and camera_3d.is_position_in_frustum(car.global_position):
+			Global.maintain_breakdown_car_array.append(car)
+		else:
+			car.queue_free()
+			
 	move_and_slide()
 
 	

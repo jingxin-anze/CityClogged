@@ -1131,6 +1131,7 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0.675, 1.5)
 
 [node name="Camera3D" type="Camera3D" parent="Pitch"]
+fov = 67.5
 
 [node name="RayCast3D" type="RayCast3D" parent="Pitch/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 0.312869, -0.987688, 0, 1.97538, 0.156434, 0, 0, 0)

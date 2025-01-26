@@ -12,6 +12,7 @@ class_name Car extends VehicleBody3D
 @onready var machine: CarStateMachine = $Machine
 # 添加射线检测器用于检测前方车辆
 @onready var front_ray: RayCast3D = $RayCast3D
+@onready var player:Player = get_tree().get_first_node_in_group("player")
 
 # 目标点
 var target_point:Marker3D
@@ -57,9 +58,8 @@ func calculate_steering_angle(target_position: Vector3) -> float:
 	
 # 故障状态		
 func status_accident():
-	await get_tree().create_timer(2.0).timeout
-	
-	queue_free()
+	max_velocity = 0
+	Global.breakdown_car_array.append(self)
 	
 func go_to_next_point():
 	print("下一个街道",next_street)

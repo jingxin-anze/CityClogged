@@ -99,8 +99,8 @@ transform = Transform3D(-4.99812, 0, 0.136992, 0, 5, 0, -0.136992, 0, -4.99812, 
 
 [node name="TestCar2" parent="." instance=ExtResource("8_yygv2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82.5504, 0.085906, -14.043)
-max_velocity = 2.0
+max_velocity = 0.0
 
 [node name="TestCar3" parent="." instance=ExtResource("8_yygv2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82.4528, 0.102103, -20.8267)
-max_velocity = 2.0
+max_velocity = 0.0
