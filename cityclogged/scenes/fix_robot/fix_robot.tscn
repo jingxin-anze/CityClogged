@@ -1,9 +1,24 @@
-[gd_scene load_steps=8 format=3 uid="uid://edmcyn0ej4l8"]
+[gd_scene load_steps=8 format=3 uid="uid://b54sr2253r31w"]
 
 [ext_resource type="Texture2D" uid="uid://b1jitvfmotbwn" path="res://scenes/fix_robot/art/fix_robot.png" id="1_p2vqr"]
 [ext_resource type="Script" path="res://scenes/fix_robot/fix_robot.gd" id="1_tig3p"]
 [ext_resource type="Script" path="res://scenes/player/state_machine/state_machine.gd" id="2_omlfi"]
 [ext_resource type="Script" path="res://scenes/player/state_machine/state_base.gd" id="3_7apqk"]
+
+[sub_resource type="Animation" id="Animation_t1ljc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_6pvbo"]
 resource_name = "toward_idle"
@@ -20,21 +35,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
-}
-
-[sub_resource type="Animation" id="Animation_t1ljc"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gfpic"]

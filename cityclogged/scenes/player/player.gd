@@ -64,11 +64,15 @@ func _physics_process(delta: float) -> void:
 		var car:Car = Global.breakdown_car_array.pop_front()
 		if global_position.distance_to(car.global_position) < 10 and camera_3d.is_position_in_frustum(car.global_position):
 			Global.maintain_breakdown_car_array.append(car)
+			notification_robot_maintain()
 		else:
 			car.queue_free()
 			
 	move_and_slide()
 
+# 通知机器人维修
+func notification_robot_maintain():
+	pass
 	
 func _input(event:InputEvent) -> void:
 	#退出
