@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://c4oggk81bwc5v" path="res://scenes/black_man/black_man.tscn" id="11_ir133"]
 [ext_resource type="PackedScene" uid="uid://edmcyn0ej4l8" path="res://scenes/fix_robot/fix_robot.tscn" id="12_4dq4j"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_8hres"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_4s0s7"]
 custom_aabb = AABB(-51, -1, -51, 102, 2, 102)
 size = Vector2(100, 100)
 subdivide_width = 24
@@ -85,7 +85,7 @@ directional_shadow_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.56105, -6.30071, -9.87137)
 script = ExtResource("5_b44ar")
 size = Vector2(100, 100)
-mesh = SubResource("PlaneMesh_8hres")
+mesh = SubResource("PlaneMesh_4s0s7")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.98525, 0.171121, 0, -0.171121, 0.98525, -1.45989, 1.48997, 1.38194)

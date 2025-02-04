@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="DialogueGroup" load_steps=11 format=3 uid="uid://cpvcquf41eixs"]
+
+[ext_resource type="Script" path="res://scenes/dialogue_system/res_scripts/individual_dialogue_data.gd" id="1_2ngl1"]
+[ext_resource type="Script" path="res://scenes/dialogue_system/res_scripts/dialogue_group.gd" id="2_5dfxd"]
+[ext_resource type="Texture2D" uid="uid://ne74c3hcoa6m" path="res://scenes/player/art/player.png" id="2_bq4gi"]
+[ext_resource type="Texture2D" uid="uid://ocw67pun1ju4" path="res://scenes/alert_robot/alert_robot.png" id="3_p7dm2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_513js"]
+atlas = ExtResource("2_bq4gi")
+region = Rect2(71, 5, 18, 21)
+
+[sub_resource type="Resource" id="Resource_e0mr0"]
+script = ExtResource("1_2ngl1")
+character_name = "player"
+faction = "good"
+content = "我是宇宙无敌暴龙战士！"
+avatar_pic = SubResource("AtlasTexture_513js")
+show_on_left = true
+target_position = Vector2(0, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kc4sw"]
+atlas = ExtResource("3_p7dm2")
+region = Rect2(66, 33, 28, 31)
+
+[sub_resource type="Resource" id="Resource_l2l8v"]
+script = ExtResource("1_2ngl1")
+character_name = "robot"
+faction = "bad"
+content = "小卡拉米，还不快见过本机器人，速速束手就擒吧。"
+avatar_pic = SubResource("AtlasTexture_kc4sw")
+show_on_left = false
+target_position = Vector2(0, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqgku"]
+atlas = ExtResource("2_bq4gi")
+region = Rect2(71, 5, 18, 21)
+
+[sub_resource type="Resource" id="Resource_753sl"]
+script = ExtResource("1_2ngl1")
+character_name = "player"
+faction = "good"
+content = "无灵魂的躯壳生物，怎敢如此狂妄？看我打爆你！"
+avatar_pic = SubResource("AtlasTexture_eqgku")
+show_on_left = true
+target_position = Vector2(0, 0)
+
+[resource]
+script = ExtResource("2_5dfxd")
+dialogue_array = Array[ExtResource("1_2ngl1")]([SubResource("Resource_e0mr0"), SubResource("Resource_l2l8v"), SubResource("Resource_753sl")])

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhbn33ipv43wb"]
+
+[ext_resource type="Texture2D" uid="uid://q3wn8eyxtqgg" path="res://icon.svg" id="1_qel03"]
+[ext_resource type="Script" path="res://scenes/circular_motion/aa.gd" id="2_lmad7"]
+
+[node name="CircularMotion" type="Node2D"]
+
+[node name="MovingBody" type="Sprite2D" parent="."]
+position = Vector2(386, 509)
+texture = ExtResource("1_qel03")
+script = ExtResource("2_lmad7")
+
+[node name="Center" type="Sprite2D" parent="."]
+position = Vector2(823, 538)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_qel03")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+enabled = false
