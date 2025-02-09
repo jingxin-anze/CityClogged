@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://y4am0ftwvcf8"]
+[gd_scene load_steps=10 format=3 uid="uid://y4am0ftwvcf8"]
 
 [ext_resource type="PackedScene" uid="uid://dn354xhy5700u" path="res://map/map_scenes/shi_zi_lu_kou.tscn" id="1_5swxv"]
 [ext_resource type="PackedScene" uid="uid://ddp68wj7irvvs" path="res://map/map_scenes/street.tscn" id="2_rk07f"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bmm0ct0jo84xb" path="res://map/map_scenes/gao_lou_qu_2.tscn" id="4_a5pa3"]
 [ext_resource type="PackedScene" uid="uid://drom6ylat6rvb" path="res://map/map_scenes/block_area_3.tscn" id="5_cphoe"]
 [ext_resource type="PackedScene" uid="uid://dn0kc71y8pjxn" path="res://map/map_scenes/block_area_4.tscn" id="6_x2vhq"]
+[ext_resource type="PackedScene" uid="uid://bl4qji2ruufic" path="res://module/well/well.tscn" id="7_ljd1s"]
 [ext_resource type="PackedScene" uid="uid://brmqbr5e7fosm" path="res://module/3d_car/test_car_2.tscn" id="8_yygv2"]
 
 [node name="TestMain2" type="Node3D"]
@@ -94,8 +95,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.0032, 0, -9.06735)
 [node name="BlockArea4" parent="prop" instance=ExtResource("6_x2vhq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.97414, 0, 73.0013)
 
+[node name="Well" parent="prop" instance=ExtResource("7_ljd1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.0348469, -6)
+
 [node name="Player" parent="." instance=ExtResource("3_hmrko")]
-transform = Transform3D(-4.99812, 0, 0.136992, 0, 5, 0, -0.136992, 0, -4.99812, -69.4655, 0.721756, -5.23787)
+transform = Transform3D(-4.99812, 0, 0.136992, 0, 5, 0, -0.136992, 0, -4.99812, 6.5345, 0.721756, -5.23787)
 
 [node name="TestCar2" parent="." instance=ExtResource("8_yygv2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82.5504, 0.085906, -14.043)
