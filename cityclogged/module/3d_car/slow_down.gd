@@ -18,10 +18,10 @@ func physics_update(delta: float) -> void:
 				car.brake += delta * car.max_brake
 				
 				if car.linear_velocity.length() == 0 and !is_jam:
-					Global.jam_car_array += 1
+					#Global.jam_car_array += 1
 					is_jam = true
 				else:
-					Global.jam_car_array -= 1
+					#Global.jam_car_array -= 1
 					is_jam = false
 			car.engine_force = 0
 		else:

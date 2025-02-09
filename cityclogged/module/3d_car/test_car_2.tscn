@@ -319,8 +319,8 @@ contact_monitor = true
 max_contacts_reported = 1
 angular_damp_mode = 1
 script = ExtResource("1_5dr21")
-speed = 8
-max_velocity = 4.0
+speed = 4
+max_velocity = 2.0
 
 [node name="front_right" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -0.475162, 0.194511, 0.519543)

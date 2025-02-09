@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bwahukwa2punj"]
+
+[ext_resource type="Shader" path="res://module/well/well.gdshader" id="1_rfw7o"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_rfw7o")
+shader_parameter/outline_width = 0.011
+shader_parameter/outer_width_multiplier = 2.056
+shader_parameter/outline_color = Color(0.97, 0.939607, 0.0582, 1)
