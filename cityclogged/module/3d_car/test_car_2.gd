@@ -37,7 +37,8 @@ func _process(delta: float) -> void:
 		var target_steer = calculate_steering_angle(target_point.global_position)
 		# 平滑转向
 		steering = move_toward(steering, target_steer, steering_speed * delta)
-
+		ray_cast_3d.rotation.y = target_steer
+		
 func calculate_steering_angle(target_position: Vector3) -> float:
 	# 获取当前位置
 	var current_pos = global_position
