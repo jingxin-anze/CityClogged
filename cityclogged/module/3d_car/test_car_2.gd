@@ -26,6 +26,7 @@ var density_counted: bool = false
 var is_enter_tree:bool = false
 
 var other_car: int = 0
+var is_jam:bool = false
 
 func _process(delta: float) -> void:
 	if  !get_colliding_bodies().is_empty():
@@ -71,13 +72,3 @@ func go_to_next_point():
 			target_point = next_street.get_road_point("left_start")
 	else:
 		queue_free()
-
-
-func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body is Car:
-		other_car += 1
-
-
-func _on_area_3d_body_exited(body: Node3D) -> void:
-	if body is Car:
-		other_car -= 1

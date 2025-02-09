@@ -11,6 +11,10 @@ func physics_update(delta: float) -> void:
 		car.engine_force = 0
 	else:
 		car.engine_force = car.speed
+	
+	if car.linear_velocity.length() > 0.3 and car.is_jam:
+		Global.jam_car -= 1
+		car.is_jam = false
 		
 	if car.ray_cast_3d.get_collider() is Car:
 		machine.transition_to("SlowDown")
