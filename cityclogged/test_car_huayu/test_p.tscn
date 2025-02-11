@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://cmcq7wsjbeo2i"]
+[gd_scene load_steps=3 format=3 uid="uid://bwptep0mctako"]
 
 [ext_resource type="Script" path="res://test_car_huayu/test_p.gd" id="1_ilyow"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_kmw8j"]
+radius = 2.0
+
 [node name="test_p" type="Node3D"]
 script = ExtResource("1_ilyow")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_kmw8j")

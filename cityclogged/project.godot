@@ -104,10 +104,7 @@ tigger_prop={
 3d_physics/layer_5="npc"
 3d_physics/layer_6="null"
 3d_physics/layer_7="ground_road"
-
-[physics]
-
-3d/physics_engine="JoltPhysics3D"
+3d_physics/layer_8="prop"
 
 [rendering]
 

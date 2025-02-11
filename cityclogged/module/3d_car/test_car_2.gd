@@ -27,10 +27,8 @@ var is_enter_tree:bool = false
 
 var other_car: int = 0
 var is_jam:bool = false
-
+var is_breakdown = false
 func _process(delta: float) -> void:
-	if  !get_colliding_bodies().is_empty():
-			status_accident()
 	
 		
 	if  target_point:
@@ -61,8 +59,7 @@ func calculate_steering_angle(target_position: Vector3) -> float:
 # 故障状态		
 func status_accident():
 	max_velocity = 0
-	Global.breakdown_car_array.append(self)
-	
+	Global.car_is_brealdown.emit(self)
 	
 func go_to_next_point():
 	print("下一个街道",next_street)
@@ -73,3 +70,9 @@ func go_to_next_point():
 			target_point = next_street.get_road_point("left_start")
 	else:
 		queue_free()
+
+
+func _on_body_entered(body: Node) -> void:
+		if !is_breakdown:
+			is_breakdown = true
+			status_accident() # Replace with function body.

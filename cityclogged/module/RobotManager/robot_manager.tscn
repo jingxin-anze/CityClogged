@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d5pbb2tjafy4"]
+
+[ext_resource type="Script" path="res://module/RobotManager/robot_manager.gd" id="1_ho641"]
+
+[node name="RobotManager" type="Node3D"]
+script = ExtResource("1_ho641")
