@@ -1,14 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://bgosxowembmgk"]
+[gd_scene load_steps=4 format=3 uid="uid://bgosxowembmgk"]
 
 [ext_resource type="Script" path="res://module/GenerationCar/generation_car.gd" id="1_75b01"]
+[ext_resource type="PackedScene" uid="uid://brmqbr5e7fosm" path="res://module/3d_car/test_car_2.tscn" id="2_1msvh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_361t6"]
 size = Vector3(3.55383, 1, 3.75629)
 
 [node name="GenerationCar" type="Node3D"]
 script = ExtResource("1_75b01")
+car_scene = ExtResource("2_1msvh")
 
 [node name="Area3D" type="Area3D" parent="."]
+collision_mask = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.620056, 0, 0.0641174)

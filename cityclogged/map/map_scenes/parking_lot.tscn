@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bk16psvtoxjt3"]
+[gd_scene load_steps=5 format=3 uid="uid://bk16psvtoxjt3"]
 
 [ext_resource type="Script" path="res://map/map_scenes/parking_lot.gd" id="1_lvetp"]
 [ext_resource type="PackedScene" uid="uid://deomq4opw88wa" path="res://map/map_scenes/zhi_dao.tscn" id="1_ydrtx"]
 [ext_resource type="PackedScene" uid="uid://bgosxowembmgk" path="res://module/GenerationCar/generation_car.tscn" id="3_20t48"]
-[ext_resource type="PackedScene" uid="uid://brmqbr5e7fosm" path="res://module/3d_car/test_car_2.tscn" id="4_hqbq8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kj4q5"]
 size = Vector3(5.58284, 2.78308, 25.2524)
@@ -18,6 +17,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.27141, 0, 17.1082)
 gizmo_extents = 2.86
 
 [node name="Area3D" type="Area3D" parent="."]
+collision_mask = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0173569, 0.891541, 1.82126)
@@ -25,10 +25,10 @@ shape = SubResource("BoxShape3D_kj4q5")
 
 [node name="GenerationCar" parent="." instance=ExtResource("3_20t48")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.930186, 0.496043, -7)
-car_scene = ExtResource("4_hqbq8")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true
 
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
