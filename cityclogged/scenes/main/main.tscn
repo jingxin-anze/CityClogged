@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dlbpuf67ft571"]
+[gd_scene load_steps=15 format=3 uid="uid://dlbpuf67ft571"]
 
 [ext_resource type="MeshLibrary" uid="uid://dx2bh8jtyvj6f" path="res://scenes/space_library/space_libray.tres" id="1_5ti7x"]
 [ext_resource type="PackedScene" uid="uid://bmio6xvvn4bdf" path="res://scenes/player/player.tscn" id="2_y577h"]
@@ -10,9 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://b04ynawi2o4gf" path="res://scenes/npc_path/alert_robot_path.tscn" id="10_iswug"]
 [ext_resource type="PackedScene" uid="uid://c4oggk81bwc5v" path="res://scenes/black_man/black_man.tscn" id="11_ir133"]
 [ext_resource type="PackedScene" uid="uid://ddp68wj7irvvs" path="res://map/map_scenes/street.tscn" id="11_xrkvy"]
+[ext_resource type="PackedScene" uid="uid://bl4qji2ruufic" path="res://module/well/well.tscn" id="12_2fjtv"]
 [ext_resource type="PackedScene" uid="uid://edmcyn0ej4l8" path="res://scenes/fix_robot/fix_robot.tscn" id="12_4dq4j"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_noggg"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_w7gnr"]
 custom_aabb = AABB(-51, -1, -51, 102, 2, 102)
 size = Vector2(100, 100)
 subdivide_width = 24
@@ -46,7 +47,7 @@ directional_shadow_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.56105, -6.6921, -9.87137)
 script = ExtResource("5_b44ar")
 size = Vector2(100, 100)
-mesh = SubResource("PlaneMesh_noggg")
+mesh = SubResource("PlaneMesh_w7gnr")
 
 [node name="Player" parent="." instance=ExtResource("2_y577h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.52256, 2.23165, -5.31133)
@@ -77,5 +78,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.64471, 0.81092, 0)
 
 [node name="NPCPath2" parent="Street" index="5"]
 is_follow_z = true
+
+[node name="Well" parent="." instance=ExtResource("12_2fjtv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02951, 0)
 
 [editable path="Street"]

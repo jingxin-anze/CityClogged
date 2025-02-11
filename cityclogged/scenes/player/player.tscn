@@ -1157,7 +1157,7 @@ an = NodePath("../AnimationPlayer")
 
 [node name="PickArea" type="Area3D" parent="StateMachine/Idle"]
 collision_layer = 0
-collision_mask = 16
+collision_mask = 17
 script = ExtResource("9_5dy7f")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StateMachine/Idle/PickArea"]
@@ -1195,7 +1195,8 @@ parameters/Idle1/blend_position = Vector2(0.0083853, -0.943272)
 parameters/Move/blend_position = Vector2(-0.11066, 0.407048)
 parameters/Move1/blend_position = Vector2(0.028581, 0.124652)
 
-[node name="Drop" type="Node3D" parent="."]
+[node name="Projectiles" type="Node3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.111987, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
