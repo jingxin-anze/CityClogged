@@ -16,9 +16,11 @@ func _on_body_exited(body: Node3D) -> void:
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("pick_drop"):
 		if is_instance_valid(projectile):
-			projectile.global_position=owner.global_position+Vector3(0,0.3,0)
 			projectile.get_parent().remove_child(projectile)
+			projectile.scale=Vector3(0.2,0.2,0.2)
 			projectiles.add_child(projectile)
+			projectile.global_position=owner.global_position+Vector3(0,1,0)
+			
 
 func _on_target_entered_exited(is_enter:bool):
 	if is_enter:
