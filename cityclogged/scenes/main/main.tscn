@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bl4qji2ruufic" path="res://module/well/well.tscn" id="12_2fjtv"]
 [ext_resource type="PackedScene" uid="uid://edmcyn0ej4l8" path="res://scenes/fix_robot/fix_robot.tscn" id="12_4dq4j"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_w7gnr"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_iws28"]
 custom_aabb = AABB(-51, -1, -51, 102, 2, 102)
 size = Vector2(100, 100)
 subdivide_width = 24
@@ -47,7 +47,7 @@ directional_shadow_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.56105, -6.6921, -9.87137)
 script = ExtResource("5_b44ar")
 size = Vector2(100, 100)
-mesh = SubResource("PlaneMesh_w7gnr")
+mesh = SubResource("PlaneMesh_iws28")
 
 [node name="Player" parent="." instance=ExtResource("2_y577h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.52256, 2.23165, -5.31133)
@@ -71,6 +71,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3, 3.2, -10.2)
 
 [node name="FixRobot" parent="." node_paths=PackedStringArray("disabled_vehicle") instance=ExtResource("12_4dq4j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.74632, 2.9474, -9.96812)
+collision_mask = 79
 disabled_vehicle = NodePath("../BlackMan")
 
 [node name="Street" parent="." instance=ExtResource("11_xrkvy")]
