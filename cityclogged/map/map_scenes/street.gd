@@ -192,7 +192,7 @@ func spawn_car() -> void:
 		var lane = choose_lane()
 		var car = car_scene.instantiate()
 
-		add_child(car)
+		get_tree().root.add_child(car)
 		var spawn_z = randf_range(-lane_length/2, lane_length/2)
 		car.global_position = global_position + global_transform.basis * Vector3(lane.position, 0.1, spawn_z)
 		var road_rotation = global_rotation.y

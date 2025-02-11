@@ -17,7 +17,7 @@ class_name Car extends VehicleBody3D
 # 目标点
 var target_point:Marker3D
 var traffic_signal:TrafficSignal # 当到达信号灯位置，保存一个信号灯的对象
-var current_lane_type:String
+var current_lane_type:String = "blue"
 # 下一个街道
 var next_street: Street
 var street_now:Street # 当前所在的车道,当车辆生成的时候，所在的车道会给这个值赋值
@@ -25,6 +25,8 @@ var street_now:Street # 当前所在的车道,当车辆生成的时候，所在�
 var density_counted: bool = false
 var is_enter_tree:bool = false
 
+var other_car: int = 0
+var is_jam:bool = false
 
 func _process(delta: float) -> void:
 	if  !get_colliding_bodies().is_empty():
@@ -35,11 +37,11 @@ func _process(delta: float) -> void:
 		var target_steer = calculate_steering_angle(target_point.global_position)
 		# 平滑转向
 		steering = move_toward(steering, target_steer, steering_speed * delta)
-
+		ray_cast_3d.rotation.y = target_steer
+		
 func calculate_steering_angle(target_position: Vector3) -> float:
 	# 获取当前位置
 	var current_pos = global_position
-	street_now.rotation
 	# 计算目标方向向量
 	var to_target = target_position - current_pos
 	to_target.y = 0
@@ -60,6 +62,7 @@ func calculate_steering_angle(target_position: Vector3) -> float:
 func status_accident():
 	max_velocity = 0
 	Global.breakdown_car_array.append(self)
+	
 	
 func go_to_next_point():
 	print("下一个街道",next_street)

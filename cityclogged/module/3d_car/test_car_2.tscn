@@ -319,8 +319,8 @@ contact_monitor = true
 max_contacts_reported = 1
 angular_damp_mode = 1
 script = ExtResource("1_5dr21")
-speed = 8
-max_velocity = 4.0
+speed = 4
+max_velocity = 2.0
 
 [node name="front_right" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -0.475162, 0.194511, 0.519543)
@@ -391,7 +391,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0473633, 0.594568, -0.04772
 shape = SubResource("BoxShape3D_yrqvg")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.321101, 0.941985)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.544232, 0)
 target_position = Vector3(0, 0, 4)
 collide_with_areas = true
 

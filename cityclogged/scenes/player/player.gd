@@ -62,15 +62,16 @@ func _physics_process(delta: float) -> void:
 			velocity.y+=jump_speed*delta
 	
 	
-	# 用于检测汽车是否在视野内并且在视野范围内
-	if Global.breakdown_car_array:
-		var car:Car = Global.breakdown_car_array.pop_front()
-		if global_position.distance_to(car.global_position) < 10 and camera_3d.is_position_in_frustum(car.global_position):
-			Global.maintain_breakdown_car_array.append(car)
-			Global.fault_value+=2
-			notification_robot_maintain()
-		else:
-			car.queue_free()
+	#### 用于检测汽车是否在视野内并且在视野范围内
+	#if Global.breakdown_car_array:
+		#if Global.breakdown_car_array.size() != 0:
+			#var car:Car = Global.breakdown_car_array.pop_front()
+			#if global_position.distance_to(car.global_position) < 10 and camera_3d.is_position_in_frustum(car.global_position):
+				#Global.maintain_breakdown_car_array.append(car)
+				#Global.fault_value+=2
+				#notification_robot_maintain()
+			#else:
+				#car.queue_free()
 			
 	move_and_slide()
 
