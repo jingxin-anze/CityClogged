@@ -6,6 +6,7 @@ class_name Player extends CharacterBody3D
 
 @export var self_attri:EntityAttributes
 @export var is1920:bool=true
+@export var camera_enabled:bool=true
 @onready var camera_3d: Camera3D = $Pitch/Camera3D
 
 var movement_speed:int=30
@@ -43,7 +44,9 @@ func _ready() -> void:
 		var ss:Vector2i=DisplayServer.screen_get_size()
 		DisplayServer.window_set_size(size,list[0])
 		DisplayServer.window_set_position(Vector2(ss.x/2-1920/2,ss.y/2-1080/2),list[0])
-
+	
+	if camera_enabled:
+		camera_3d.queue_free()
 	movement_speed=self_attri.attri["movement_speed"]
 	jump_speed=self_attri.attri["jump_speed"]
 	input_direction=Vector2(0,1)

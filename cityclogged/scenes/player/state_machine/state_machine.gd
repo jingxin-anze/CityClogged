@@ -8,7 +8,10 @@ func _ready() -> void:
 	for child in get_children():
 		if child is StateBase:
 			child.state_machine=self
-	current_state._enter()
+	if is_instance_valid(current_state):
+		current_state._enter()
+	else:
+		printerr("注意场景",owner.name,"可能未设置初始状态。")
 
 func _process(delta: float) -> void:
 	current_state._tick(delta)

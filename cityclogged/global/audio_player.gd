@@ -1,7 +1,9 @@
 extends Node
 
+var audio_array:Array[AudioStreamPlayer]
+
 ##播放音频
-func play(stream:AudioStream, single:bool=false,is_release:bool=true,volume:float=0,) -> Node:
+func play(stream:AudioStream, single:bool=false,is_release:bool=true,volume:float=0,) -> AudioStreamPlayer:
 	if single:
 		# 获取所有的audio节点
 		var audio_list = get_children()
@@ -12,13 +14,17 @@ func play(stream:AudioStream, single:bool=false,is_release:bool=true,volume:floa
 				
 	#创建播放器
 	var audio=AudioStreamPlayer.new()
-	#传入音频文件
-
+	#调整音量
 	audio.volume_db=volume
+	#传入音频文件
 	audio.stream=stream
+	#连接finished信号
 	audio.finished.connect(_finished.bind(audio,is_release))
+	#添加到场景树
 	add_child(audio)
+	#播放音频
 	audio.playing=true
+	#返回该音频节点
 	return audio
 
 

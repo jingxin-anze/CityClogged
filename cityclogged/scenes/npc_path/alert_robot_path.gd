@@ -59,7 +59,7 @@ func _init_collision(m:MeshInstance3D)->CollisionShape3D:
 	return collision
 	
 func _on_body_entered(body: Node3D) -> void:
-	if body is Player:
+	if body is Player and npc:
 		npc.can_track=true
 	pass # Replace with function body.
 
