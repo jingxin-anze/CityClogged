@@ -1,5 +1,6 @@
 extends CharacterBody3D 
 
+@export var move_speed: float = 200
 @export var disabled_vehicle:Node3D
 @export var turns_number:int=2
 var turns:int=0
@@ -47,6 +48,6 @@ func circle_around(dt:float):
 	global_position.z=new_position.y
 
 func move(delta):
-	velocity = (disabled_vehicle.global_position - global_position).normalized() * 100 * delta
+	velocity = (disabled_vehicle.global_position - global_position).normalized() * move_speed * delta
 	
 	

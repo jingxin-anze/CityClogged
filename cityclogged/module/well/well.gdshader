@@ -9,7 +9,7 @@ void vertex() {
     // 在模型空间计算法线扩展，使用multiplier来控制最终宽度
     vec3 normal = normalize(NORMAL);
     vec3 position = VERTEX + normal * (outline_width * outer_width_multiplier);
-    
+
     // 转换到裁剪空间
     POSITION = PROJECTION_MATRIX * VIEW_MATRIX * MODEL_MATRIX * vec4(position, 1.0);
 }
