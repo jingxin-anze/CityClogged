@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://caf8730v6f3op"]
+
+[ext_resource type="Script" path="res://scenes/test/area_3d.gd" id="1_qnivs"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0urir"]
+size = Vector3(2.94092, 2.20215, 2.37305)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_flusd"]
+
+[node name="TestStatic" type="Node3D"]
+
+[node name="Area3D" type="Area3D" parent="."]
+script = ExtResource("1_qnivs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.123528, 0.601074, 0.686523)
+shape = SubResource("BoxShape3D_0urir")
+
+[node name="CharacterBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("SphereShape3D_flusd")
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
